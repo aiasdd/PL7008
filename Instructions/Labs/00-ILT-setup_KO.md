@@ -58,7 +58,7 @@ lab:
 
 ### 작업 1.2 - 솔루션 만들기
 
-1. Copilot Studio ( https://copilotstudio.microsoft.com/ ) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
+1. Copilot Studio `https://copilotstudio.microsoft.com/` 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
 
    ![alt text](../../Allfiles/image-24.png)
 
