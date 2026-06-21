@@ -58,9 +58,9 @@ lab:
 - Copilot Studio 라이선스 보유 또는 [무료 평가판](https://go.microsoft.com/fwlink/p/?linkid=2252605) 등록
 - 에이전트 및 관련 자산을 만들 수 있는 Power Platform 환경과 솔루션에 대한 액세스 권한
 - 다음 중 하나를 사용할 수 있습니다:
-  - **ILT Setup** 실습에서 만든 환경 및 **Lab Exercises** 솔루션
+  - **Lab00** 실습에서 만든 환경 및 **Lab Exercises** 솔루션
   - 기존에 사용 중인 환경 및 솔루션
-- 환경과 솔루션이 아직 준비되지 않았다면, 계속하기 전에 **ILT Setup** 실습 단계를 먼저 완료하세요.
+- 환경과 솔루션이 아직 준비되지 않았다면, 계속하기 전에 **Lab00** 실습 단계를 먼저 완료하세요.
   
 > [!IMPORTANT]
 > 현재 프리뷰 상태인 새로운 Copilot Studio 환경을 보게 될 수 있습니다. 이 실습은 현재 Copilot Studio 인터페이스를 기준으로 하므로 일부 단계와 스크린샷이 프리뷰 환경과 다를 수 있습니다. 실습을 원활히 진행하려면 이 연습 전체에서 현재 Copilot Studio UI를 사용하세요.
@@ -84,27 +84,28 @@ lab:
 
 1. **Copilot Studio** 홈 페이지 `https://copilotstudio.microsoft.com/`에서, 이 실습에 사용할 환경인지 확인합니다.
 
-1. 왼쪽 탐색 메뉴에서 **Agents**를 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **에이전트**를 선택합니다.
 
-1. *Start building by describing what your agent needs to do* 텍스트 상자 왼쪽 아래에서 **Agent Settings** 아이콘(톱니바퀴 이미지)을 선택합니다.
+1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **에이전트 설정** 아이콘(톱니바퀴 이미지)을 선택합니다.
 
-   ![에이전트 설정 대화 상자 스크린샷.](../media/agent-settings-dialog.png)
+   ![alt text](image-78.png)
 
-1. 에이전트 기본 언어는 **English (United States)**로 유지합니다.
+1. 에이전트 기본 언어는 **한국어 (대한민국)**로 유지합니다.
 
-1. **Solution** 드롭다운에서 **Lab Exercises** 또는 이 실습에 사용할 다른 솔루션을 선택합니다.
+1. **솔루션** 드롭다운에서 **Lab Exercises** 또는 이 실습에 사용할 다른 솔루션을 선택합니다.
 
-1. *Schema name*에 `insuranceagent`를 입력합니다.
+1. *스키마 이름*에 `insuranceagent`를 입력합니다.
 
-1. **Update**를 선택합니다.
+1. **업데이트**를 선택합니다.
 
-1. *Start building by describing what your agent needs to do* 텍스트 상자에 다음 프롬프트를 입력합니다:
+1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
    ```prompt
-   You are an agent that assists with reviewing insurance claims including damage assessment details and repair estimates.
+   당신은 손해 사정 세부 사항 및 수리 견적을 포함한 보험 청구 검토를 지원하는 담당자입니다.
    ```
 
-1. **Send** 아이콘을 선택합니다.
+1. **전송** 아이콘을 선택합니다.
+![alt text](image-80.png)
 
    에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
@@ -114,15 +115,15 @@ lab:
 
 ### 작업 2.1 - 토픽 비활성화
 
-1. **Topics** 탭을 선택합니다.
+1. **토픽** 탭을 선택합니다.
 
-1. **System** 필터를 선택합니다.
+1. **시스템** 필터를 선택합니다.
 
-1. **Escalate** 토픽을 찾습니다.
+1. **에스컬레이션** 토픽을 찾습니다.
 
-1. **Escalate** 토픽의 **Enabled**를 **Off**로 전환합니다.
+1. **에스컬레이션** 토픽의 **설정**을 **끄기**로 전환합니다.
 
-   ![Copilot Studio 포털에서 제거/비활성화된 토픽.](../media/topic-escalate-disabled.png)
+   ![alt text](image-81.png)
 
 사용하지 않는 토픽을 비활성화하면 여러 토픽 또는 생성 응답이 동일한 요청을 처리할 수 있는 상황에서 모호성을 줄일 수 있습니다.
 
@@ -132,46 +133,54 @@ lab:
 
 ### 작업 3.1 - 설명으로 토픽 추가
 
-1. **+ Add a topic**을 선택하고 **Add from description with Copilot**을 선택합니다. 새 대화 상자가 열립니다.
+1. **+ 토픽 추가**를 선택하고 **Copilot을 사용하여 설명에서 추가**를 선택합니다. 새 대화 상자가 열립니다.
 
-   ![Copilot 옵션으로 토픽 만들기.](../media/topic-create-from-description-1.png)
+   ![alt text](image-82.png)
 
-   ![Copilot 대화 상자로 토픽 만들기.](../media/topic-create-from-description-2.png)
 
-1. **Name your topic** 텍스트 상자에 **`Customer Details`**를 입력합니다.
+1. 텍스트 상자에 다음을 입력합니다.
 
-1. **Create a topic to...** 텍스트 상자에 **`Ask the customer for their name and email address`**를 입력합니다.
+ - **토픽 이름 지정**: 
+ ```
+ 고객 정보
+ ```
 
-1. **Create**를 선택합니다.
+ -  **에 대한 토픽 만들기..**: 
+```
+고객에게 이름과 이메일 주소를 물어보세요.
+```
+![alt text](image-83.png)
+1. **만들기**를 선택합니다.
 
-1. **Save**를 선택합니다.
+1. 고객정보 토픽이 생성되어 열리면 **저장**을 선택합니다. 
+![alt text](image-84.png)
 
 ### 작업 3.2 - 자연어로 노드 편집
 
-1. **Test your agent** 패널이 열려 있으면 닫습니다.
+1. **에이전트 테스트** 패널이 열려 있으면 닫습니다.
 
-1. **Customer Details** 창 오른쪽에 **Edit with Copilot** 패널이 보이지 않으면, 작성 캔버스 상단의 **Copilot** 아이콘을 선택합니다.
+1. **고객 정보** 창 오른쪽에 **Copilot으로 편집** 패널이 보이지 않으면, 작성 캔버스 상단의 **Copilot** 아이콘을 선택합니다.
 
-   ![Edit with Copilot 아이콘 스크린샷.](../media/edit-with-copilot.png)
+   ![Copilot으로 편집 아이콘 스크린샷.](../media/edit-with-copilot.png)
 
-1. 두 번째 **Question** 노드 **What is your email address?**를 선택합니다.
+1. 두 번째 **질문** 노드 **이메일 주소를 입력해주세요.** 를 선택합니다.
 
-   ![Edit with Copilot 아이콘 스크린샷.](../media/copilot-email-address-node.png)
+   ![alt text](image-85.png)
 
-1. **Edit with Copilot** 패널의 **What do you want to do?** 필드에 다음 텍스트를 입력합니다:
+1. **Copilot으로 편집** 패널의 **무엇을 하시겠습니까?** 필드에 다음 텍스트를 입력합니다:
 
-   `Change "What is your email address?" to say thank you to the Name variable from the previous node and then proceed to ask the email address question.`
-
-1. **Update**를 선택합니다.
-
-   ![프롬프트가 포함된 Edit with Copilot 패널 스크린샷.](../media/edit-with-copilot-panel.png)
-
-   ![Name 변수를 포함하도록 업데이트된 메시지 스크린샷.](../media/message-updated-name-variable.png)
+   ```
+      두 번째 질문 노드의  "이메일 주소를 입력해주세요."라는 문구를 다음과 같이 업데이트 합니다. 
+      이전 노드의 Name 변수를 받아서 감사 인사를 하고, 이어지는 문장으로 이메일 주소를 묻는 질문으로 진행합니다.
+   ```
+   ![alt text](image-89.png)
+1. **업데이트**를 선택합니다.
+   ![alt text](image-88.png)
 
    > [!NOTE]
-   > 업데이트된 메시지는 이전 질문 노드에서 수집한 **Name** 변수를 참조해야 하며, 스크린샷과 유사해야 합니다. **Edit with Copilot**이 질문 노드를 올바르게 업데이트하지 못하면 **Undo**를 선택하고 다른 프롬프트로 다시 시도하세요.
+   > 업데이트된 메시지는 이전 질문 노드에서 수집한 **Name** 변수를 참조해야 하며, 스크린샷과 유사해야 합니다. ** Copilot으로 편집**이 질문 노드를 올바르게 업데이트하지 못하면 **실행 취소**를 선택하고 다른 프롬프트로 다시 시도하세요.
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 3.3 - 자연어로 적응형 카드 노드 추가
 
@@ -179,19 +188,21 @@ lab:
 
 1. 작성 캔버스의 빈 영역을 선택해 어떤 노드도 선택되지 않도록 합니다.
 
-1. **Edit with Copilot** 패널의 **What do you want to do?** 필드에 다음 텍스트를 입력합니다:
+1. **Copilot으로 편집** 패널의 **무엇을 하시겠습니까?** 필드에 다음 텍스트를 입력합니다:
 
-   `Summarize the information collected in an adaptive card`
+   ```
+   적응형 카드를 추가하여 수집된 정보를 요약하세요.
+   ```
+   ![alt text](image-90.png)
+   **업데이트**를 선택합니다.
 
-1. **Update**를 선택합니다.
+1. 토픽 끝에 Adaptive Card가 포함된 메시지 노드가 추가됩니다.
 
-   토픽 끝에 Adaptive Card가 포함된 메시지 노드가 추가됩니다.
+   ![alt text](image-91.png)
 
-   ![Adaptive Card가 포함된 메시지 노드 스크린샷.](../media/message-node-adaptive-card.png)
+1. Adaptive Card의 **미디어** 상자를 선택합니다. 페이지 오른쪽에 적응형 카드 속성이 표시되어야 합니다.
 
-1. Adaptive Card의 **Media** 상자를 선택합니다. 페이지 오른쪽에 Adaptive Card 속성이 표시되어야 합니다.
-
-   ![Adaptive Card 속성 스크린샷.](../media/adaptive-card-properties.png)
+   ![alt text](image-93.png)
 
    Adaptive Card 수식은 위와 유사해야 합니다. 수식이 크게 다르면 다음 수식으로 교체할 수 있습니다:
 
@@ -204,25 +215,25 @@ lab:
                type: "TextBlock",
                size: "Medium",
                weight: "Bolder",
-               text: "Summary"
+               text: "정보 요약"
            },
            {
                type: "FactSet",
                facts: 
                [
                    {
-                       title: "Full Name",
+                       title: "이름",
                        value: Text(Topic.Name)
                    },
                    {
-                       title: "Email Address",
+                       title: "이메일",
                        value: Text(Topic.EmailAddress)
                    }
                ]
            },
            {
                type: "TextBlock",
-               text: "Thank you for providing the information."
+               text: "정보를 제공해 주셔서 감사합니다."
            }
        ]
    }
@@ -232,19 +243,23 @@ lab:
 
 1. 작성 캔버스의 빈 공간을 선택해 노드가 선택되지 않도록 합니다.
 
-1. **Copilot** 아이콘을 선택해 **Edit with Copilot** 창을 다시 엽니다.
+1. **Copilot** 아이콘을 선택해 **Copilot으로 편집** 창을 다시 엽니다.
 
-1. **What do you want to do?** 필드에 다음 텍스트를 입력합니다:
+1. **무엇을 하시겠습니까?** 필드에 다음 텍스트를 입력합니다:
 
-   `Add a new multiple choice question to prompt the user if the details are correct with two options Yes or No`
+   ```
+   사용자가 입력한 정보가 정확한지 여부를 '예' 또는 '아니오' 선택지로 묻는 객관식 질문을 새로 추가하세요.
+   ```
+사용자가 입력한 정보가 정확한지 여부를 '예' 또는 '아니오' 선택지로 묻는 다중 선택 옵션 질문을 아래에 추가하세요.
 
-1. **Update**를 선택합니다.
+1. **업데이트**를 선택합니다.
+![alt text](image-95.png)
 
 1. 사용자 선택 옵션이 있는 새 질문 노드가 토픽 끝에 추가됩니다.
 
-   ![Yes/No 옵션이 포함된 새 질문 노드 스크린샷.](../media/new-question-node.png)
+   ![alt text](image-97.png)
 
-1. **Save**를 선택합니다.
+1. **저장**를 선택합니다.
 
 ## 실습 4 - 변수 범위
 
@@ -252,142 +267,170 @@ lab:
 
 ### 작업 4.1 - 변수 범위 구성
 
-1. **Topics** 탭을 선택합니다.
+1. **고객 정보** 토픽에서 이어서 작업합니다.
 
-1. **Customer Details** 토픽을 선택합니다.
+1. 상단 바에서 **변수**를 선택해 **변수** 창을 엽니다.
 
-1. 상단 바에서 **Variables**를 선택해 **Variables** 창을 엽니다(**More** > **Variables**가 필요할 수 있음).
-
-1. **Topic** 변수를 선택하고 펼칩니다.
+1. **토픽** 변수를 선택하고 펼칩니다.
 
 1. 세 개 토픽 변수의 오른쪽 체크박스를 선택합니다. 이렇게 하면 에이전트의 다른 토픽에서도 변수를 사용할 수 있습니다.
 
-   ![변수 창 스크린샷.](../media/variables-pane.png)
+   ![alt text](image-98.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
+1. 현재까지 작성한 **고객 정보** 토픽을 확인합니다.
+   - 고객 이름과 이메일을 묻는 질문 노드가 있어야 합니다.
+   - 고객이 입력한 정보를 요약하는 적응형 카드 노드가 있어야 합니다.
+   - 정보가 정확한지 묻는 객관식 질문 노드가 있어야 합니다.
+   ![alt text](image-99.png)
+
 
 ## 실습 5 - 빈 토픽에서 시작해 만들기
 
-이 실습에서는 **Estimate Repair** 토픽을 만들고 노드를 추가한 뒤, Customer Details 토픽을 호출합니다.
+이 실습에서는 **수리 견적** 토픽을 만들고 노드를 추가한 뒤, **고객 정보** 토픽을 호출합니다.
 
 ### 작업 5.1 - 빈 토픽에서 만들기
 
-1. **Topics** 탭을 선택합니다.
+1. **토픽** 탭을 선택합니다.
 
-1. **+ Add a topic**을 선택하고 **From blank**를 선택합니다.
+1. **+ 토픽 추가**을 선택하고 **새로 시작**를 선택합니다.
+![alt text](image-100.png)
 
-1. **Details** 아이콘을 선택해 **Topic details** 창을 엽니다(**More** > **Details**가 필요할 수 있음).
+1. **세부 정보** 아이콘을 선택해 **토픽 세부 정보** 창을 열고 다음을 입력합니다:
+- **이름**:
+```
+수리 견적
+```
 
-1. **Name** 필드에 다음 텍스트를 입력합니다:
+- **모델 설명**:
+```
+보험 청구와 관련된 수리 견적을 고객과 예약할 때 사용합니다.
+```
 
-   `Estimate Repair`
 
-1. **Model description** 필드에 다음 텍스트를 입력합니다:
+   ![alt text](image-101.png)
 
-   `Use this topic when a repair estimate for an insurance claim must be booked with the customer`
-
-   ![토픽 세부 정보 대화 상자 스크린샷](../media/topic-details.png)
-
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 5.2 - 트리거 유형 확인
 
-1. 토픽 상단의 **Trigger** 노드를 선택합니다. 트리거 유형이 **The agent chooses**로 설정되어 있는지 확인합니다.
+1. 토픽 상단의 **트리거** 노드를 선택합니다. 트리거 유형이 **이 에이전트 선택**로 설정되어 있는지 확인합니다.
 
    > [!NOTE]
    > 생성 오케스트레이션이 활성화되면, 에이전트는 이 설명을 사용해 토픽 사용 시점을 결정합니다.
 
 ### 작업 5.3 - 메시지 노드 추가
 
-1. Trigger 노드 아래의 **+** 아이콘을 선택하고 **Send a message**를 선택합니다.
+1. 트리거 노드 아래의 **+** 아이콘을 선택하고 **메시지 보내기**를 선택합니다.
+![alt text](image-102.png)
+![alt text](image-103.png)
 
-   ![노드 추가 스크린샷.](../media/add-message-node.png)
+1. **메시지 입력** 필드에 다음 텍스트를 입력합니다:
+```
+안녕하세요, 수리 견적 예약을 도와드리겠습니다.
+```
+![alt text](image-105.png)
 
-1. **Enter a message** 필드에 다음 텍스트를 입력합니다:
+1. **저장**을 선택합니다.
 
-   `Hi, I can help you with booking a repair estimate.`
+### 작업 5.4 - 고객 정보 토픽으로 이동
 
-1. **Save**를 선택합니다.
+1. **메시지** 노드 아래의 **+** 아이콘을 선택합니다.
 
-### 작업 5.4 - Customer Details 토픽으로 라우팅
+1. **토픽 관리** > **다른 토픽으로 이동** > **고객 정보**를 선택합니다.
 
-1. **Message** 노드 아래의 **+** 아이콘을 선택합니다.
+   ![alt text](image-106.png)
 
-1. **Topic management** > **Go to another topic** > **Customer Details**를 선택합니다.
-
-   ![토픽 관리 노드 추가 스크린샷.](../media/topic-management-node.png)
-
-1. **Save**를 선택합니다.
+1. 토픽 노드가 추가된 것을 확인 하고 **저장**을 선택합니다.
+![alt text](image-107.png)
 
 ### 작업 5.5 - 조건 노드 추가
 
-1. **Topic** 노드 아래의 **+** 아이콘을 선택하고 **Add a condition**을 선택합니다.
+1. **토픽** 노드 아래의 **+** 아이콘을 선택하고 **조건 추가**을 선택합니다.
+![alt text](image-108.png)
 
-1. **Condition** 노드에서 **DetailsCorrect** 변수를 선택합니다.
+1. **조건** 노드에서 **InfoConfirmed (or DetailsCorrect..)** 변수를 선택합니다. (변수 이름은 다를 수 있습니다.)
+![alt text](image-109.png)
 
-1. **is equal to**를 선택합니다.
+1. **다음과 같음**를 선택합니다.
 
-1. **Yes**를 선택합니다.
+1. **예**를 선택합니다.
 
-   ![조건 노드 추가 스크린샷.](../media/condition-node.png)
+   ![alt text](image-110.png)
 
-1. **Save**를 선택합니다.
+1. 조건 구성을 다시 한 번 검토 후 **저장**을 선택합니다.
+![alt text](image-111.png)
 
 ### 작업 5.6 - 질문 노드 추가
 
-1. 왼쪽 **Condition** 노드 아래의 **+** 아이콘을 선택하고 **Ask a question**을 선택합니다.
+1. 왼쪽 **조건** 노드 아래의 **+** 아이콘을 선택하고 **질문 하기**을 선택합니다.
+![alt text](image-112.png)
 
-1. **Enter a message** 필드에 다음 텍스트를 입력합니다:
+1. **메시지 입력** 필드에 다음 텍스트를 입력합니다:
+```
+수리 견적을 예약하고 싶은 날짜와 시간은 언제입니까?
+```
+![alt text](image-113.png)
+   
 
-   `What date and time would you like to book the repair estimate?`
+1. **식별**에서 **날짜 및 시간**을 선택합니다.
+![alt text](image-114.png)
 
-1. **Identify**에서 **Date and time**을 선택합니다.
+1. **다음 이름으로 사용자 응답 저장**의 변수를 선택하고 **변수 이름**에 **`VisitDateTime`**을 입력합니다.
+![alt text](image-115.png)
+![alt text](image-116.png)
+1. 왼쪽 **질문** 노드 아래의 **+** 아이콘을 선택하고 **메시지 보내기**를 선택합니다.
 
-1. **Save user response as**의 변수를 선택하고 **Variable name**에 **`VisitDateTime`**을 입력합니다.
+1. **메시지 입력** 필드에 다음 텍스트를 입력합니다:
 
-1. 왼쪽 **Question** 노드 아래의 **+** 아이콘을 선택하고 **Send a message**를 선택합니다.
+   ```
+   좋아요! 제가 일정을 잡아드릴게요.
+   ```
 
-1. **Enter a message** 필드에 다음 텍스트를 입력합니다:
+   ![alt text](image-117.png)
+1. 해당 메시지 노드 뒤에 **토픽 관리** > **모든 토픽 종료**를 선택해 토픽 종료 노드를 추가합니다.
+![alt text](image-118.png)
 
-   `Great! Let me get that scheduled for you.`
-
-1. 해당 메시지 노드 뒤에 **Topic management** > **End all topics**를 선택해 토픽 종료 노드를 추가합니다.
-
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
+1. 토픽이 다음과 같은 흐름을 따르는지 확인합니다:
+![alt text](image-119.png)
 
 ### 작업 5.7 - 에이전트 지침 업데이트
 
-1. **Overview** 탭을 선택합니다.
+1. **개요** 탭을 선택합니다.
 
-1. **Instructions** 섹션에서 **Edit**를 선택합니다.
+1. **지침** 섹션에서 **편집**를 선택합니다.
 
-1. 에이전트 지침의 *# Skills* 아래에 `Use the`를 입력하고 `/`를 입력해 **Estimate Repair** 토픽을 선택한 뒤, `when a repair estimate is required.`를 입력합니다.
+1. 에이전트 지침의 *## 기술* 아래에 `- 수리 견적이 필요할 때 `를 입력하고 `/`를 입력해 **수리 견적** 토픽을 선택한 뒤, `을 사용`을 입력합니다.
 
-   ![에이전트 지침에서 토픽 참조 스크린샷.](../media/add-topic-to-instructions.png)
+   ![alt text](image-120.png)
+   ![alt text](image-121.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ## 실습 6 - 에이전트 테스트
 
 이 실습에서는 토픽 라우팅을 테스트하고 대화가 예상된 단계별 흐름을 따르는지 확인합니다.
 
-### 작업 6.1 - Estimate Repair 토픽 테스트
+### 작업 6.1 - 수리 견적 토픽 테스트
 
-1. 페이지 오른쪽 위의 **Test** 아이콘을 선택해 **Test** 창을 엽니다.
+1. 페이지 오른쪽 위의 **테스트** 아이콘을 선택해 **테스트** 창을 엽니다.
 
-1. **Test** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **Show activity map when testing**를 **On**, **Track between topics**를 **Off**로 전환합니다.
+1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
 
-   ![Show activity map.](../media/show-activity-map.png)
+   ![alt text](image-126.png)
 
-1. **Test pane** 상단에서 **Start new test session** 아이콘 **+**를 선택합니다.
+1. **테스트 창** 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
-1. **Conversation Start** 메시지가 나타나면 에이전트가 대화를 시작합니다. 토픽을 트리거하려면 다음 텍스트를 입력합니다:
+1. **대화 시작** 메시지가 나타나면 에이전트가 대화를 시작합니다. 토픽을 트리거하려면 다음 텍스트를 입력합니다:
 
-   `I need to book a repair estimate`
+   ```
+   수리 견적이 필요해요.
+   ```
 
 1. 대화가 고객 이름을 묻는 것으로 시작되어야 합니다.
 
-   ![대화 스크린샷.](../media/topic-conversation-1.png)
+   ![alt text](image-124.png)
 
 1. 이름을 입력합니다.
 
@@ -395,12 +438,16 @@ lab:
 
 1. 정보를 입력하면, Adaptive Card가 입력한 정보를 표시하고 정보가 맞는지 묻습니다. **Yes**를 선택합니다.
 
-   대화 흐름이 다시 **Estimate Repair** 토픽으로 돌아오는지 확인합니다.
+   대화 흐름이 다시 **수리 견적** 토픽으로 돌아오는지 확인합니다.
 
-1. **What date and time do you want to book the repair estimate?** 프롬프트에 `Tomorrow 10:00 AM`을 입력합니다.
+1. **수리 견적을 예약하고 싶은 날짜와 시간은 언제입니까?** 프롬프트에 `내일 오전 10시`을 입력합니다.
 
    에이전트가 수리 견적 예약이 완료되었음을 알리는 확인 메시지를 응답해야 합니다.
+   예시는 다음과 같습니다.
+   ![alt text](image-127.png)
+   토픽간 추적 활성화 시 예시 
+   ![alt text](image-125.png)
 
 ## 요약
 
-이 실습에서는 Customer Details 및 Estimate Repair 토픽을 만들고, 생성형 AI를 활성화한 상태에서 노드를 사용해 구조화된 단계별 상호작용을 구현했습니다. 또한 변수 범위를 구성해 Customer Details에서 수집한 정보를 여러 토픽에서 사용할 수 있도록 했습니다.
+이 실습에서는 고객 정보 및 수리 견적 토픽을 만들고, 생성형 AI를 활성화한 상태에서 노드를 사용해 구조화된 단계별 상호작용을 구현했습니다. 또한 변수 범위를 구성해 고객 정보에서 수집한 정보를 여러 토픽에서 사용할 수 있도록 했습니다.

@@ -57,9 +57,9 @@ lab:
 - Copilot Studio 라이선스 보유 또는 [무료 평가판](https://go.microsoft.com/fwlink/p/?linkid=2252605) 등록
 - 에이전트 및 관련 자산을 만들 수 있는 Power Platform 환경과 솔루션에 대한 액세스 권한
 - 다음 중 하나를 사용할 수 있습니다:
-  - **ILT Setup** 실습에서 만든 환경 및 **Lab Exercises** 솔루션
+  - **Lab00** 실습에서 만든 환경 및 **Lab Exercises** 솔루션
   - 기존에 사용 중인 환경 및 솔루션
-- 환경과 솔루션이 아직 준비되지 않았다면, 계속하기 전에 **ILT Setup** 실습 단계를 먼저 완료하세요.
+- 환경과 솔루션이 아직 준비되지 않았다면, 계속하기 전에 **Lab00** 실습 단계를 먼저 완료하세요.
   
 > [!IMPORTANT]
 > 현재 프리뷰 상태인 새로운 Copilot Studio 환경을 보게 될 수 있습니다. 이 실습은 현재 Copilot Studio 인터페이스를 기준으로 하므로 일부 단계와 스크린샷이 프리뷰 환경과 다를 수 있습니다. 실습을 원활히 진행하려면 이 연습 전체에서 현재 Copilot Studio UI를 사용하세요.
@@ -119,7 +119,7 @@ lab:
 
 1. 왼쪽 탐색 메뉴에서 **Agents**를 선택합니다.
 
-1. *Start building by describing what your agent needs to do* 텍스트 상자 왼쪽 아래에서 **Agent Settings** 아이콘(톱니바퀴 이미지)을 선택합니다.
+1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **Agent Settings** 아이콘(톱니바퀴 이미지)을 선택합니다.
 
    ![에이전트 설정 대화 상자 스크린샷.](../media/agent-settings-dialog.png)
 
@@ -131,7 +131,7 @@ lab:
 
 1. **Update**를 선택합니다.
 
-1. *Start building by describing what your agent needs to do* 텍스트 상자에 다음 프롬프트를 입력합니다:
+1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
    ```prompt
    You are an agent that helps employees with expense claims including questions around expense policy and procedures.
@@ -248,7 +248,7 @@ lab:
 
    ![Show activity map.](../media/show-activity-map.png)
 
-1. **Test** 창 상단에서 **Start new test session** 아이콘 **+**를 선택합니다.
+1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -258,7 +258,7 @@ lab:
 
    ![대화 스크린샷.](../media/knowledge-conversation-1.png)
 
-1. **Test** 창 상단에서 **Start new test session** 아이콘 **+**를 선택합니다.
+1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -268,7 +268,7 @@ lab:
 
    ![대화 스크린샷.](../media/knowledge-conversation-2.png)
 
-1. **Test** 창 상단에서 **Start new test session** 아이콘 **+**를 선택합니다.
+1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -332,7 +332,7 @@ lab:
 
 1. **Test** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **Show activity map when testing**를 **Off**, **Track between topics**를 **On**으로 전환합니다.
 
-1. **Test** 창 상단에서 **Start new test session** 아이콘 **+**를 선택합니다.
+1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -364,7 +364,7 @@ lab:
 
 1. **Test** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **Show activity map when testing**가 **Off**, **Track between topics**가 **On**인지 확인합니다.
 
-1. **Test** 창 상단에서 **Start new test session** 아이콘 **+**를 선택합니다.
+1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. 다음 프롬프트를 입력합니다:
 
