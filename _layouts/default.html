@@ -247,6 +247,25 @@
             padding: 16px;
             overflow-x: auto;
             border: 1px solid #dfdbff;
+            position: relative;
+        }
+
+        .code-copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 1px solid #c9c4f5;
+            background-color: #ffffff;
+            color: #37308c;
+            border-radius: 6px;
+            padding: 4px 9px;
+            font-size: 12px;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .code-copy-btn:hover {
+            background-color: #f1eeff;
         }
         
         pre code {
@@ -267,6 +286,59 @@
             border-radius: 8px;
             background-color: #f5f4ff;
             color: #353a73;
+        }
+
+        .is-doc .callout {
+            margin: 16px 0;
+            border-radius: 10px;
+            border-left: 4px solid;
+            padding: 14px 16px;
+        }
+
+        .is-doc .callout-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .is-doc .callout-title::before {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .is-doc .callout p:last-child,
+        .is-doc .callout ul:last-child,
+        .is-doc .callout ol:last-child {
+            margin-bottom: 0;
+        }
+
+        .is-doc .callout-note {
+            background-color: #eef3ff;
+            border-left-color: #4f6ad7;
+            color: #2f3f86;
+        }
+
+        .is-doc .callout-note .callout-title {
+            color: #2c57c8;
+        }
+
+        .is-doc .callout-note .callout-title::before {
+            content: "✎";
+        }
+
+        .is-doc .callout-important {
+            background-color: #eaf4f5;
+            border-left-color: #4bb7b5;
+            color: #2b4548;
+        }
+
+        .is-doc .callout-important .callout-title {
+            color: #2d9e9c;
+        }
+
+        .is-doc .callout-important .callout-title::before {
+            content: "◔";
         }
 
         hr {
@@ -378,8 +450,108 @@
             {{ content }}
         </main>
     </div>
+    {% else %}
+    <div class="container">
+        {% if page.url != '/' %}
+        <div class="page-top-actions">
+            <a class="home-button" href="{{ '/' | relative_url }}">홈으로 가기</a>
+        </div>
+        {% endif %}
+        {{ content }}
+    </div>
+    {% endif %}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const calloutMap = {
+                NOTE: { cls: 'callout-note', title: 'Note' },
+                IMPORTANT: { cls: 'callout-important', title: 'Important' }
+            };
+
+            const copyText = function (text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text);
+                }
+
+                return new Promise(function (resolve, reject) {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+
+                    try {
+                        const success = document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        if (success) {
+                            resolve();
+                        } else {
+                            reject(new Error('Copy command failed'));
+                        }
+                    } catch (err) {
+                        document.body.removeChild(textArea);
+                        reject(err);
+                    }
+                });
+            };
+
+            const codeBlocks = Array.from(document.querySelectorAll('pre > code'));
+            codeBlocks.forEach(function (codeBlock) {
+                const pre = codeBlock.parentElement;
+                if (!pre || pre.querySelector('.code-copy-btn')) return;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'code-copy-btn';
+                btn.textContent = '복사';
+
+                btn.addEventListener('click', function () {
+                    const originalLabel = btn.textContent;
+                    copyText(codeBlock.innerText)
+                        .then(function () {
+                            btn.textContent = '복사됨';
+                            setTimeout(function () {
+                                btn.textContent = originalLabel;
+                            }, 1200);
+                        })
+                        .catch(function () {
+                            btn.textContent = '실패';
+                            setTimeout(function () {
+                                btn.textContent = originalLabel;
+                            }, 1200);
+                        });
+                });
+
+                pre.appendChild(btn);
+            });
+
+            const blockquotes = Array.from(document.querySelectorAll('.is-doc blockquote'));
+            blockquotes.forEach(function (quote) {
+                const firstParagraph = quote.querySelector('p');
+                if (!firstParagraph) return;
+
+                const raw = (firstParagraph.textContent || '').trim();
+                const match = raw.match(/^\[!(NOTE|IMPORTANT)\]\s*/i);
+                if (!match) return;
+
+                const token = match[1].toUpperCase();
+                const config = calloutMap[token];
+                if (!config) return;
+
+                const bodyText = raw.replace(/^\[!(NOTE|IMPORTANT)\]\s*/i, '').trim();
+                firstParagraph.textContent = bodyText;
+                if (!firstParagraph.textContent) {
+                    firstParagraph.remove();
+                }
+
+                quote.classList.add('callout', config.cls);
+                const title = document.createElement('div');
+                title.className = 'callout-title';
+                title.textContent = config.title;
+                quote.insertBefore(title, quote.firstChild);
+            });
+
             const content = document.getElementById('page-content');
             const toc = document.getElementById('page-toc');
             if (!content || !toc) return;
@@ -430,15 +602,5 @@
             });
         });
     </script>
-    {% else %}
-    <div class="container">
-        {% if page.url != '/' %}
-        <div class="page-top-actions">
-            <a class="home-button" href="{{ '/' | relative_url }}">홈으로 가기</a>
-        </div>
-        {% endif %}
-        {{ content }}
-    </div>
-    {% endif %}
 </body>
 </html>
