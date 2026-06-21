@@ -141,7 +141,18 @@
         .page-top-actions {
             display: flex;
             justify-content: flex-end;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            padding: 10px 0;
             margin-bottom: 12px;
+            margin-left: -26px;
+            margin-right: -26px;
+            padding-left: 26px;
+            padding-right: 26px;
+            border-bottom: 1px solid var(--fluent-neutral-stroke);
         }
 
         .home-button {
