@@ -42,13 +42,14 @@ lab:
 3. **환경** 페이지에서 아래와 같이 Student00 환경이 표시되는지 확인합니다.
 ![alt text](image-1.png)
 표시 되지 않을 경우 다음 단계를 수행하여 환경을 생성합니다.
+
+(Optional, 환경이 이미 생성되어 있는 경우 이 단계를 건너뛰어도 됩니다.)
 7-1. **+ 새로 만들기**를 선택하여 다음 설정으로 새 환경을 생성합니다:
     - **유형**: Developer
     - **지역**: **대한민국**
     - **Name**: *Student00* <-00을 제공한 실습 계정 ID의 번호로 바꿉니다. (예: Student60)>
     ![alt text](image-2.png)
 7-2. **다음**을 선택합니다.
-   ![image](https://github.com/user-attachments/assets/d9d5b468-f251-40dc-952e-c059cfec01b7){: width="2487" height="1411"}
 
 7-3. 다음 설정을 입력합니다:
     - **언어**: 한국어(대한민국)
@@ -64,7 +65,7 @@ lab:
 
 ### 작업 1.2 - 솔루션 만들기
 
-1. Copilot Studio (https://copilotstudio.microsoft.com/) 페이지 오른쪽 위에서 **환경 선택** 사용해 환경을 생성된 환경(Student00)으로 전환합니다. 
+1. Copilot Studio (https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00)으로 전환합니다. 
 
    ![alt text](image-6.png)
 
@@ -77,7 +78,7 @@ lab:
 
 1. **+ 새 솔루션**을 선택합니다.
 
-1. **표시 이름** 텍스트 상자에 **`Lab Exercises`**를 입력합니다.
+1. **표시 이름** 텍스트 상자에 `Lab Exercises`를 입력합니다.
 
 1. **이름**이 자동으로 채워졌는지 확인합니다.
 
