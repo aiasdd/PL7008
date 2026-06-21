@@ -74,27 +74,27 @@ lab:
 
 1. **Copilot Studio** 홈 페이지 `https://copilotstudio.microsoft.com/`에서, 이 실습에 사용할 환경인지 확인합니다.
 
-1. 왼쪽 탐색 메뉴에서 **Agents**를 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **에이전트**를 선택합니다.
 
-1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **Agent Settings** 아이콘(톱니바퀴 이미지)을 선택합니다.
+1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **에이전트 설정** 아이콘(톱니바퀴 이미지)을 선택합니다.
 
-   ![에이전트 설정 대화 상자 스크린샷.](../media/agent-settings-dialog.png)
+   ![alt text](image-180.png)
 
-1. 에이전트 기본 언어는 **English (United States)**로 유지합니다.
+1. 에이전트 기본 언어는 **한국어 (대한민국)** 로 유지합니다.
 
-1. **Solution** 드롭다운에서 **Lab Exercises** 또는 이 실습에 사용할 다른 솔루션을 선택합니다.
+1. **솔루션** 드롭다운에서 **Lab Exercises** 또는 이 실습에 사용할 다른 솔루션을 선택합니다.
 
-1. *Schema name*에 `analyzetaskagent`를 입력합니다.
+1. *스키마 이름*에 `analyzetaskagent`를 입력합니다.
 
-1. **Update**를 선택합니다.
+1. **업데이트**를 선택합니다.
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
    ```prompt
-   You are an agent that analyzes, categorizes, and prioritizes tasks.
+   당신은 작업을 분석하고, 분류하고, 우선순위를 정하는 어시스턴트 입니다.
    ```
-
-1. **Send** 아이콘을 선택합니다.
+   ![alt text](image-182.png)
+1. **전송** 아이콘을 선택합니다.
 
    에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
@@ -104,164 +104,180 @@ lab:
 > [!NOTE]
 > 에이전트 응답, 오케스트레이션 동작, 도구 사용은 테넌트 구성과 모델 동작에 따라 이 실습 스크린샷과 약간 다를 수 있습니다.
 
-### 작업 2.1 - Send Message to Teams 워크플로 만들기
+### 작업 2.1 - 팀즈에 메시지 보내기 워크플로 만들기
 
-1. Copilot Studio에서 왼쪽 탐색 메뉴의 **Tools**를 선택합니다.
+1. Copilot Studio에서 왼쪽 탐색 메뉴의 **도구**를 선택합니다.
 
-   ![Tools registry 페이지 스크린샷.](../media/copilot-studio-tools-registry.png)
+   ![alt text](image-183.png)
 
-1. **+ New tool**을 선택합니다.
+1. **+ 도구 추가**를 선택합니다.
 
-1. **New Tool** 대화 상자에서 **Agent flow** 타일을 선택합니다.
+1. **도구 추가** 대화 상자에서 **에이전트 흐름** 타일을 선택합니다.
+![alt text](image-184.png)
 
-1. 워크플로에 **When an agent calls the flow** 트리거와 **Respond to the agent** 작업이 추가되었는지 확인합니다.
+1. 워크플로에 **에이전트가 흐름을 호출할 때** 트리거와 **Respond to the agent** 작업이 추가되었는지 확인합니다.
 
-   ![새 워크플로 스크린샷.](../media/workflow-new.png)
+   ![alt text](image-185.png)
 
-1. **When an agent calls the flow** 트리거 단계를 선택하고 **+ Add an input**을 선택합니다.
+1. **에이전트가 흐름을 호출할 때** 트리거 단계를 선택하고 **+ 입력 추가**를 선택합니다.
+![alt text](image-186.png)
 
-1. **Text**를 선택합니다.
+1. **텍스트**를 선택합니다.
+![alt text](image-187.png)
 
-1. *Input*에 `Task Summary`, *Please enter your input*에 `Analyzed tasks`를 입력합니다.
+1. *텍스트*에 `작업 요약`, *입력을 입력해 주세요*에 `분석된 작업`를 입력합니다.
 
-   ![플로 트리거 속성 스크린샷.](../media/workflow-trigger-step.png)
+   ![alt text](image-188.png)
 
-1. 페이지 오른쪽 위 근처의 **Save draft**를 선택합니다.
+1. 페이지 오른쪽 위 근처의 **초안 저장**를 선택합니다.
 
-1. **Overview** 탭을 선택합니다.
+1. **개요** 탭을 선택합니다.
 
-1. **Details** 섹션에서 **Edit**를 선택합니다.
+1. **세부정보** 섹션에서 **편집**를 선택합니다.
 
-   ![플로 세부 정보 속성 스크린샷.](../media/workflow-details.png)
+1. **세부정보** 창에서 **흐름 이름**을 `요약 내용을 Teams로 보내기`로 변경합니다.
 
-1. **Details** 창에서 **Flow name**을 `Send Summary to Teams`로 변경합니다.
+1. **설명**에 `작업 분석 요약을 Teams에 메시지로 게시하세요.`를 입력합니다.
 
-1. **Description**에 `Post a message to Teams with the summary of the task analysis`를 입력합니다.
-
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
+![alt text](image-189.png)
 
 ### 작업 2.2 - Post to Teams 작업
 
-1. **Designer** 탭을 선택합니다.
+1. **디자이너** 탭을 선택합니다.
 
 1. 워크플로 두 단계 사이의 **+** 아이콘을 선택해 새 작업을 삽입합니다.
+![alt text](image-190.png)
 
-1. **Search** 필드에 `Teams`를 입력하고 **Microsoft Teams** 커넥터의 **See more**를 선택합니다.
+1. **검색** 필드에 `Teams`를 입력하고 **Microsoft Teams** 커넥터의 **자세히 보기**를 선택합니다.
 
-   ![워크플로에서 커넥터 검색 스크린샷.](../media/workflow-teams-connector.png)
+   ![alt text](image-191.png)
 
-1. **Post message in a chat or channel** 작업을 선택합니다.
+1. **채팅 또는 채널에서 메시지 게시** 작업을 선택합니다.
+![alt text](image-192.png)
 
-1. **Sign in**을 선택합니다.
+1. **로그인**을 선택합니다.
+![alt text](image-193.png)
 
    > [!NOTE]
    > "Failed to create OAuth connection: ClientWarning: The browser has blocked the connection authentication popup window" 오류가 발생하면, 브라우저 주소 표시줄의 **pop-up blocked** 아이콘을 선택한 다음 **Always allow pop-ups and redirects from `https://copilotstudio.microsoft.com**`**를 선택하세요.
 
 1. 계정을 선택합니다.
+![alt text](image-194.png)
 
-1. **Confirmation required** 대화 상자에서 **I have verified this request and trust the source** 체크박스를 선택한 다음 **Allow access**를 선택합니다.
+1. **다음으로 게시**에서 **흐름 봇**을 선택합니다.
 
-1. **Post as**에서 **Flow bot**을 선택합니다.
+1. **게시 위치**에서 **채널**을 선택합니다.
 
-1. **Post in**에서 **Channel**을 선택합니다.
+1. **Team**에서 예를 들어 **CopilotStudioTraining** 을 선택합니다.
 
-1. **Team**에서 예를 들어 **Leadership** 같은 팀을 선택합니다.
+1. **채널**에서 예를 들어 **CopilotStudioTraining** 을 선택합니다.
 
-1. **Channel**에서 예를 들어 **General** 같은 채널을 선택합니다.
-
-1. *Message*는 **Dynamic Content**를 사용해 **Task Summary**를 선택합니다.
-
-   ![워크플로의 Teams 작업 스크린샷.](../media/workflow-teams-action.png)
+1. *메시지*는 **Dynamic Content**를 사용해 **작업 요약**를 선택합니다.
+![alt text](image-197.png)
+![alt text](image-198.png)
 
 ### 작업 2.3 - 응답 작업
 
-1. 작성 캔버스에서 **Respond to the agent** 노드를 선택하고 **+ Add an output**을 선택합니다.
+1. 작성 캔버스에서 **Respond to the agent** 노드를 선택하고 **+ 출력 추가**를 선택합니다.
+![alt text](image-199.png)
 
-1. **Text**를 선택합니다.
+1. **텍스트**를 선택합니다.
+![alt text](image-200.png)
 
-1. *Enter a name*에 `Message`를 입력합니다.
+1. *이름 입력*에 `메시지`를 입력합니다.
 
-1. *Enter a value to respond with*는 **Dynamic Content**를 사용해 Teams 작업의 **Message link**를 선택합니다.
+1. *응답할 값 입력*은 **Dynamic Content**를 사용해 Teams 작업의 **메시지 링크**를 선택합니다.
 
-   ![워크플로 응답 작업 스크린샷.](../media/workflow-response-action.png)
+   ![alt text](image-201.png)
 
-1. 페이지 오른쪽 위 근처의 **Save draft**를 선택합니다.
+1. 페이지 오른쪽 위 근처의 **초안 저장**를 선택합니다.
 
-1. 페이지 오른쪽 위 근처의 **Publish**를 선택합니다.
+1. 페이지 오른쪽 위 근처의 **게시**를 선택합니다.
+![alt text](image-203.png)
 
-1. Copilot Studio에서 왼쪽 탐색 메뉴의 **Tools**를 선택해 워크플로 상태가 **Ready**인지 확인합니다.
+1. Copilot Studio에서 왼쪽 탐색 메뉴의 **도구**를 선택해 워크플로 상태가 **준비됨**인지 확인합니다.
+![alt text](image-204.png)
 
 ### 작업 2.4 - 워크플로를 에이전트 도구로 추가
 
-1. 왼쪽 탐색 창에서 **Agents**를 선택합니다.
+1. 왼쪽 탐색 창에서 **에이전트**를 선택합니다.
 
-1. **Task Analysis** 에이전트를 엽니다.
+1. **작업 분석 에이전트**를 엽니다. (이름이 다를 수 있으며, 앞 단계에서 생성한 에이전트를 선택합니다.)
+![alt text](image-205.png)
 
-1. **Tools** 탭을 선택합니다.
+1. **도구** 탭을 선택합니다.
 
-1. **+ Add a tool**을 선택합니다.
+1. **+ 도구 추가**을 선택합니다.
+![alt text](image-206.png)
 
-1. **Add tool** 대화 상자에서 **Workflows** 필터를 선택합니다.
+1. **도구 추가** 대화 상자에서 **흐름** 필터를 선택합니다.
 
-   ![워크플로를 도구로 추가하는 스크린샷.](../media/workflow-add-tool.png)
+1. **요약 내용을 Teams로 보내기** 워크플로를 선택합니다.
+   ![alt text](image-207.png)
 
-1. **Send Summary to Teams** 워크플로를 선택합니다.
+1. **추가 및 구성**를 선택합니다.
+![alt text](image-208.png)
 
-1. **Add and configure**를 선택합니다.
+1. **세부 정보** 
+   - **설명**: `완료된 작업 분석 요약을 Microsoft Teams 채널로 보냅니다.`
 
-1. **Details** 섹션의 **Description**에 `Sends a summary of the completed task analysis to a Microsoft Teams channel`을 입력합니다.
+   - **추가 세부 정보**를 펼치고 다음을 선택/입력합니다:
 
-1. **Additional details**를 펼치고 다음을 선택/입력합니다:
+      - **이 도구를 사용할 수 있는 경우**: 에이전트는 언제든지 이 도구를 사용할 수 있습니다.
+      - **실행하기 전에 최종 사용자에게 질문합니다**: 아니요
+      - **사용할 자격 증명**: 최종 사용자 자격 증명
+      - **설명**: `Teams에 알림을 보내려면 로그인하세요.`
 
-   - **When this tool may be used**: Agent may use this tool at any time
-   - **Ask the end user before running**: No
-   - **Credentials to use**: End user credentials
-   - **Description**: `Please sign in to notify Teams`
-
-1. **Inputs** 섹션의 *Fill using*에서 **Dynamically fill with AI**를 선택합니다.
+   - **입력**: *다음을 사용하여 채우기*에서 **AI로 동적으로 채우기**를 선택합니다.
   이렇게 하면 에이전트가 대화 컨텍스트에서 적절한 입력 값을 동적으로 결정할 수 있습니다.
 
-1. **Completion** 섹션의 **After running**에서 **Write the response with generative AI**를 선택합니다.
+   - **완료**:  **실행 후**에서 **생성형 AI로 응답 작성**를 선택합니다.
 
-   ![워크플로 도구 구성 스크린샷.](../media/workflow-tool-configuration.png)
+   ![alt text](image-209.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 2.5 - 에이전트 지침 업데이트
 
-1. **Overview** 탭을 선택합니다.
+1. **개요** 탭을 선택합니다.
 
-1. **Instructions** 섹션에서 **Edit**를 선택합니다.
+1. **지침** 섹션에서 **편집**를 선택합니다.
 
-1. 에이전트 지침의 *## Step-by-step instructions* 아래 마지막 단계에 다음을 추가합니다: `Use the `를 입력하고 `/`를 입력해 **Send Summary to Teams** 도구를 선택한 뒤 ` when the task analysis is complete.`를 입력합니다.
+1. 에이전트 지침의 *# 단계별 지침* 아래 마지막 단계에 다음을 추가합니다: 
+`작업 분석이 완료되면`을 입력하고 `/`를 입력해 **요약 내용을 Teams로 보내기** 도구를 선택한 뒤 `를 사용합니다.`를 입력합니다.
+   ![alt text](image-210.png)
 
-   ![에이전트 지침에서 워크플로 도구 참조 스크린샷.](../media/workflow-add-tool-to-instructions.png)
+   ![alt text](image-211.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 2.6 - 에이전트에서 워크플로 도구 테스트
 
-1. 페이지 오른쪽 위의 **Test** 아이콘을 선택해 테스트 창을 엽니다.
+1. 페이지 오른쪽 위의 **테스트** 아이콘을 선택해 테스트 창을 엽니다.
 
-1. **Test** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
+1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
+![alt text](image-212.png)
 
-   ![Show activity map.](../media/show-activity-map.png)
 
-1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
+1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
-1. **Conversation Start** 메시지가 나타나면 에이전트가 대화를 시작합니다. 생성한 토픽을 트리거하기 위해 다음을 입력합니다:
+1.  생성한 토픽을 트리거하기 위해 다음을 입력합니다:
 
-   `Analyze this list of tasks 1. Build an agent, 2. Test an agent, 3. Deploy an agent`
+```
+다음 작업 목록을 분석하세요. 1. 에이전트 구축, 2. 에이전트 테스트, 3. 에이전트 배포
+```
 
-1. Microsoft Teams 연결 메시지가 표시되면 **Allow**를 선택합니다.
+1. Microsoft Teams 연결 메시지가 표시되면 **허용**를 선택합니다.
 
-   ![에이전트 테스트 중 워크플로 도구 사용 스크린샷.](../media/workflow-test-agent-tool.png)
+![alt text](image-213.png)
 
 1. 새 브라우저 탭에서 `https://teams.cloud.microsoft/`로 이동하고, 필요 시 로그인합니다.
 
 1. 워크플로에서 이전에 선택한 팀/채널로 이동해 작업 분석 요약이 Teams 채널에 게시되었는지 확인합니다.
 
-   ![Teams의 메시지 스크린샷.](../media/workflow-test-agent-teams.png)
+   ![alt text](image-214.png)
+   ![alt text](image-215.png)
 
 ## 실습 3 - 토픽에서 Excel 파일을 분석하는 워크플로 도구 만들기
 
@@ -271,259 +287,237 @@ lab:
 
 1. Copilot Studio에서 왼쪽 위 **App launcher** 아이콘을 선택한 다음 **OneDrive**를 선택합니다.
 
-   ![App Launcher 스크린샷.](../media/copilot-studio-app-launcher.png)
+   ![alt text](image-216.png)
 
 1. 필요 시 환영 메시지를 건너뜁니다.
 
-1. **+ Create or upload**를 선택합니다.
+1. **+ 만들기 또는 업로드**를 선택합니다.
 
-1. **Excel workbook**을 선택합니다.
+1. **Excel 통합 문서**을 선택합니다.
 
-   ![OneDrive에서 파일 생성 스크린샷.](../media/onedrive-create.png)
+   ![alt text](image-219.png)
 
-1. **Excel workbook** 왼쪽 위에서 **Book**을 선택해 파일명을 `Operations tasks`로 변경합니다.
+1. **Excel 통합 문서** 왼쪽 위에서 **Book**을 선택해 파일명을 `작업목록`로 변경합니다.
 
-   ![OneDrive에서 파일 이름 변경 스크린샷.](../media/onedrive-rename.png)
+1. [작업목록](https://iksskr.sharepoint.com/:x:/s/AgentLabs/IQCQC-AqkTn5Sp3F4O-RMJWlAagioCWMMGsrjXIocRIDbn0?e=0p6fnx) 파일을 열어서 테이블을 복사하여 내가 만든 Excel 통합 문서에 붙여넣습니다. 
 
-1. 첫 번째 행에 다음 열을 만듭니다:
+1. **테이블 디자인** 탭에서 왼쪽 위 테이블 이름을 *Table1*에서 **`Tasks`**로 변경합니다.
 
-   - `Reference`
-   - `Title`
-   - `Description`
-   - `Requested by`
-   - `Priority`
-   - `Status`
-
-1. 두 번째 행에 첫 번째 작업을 입력합니다:
-
-   - `OPS-001`
-   - `Server Patch Update`
-   - `Apply monthly security patches to production servers`
-   - `IT Operations`
-   - `High`
-   - `Open`
-
-1. 세 번째 행에 두 번째 작업을 입력합니다:
-
-   - `OPS-002`
-   - `Backup Validation`
-   - `Verify nightly backups completed successfully`
-   - `Infrastructure Team`
-   - `Medium`
-   - `In Progress`
-
-1. 네 번째 행에 세 번째 작업을 입력합니다:
-
-   - `OPS-003`
-   - `Access Review`
-   - `Review and remove inactive user accounts`
-   - `Security Team`
-   - `High`
-   - `Open`
-
-1. 다섯 번째 행에 네 번째 작업을 입력합니다:
-
-   - `OPS-004`
-   - `Incident Report`
-   - `Document root cause for recent service outage`
-   - `Service Desk`
-   - `Medium`
-   - `Completed`
-
-   ![OneDrive 파일의 작업 스크린샷.](../media/onedrive-tasks.png)
-
-1. 데이터가 있는 행/열(A1:F5)을 선택하고 도구 모음의 **Insert** 탭에서 **Table**을 선택한 뒤 **OK**를 선택합니다.
-
-1. **Table Design** 탭에서 왼쪽 위 테이블 이름을 *Table1*에서 **`Tasks`**로 변경합니다.
-
-   ![OneDrive 파일에서 테이블로 구성된 작업 스크린샷.](../media/onedrive-tasks-table.png)
+   ![alt text](image-288.png)
 
 1. Excel 워크북이 열린 브라우저 탭을 닫습니다.
 
-1. OneDrive에서 **My files**를 선택하고 Operations tasks Excel 워크북이 목록에 있는지 확인합니다.
+1. OneDrive에서 **My files**를 선택하고 `작업목록` 워크북이 목록에 있는지 확인합니다.
 
 1. OneDrive 브라우저 탭을 닫습니다.
 
-### 작업 3.2 - Analyze Excel tasks 워크플로 만들기
+### 작업 3.2 - 엑셀 작업 분석 워크플로 만들기
 
-1. Copilot Studio 왼쪽 탐색 메뉴에서 **Tools**를 선택합니다.
+1. Copilot Studio 왼쪽 탐색 메뉴에서 **도구**를 선택합니다.
 
-1. **+ Add a tool**을 선택합니다.
+1. **+ 새로운 도구**를 선택합니다.
+![alt text](image-224.png)
 
-1. **Add tool** 대화 상자에서 **Agent flow** 타일을 선택합니다.
+1. **Add tool** 대화 상자에서 **에이전트 흐름** 타일을 선택합니다.
+![alt text](image-225.png)
 
-1. 워크플로에 **When an agent calls the flow** 트리거와 **Respond to the agent** 작업이 추가되었는지 확인합니다.
+1. 워크플로에 **에이전트가 흐름을 호출할 때** 트리거와 **Respond to the agent** 작업이 추가되었는지 확인합니다.
+![alt text](image-226.png)
 
-1. **When an agent calls the flow** 트리거 단계를 선택하고 **+ Add an input**을 선택합니다.
+1. **에이전트가 흐름을 호출할 때** 트리거 단계를 선택하고 **+ 입력 추가**를 선택합니다.
+![alt text](image-227.png)
 
-1. **Text**를 선택합니다.
+1. **텍스트**를 선택합니다.
+![alt text](image-228.png)
 
-1. *Input*에 `Priority`, *Please enter your input*에 `Priority of Tasks`를 입력합니다.
+1. `우선 순위`, `작업 우선순위`를 입력합니다.
 
-1. 페이지 오른쪽 위 근처의 **Save draft**를 선택합니다.
+1. 페이지 오른쪽 위 근처의 **초안 저장**을 선택합니다.
+![alt text](image-229.png)
 
-1. **Overview** 탭을 선택합니다.
+1. **개요** 탭을 선택합니다.
 
-1. **Details** 섹션에서 **Edit**를 선택합니다.
+1. **세부 정보** 섹션에서 **편집**을 선택합니다.
 
-1. **Details** 창에서 **Flow name**을 `Get Task List`로 변경합니다.
+1. **세부 정보** 창에서 **흐름 이름**을 `작업 목록 가져오기 도구`로 변경합니다.
 
-1. **Description**에 `Retrieve a list of tasks with a matching priority`를 입력합니다.
+1. **설명**에 `우선순위가 일치하는 작업 목록 가져오기`를 입력합니다.
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
+![alt text](image-266.png)
 
-1. **Designer** 탭을 선택합니다.
+1. **디자이너** 탭을 선택합니다.
 
 1. 워크플로 두 단계 사이의 **+** 아이콘을 선택해 새 작업을 삽입합니다.
+![alt text](image-267.png)
 
-1. **Search** 필드에 `Excel`을 입력하고 **Excel Online (Business)** 커넥터의 **See more**를 선택합니다.
+1. **검색** 필드에 `Excel`을 입력하고 **Excel Online (Business)** 커넥터의 **자세히 보기**를 선택합니다.
+![alt text](image-268.png)
 
-1. **List rows present in a table** 작업을 선택합니다.
+1. **테이블에 있는 행 나열** 작업을 선택합니다.
+![alt text](image-269.png)
 
-1. 연결 생성을 위해 **Sign in**을 선택합니다.
+1. 연결 생성을 위해 **로그인**을 선택하여 로그인 합니다.
+![alt text](image-270.png)
+![alt text](image-271.png)
+1. **위치**에서 **OneDrive for Business**를 선택합니다.
 
-1. **Sign into your account** 대화 상자에서 이 실습 환경에서 사용하는 계정(예: **MOD Administrator**)을 선택하고, **I have verified this request and trust the source** 체크박스를 선택한 뒤 **Allow access**를 선택합니다.
+1. **문서 라이브러리**에서 **OneDrive**를 선택합니다.
 
-1. **Location**에서 **OneDrive for Business**를 선택합니다.
+1. **파일**에서 **작업목록** 워크북을 찾아 선택합니다.
 
-1. **Document library**에서 **OneDrive**를 선택합니다.
+1. **테이블**에서 **Tasks**를 선택합니다.
 
-1. **File**에서 **Operations tasks** 워크북을 찾아 선택합니다.
+1. **모두 보기**을 선택합니다.
 
-1. **Table**에서 **Tasks**를 선택합니다.
+1. **필터 쿼리**에 `우선순위 eq ''`를 입력합니다.
 
-   ![워크플로의 Excel 작업 스크린샷.](../media/onedrive-action.png)
+1. 두 개의 작은따옴표 사이에 커서를 두고 **동적 컨텐츠**를 사용해 **우선 순위** 입력 매개변수를 삽입합니다.
 
-1. **Show all**을 선택합니다.
+     ![alt text](image-284.png)
 
-1. **Filter query**에 `Priority eq ''`를 입력합니다.
+1. 작성 캔버스에서 **Respond to the agent** 노드를 선택하고 **+ 출력 추가**을 선택합니다.
+![alt text](image-273.png)
 
-1. 두 개의 작은따옴표 사이에 커서를 두고 **Dynamic content**를 사용해 **Priority** 입력 매개변수를 삽입합니다.
+1. **텍스트**를 선택합니다.
+![alt text](image-274.png)
 
-   ![워크플로의 Excel 필터 스크린샷.](../media/onedrive-action-filter.png)
+1. *이름 입력*에 `작업 목록`을 입력합니다.
 
-1. 작성 캔버스에서 **Respond to the agent** 노드를 선택하고 **+ Add an output**을 선택합니다.
+1. *응답할 값 입력*은 **동적 컨텐츠**를 사용해 **테이블에 있는 행 나열** 작업의 **body/value**를 선택합니다.
+![alt text](image-275.png)
+![alt text](image-277.png)
+1. 페이지 오른쪽 위 근처의 **초안 저장**을 선택합니다.
 
-1. **Text**를 선택합니다.
+1. 페이지 오른쪽 위 근처의 **게시**를 선택합니다.
+![alt text](image-241.png)
 
-1. *Enter a name*에 `Task list`를 입력합니다.
-
-1. *Enter a value to respond with*는 **Dynamic Content**를 사용해 **List rows present in a table** 작업의 **body/value**를 선택합니다.
-
-1. 페이지 오른쪽 위 근처의 **Save draft**를 선택합니다.
-
-1. 페이지 오른쪽 위 근처의 **Publish**를 선택합니다.
-
-1. 왼쪽 탐색 메뉴에서 **Tools**를 선택해 워크플로 상태가 **Ready**인지 확인합니다.
+1. 왼쪽 탐색 메뉴에서 **도구**를 선택해 워크플로 상태가 **준비됨**인지 확인합니다.
+![alt text](image-278.png)
 
 ### 작업 3.3 - 에이전트에 토픽 추가
 
-1. 왼쪽 탐색 창에서 **Agents**를 선택합니다.
+1. 왼쪽 탐색 창에서 **에이전트**를 선택합니다.
 
-1. **Task Analysis** 에이전트를 엽니다.
+1. **작업 분석 에이전트**를 엽니다.
 
-1. **Topics** 탭을 선택합니다.
+1. **토픽** 탭을 선택합니다.
 
-1. **+ Add a topic**을 선택하고 **Add from description with Copilot**을 선택합니다. 새 대화 상자 창이 나타납니다.
+1. **+ 토픽 추가**를 선택하고 **Copilot을 사용하여 설명에서 추가**를 선택합니다. 새 대화 상자 창이 나타납니다.
+![alt text](image-244.png)
 
-1. **Name your topic** 텍스트 상자에 **`Priority Tasks`**를 입력합니다.
+1. **토픽 이름 지정** 텍스트 상자에 **`작업 우선순위`**를 입력합니다.
 
-1. **Create a topic to...** 텍스트 상자에 `Ask the user to choose a priority from a list containing High, Medium, and Low`를 입력합니다.
+1. **에 대한 토픽 만들기...** 텍스트 상자에 `사용자에게 높음, 중간, 낮음 세 가지 우선순위 목록에서 원하는 우선순위를 선택하도록 요청하세요.`를 입력합니다.
+![alt text](image-246.png)
 
-1. **Create**를 선택합니다.
+1. **만들기**를 선택합니다.
 
-   ![질문 노드가 포함된 토픽 스크린샷.](../media/topic-question-node.png)
+   ![alt text](image-247.png)
 
-1. 질문 노드 하단의 **Priority** 변수를 선택해 **Variables properties**를 엽니다.
+1. 질문 노드 하단의 **Priority** 변수를 선택해 **변수 속성**를 엽니다.
 
-1. **Usage**에서 **Global (any topic can access)**를 선택합니다.
+1. **사용량**에서 **전역(모든 토픽에서 액세스 가능)**을 선택합니다.
 
-   ![질문 노드의 전역 변수 스크린샷.](../media/variable-global.png)
+   ![alt text](image-248.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 3.4 - 워크플로를 도구로 추가
 
-1. 왼쪽 탐색 창에서 **Agents**를 선택합니다.
+1. 왼쪽 탐색 창에서 **에이전트**를 선택합니다.
 
-1. **Task Analysis** 에이전트를 엽니다.
+1. **작업 분석 에이전트**를 엽니다.
 
-1. **Tools** 탭을 선택합니다.
+1. **도구** 탭을 선택합니다.
 
-1. **+ Add a tool**을 선택합니다.
+1. **+ 도구 추가**을 선택합니다.
+![alt text](image-249.png)
 
-1. **Add tool** 대화 상자에서 **Workflows** 필터를 선택합니다.
+1. **도구 추가** 대화 상자에서 **흐름** 필터를 선택합니다.
 
-1. **Get Task List** 워크플로를 선택합니다.
+1. **작업 목록 가져오기 도구** 워크플로를 선택합니다.
+![alt text](image-279.png)
 
-1. **Add and configure**를 선택합니다.
+1. **추가 및 구성**을 선택합니다.
+![alt text](image-251.png)
 
-1. **Details** 섹션의 **Description**에 `Retrieves a list of tasks for a specified priority`를 입력합니다.
+1. **세부 정보** 
+   - **설명**: `지정된 우선순위에 해당하는 작업 목록을 검색합니다.`
 
-1. **Additional details**를 펼치고 다음을 선택/입력합니다:
+   - **추가 세부 정보**를 펼치고 다음을 선택/입력합니다:
 
-   - **When this tool may be used**: Only when referenced by topics or agents
-   - **Ask the end user before running**: No
-   - **Credentials to use**: End user credentials
-   - **Description**: *`Please sign in to retrieve tasks`*
+      - **이 도구를 사용할 수 있는 경우**: 에이전트는 언제든지 이 도구를 사용할 수 있습니다.
+      - **실행하기 전에 최종 사용자에게 질문합니다**: 아니요
+      - **사용할 자격 증명**: 최종 사용자 자격 증명
+      - **설명**: `작업을 확인하려면 로그인하십시오.`
 
-1. **Inputs** 섹션의 **Fill using**에서 **Custom value**를 선택하고 **Priority** 전역 변수를 선택합니다.
+   - **입력**: *다음을 사용하여 채우기*에서 **사용자 지정 값**를 선택하고 `Global.Priority`를 선택합니다.
 
-   ![워크플로 도구 입력 스크린샷.](../media/workflow-tool-inputs.png)
+   - **완료**:  **실행 후**에서 **생성형 AI로 응답 작성**를 선택합니다.
 
-1. **Completion** 섹션의 **After running**에서 **Write the response with generative AI**를 선택합니다.
+   ![alt text](image-280.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 3.5 - 토픽에 워크플로 도구 추가
 
-1. **Topics** 탭을 선택합니다.
+1. **토픽** 탭을 선택합니다.
 
-1. **Priority Tasks** 토픽을 선택합니다.
+1. **작업 우선순위** 토픽을 선택합니다.
+![alt text](image-253.png)
 
-1. **Question** 노드 아래에서 **+** 아이콘을 선택하고 **Add a tool** > **Tool** 탭 > **Get Task List** 도구를 선택합니다.
+1. **질문** 노드 아래에서 **+** 아이콘을 선택하고 **도구 추가** > **도구** >  **작업 목록 가져오기 도구** 를 선택합니다.
 
-   ![토픽에 워크플로를 도구로 추가하는 스크린샷.](../media/topic-add-tool.png)
+   ![alt text](image-254.png)
+   ![alt text](image-257.png)
+   ![alt text](image-281.png)
 
-1. **Save**를 선택합니다.
+1. **저장**을 선택합니다.
 
 ### 작업 3.6 - 토픽을 포함하도록 에이전트 지침 업데이트
 
-1. **Overview** 탭을 선택합니다.
+1. **개요** 탭을 선택합니다.
 
-1. **Instructions** 섹션에서 **Edit**를 선택합니다.
+1. **지침** 섹션에서 **편집**을 선택합니다.
 
-1. 에이전트 지침의 *## Skills* 아래 마지막 단계에 다음을 추가합니다: `Use the `를 입력하고 `/`를 입력해 **Priority Tasks** 토픽을 선택한 뒤 ` to get the task list.`를 입력합니다.
-
-1. **Save**를 선택합니다.
+1. 에이전트 지침의 *## 기술* 아래 마지막 단계에 다음을 추가합니다: 
+`작업 목록을 얻으려면 `을 입력하고 `/`를 입력해 **작업 우선순위** 토픽을 선택한 뒤 ` 를 사용합니다`를 입력합니다.
+![alt text](image-259.png)
+![alt text](image-260.png)
+1. **저장**을 선택합니다.
 
 ### 작업 3.7 - 워크플로 도구 테스트
 
-1. 페이지 오른쪽 위의 **Test** 아이콘을 선택해 테스트 창을 엽니다.
+1. 페이지 오른쪽 위의 **테스트** 아이콘을 선택해 테스트 창을 엽니다.
 
-1. **Test** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **Off**, **토픽 간 추적**를 **On**으로 전환합니다.
+1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **Off**, **토픽 간 추적**를 **On**으로 전환합니다.
+![alt text](image-261.png)
 
-1. **Test** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
+1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. **Conversation Start** 메시지가 나타나면 에이전트가 대화를 시작합니다. 생성한 토픽을 트리거하기 위해 다음을 입력합니다:
 
-   `Analyze the task list`
+```
+작업 목록 분석
+```
 
-1. **Priority Tasks** 토픽이 표시됩니다.
+1. **작업 우선순위** 토픽이 표시됩니다.
 
-1. **Medium**을 선택합니다.
+1. **중간**을 선택합니다.
+![alt text](image-285.png)
 
-1. **Excel Online (Business)** 연결 메시지가 표시되면 **Allow**를 선택합니다.
+1. **Excel Online (Business)** 연결 메시지가 표시되면 **허용**를 선택합니다.
 
-1. **test** 창에 두 개의 작업이 표시되어야 합니다.
+1. **테스트** 창에 두 개의 작업이 표시되어야 합니다.
 
-   ![에이전트 테스트 중 워크플로 도구 사용 스크린샷.](../media/workflow-test-topic-tool.png)
+   ![alt text](image-286.png)
 
 1. 새 브라우저 탭에서 `https://teams.cloud.microsoft/`로 이동하고, 필요 시 로그인합니다.
 
 1. 이전에 선택한 팀/채널로 이동해 채널에 게시된 두 개 작업을 검토합니다.
 
-   ![Teams의 메시지 스크린샷.](../media/workflow-test-topic-teams.png)
+   ![alt text](image-287.png)
 
 ## 요약
 
