@@ -1,4 +1,6 @@
 ---
+layout: default
+toc: true
 lab:
   title: Copilot Studio 에이전트에서 토픽 관리
   module: 토픽을 사용해 에이전트 대화 설계
@@ -11,6 +13,15 @@ lab:
 ---
 
 # Copilot Studio 에이전트에서 토픽 관리
+
+## 실습 개요
+
+| 구분 | 내용 |
+|------|------|
+| 난이도 | Level 200 (Developer) |
+| 소요 시간 | 약 45분 |
+| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
+| 목적 | 에이전트 토픽 생성, 노드 구성, 엔터티 및 변수를 활용한 대화 흐름 설계 |
 
 ## 시나리오
 

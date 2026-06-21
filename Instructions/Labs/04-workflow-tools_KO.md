@@ -1,4 +1,6 @@
 ---
+layout: default
+toc: true
 lab:
   title: 도구로 워크플로 사용
   module: 워크플로를 통합해 에이전트 동작 향상
@@ -11,6 +13,15 @@ lab:
 ---
 
 # 도구로 워크플로 사용
+
+## 실습 개요
+
+| 구분 | 내용 |
+|------|------|
+| 난이도 | Level 200 (Developer) |
+| 소요 시간 | 약 45분 |
+| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
+| 목적 | Power Automate 워크플로를 에이전트 및 토픽에 도구로 통합하여 기능 확장 |
 
 ## 시나리오
 

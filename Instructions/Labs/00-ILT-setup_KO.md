@@ -1,4 +1,6 @@
 ---
+layout: default
+toc: true
 lab:
   title: ILT 설정
   module: 소개
@@ -10,6 +12,17 @@ lab:
     - Microsoft Copilot
     - Microsoft Copilot Studio
 ---
+
+# 실습 환경 준비
+
+## 실습 개요
+
+| 구분 | 내용 |
+|------|------|
+| 난이도 | Level 200 (Developer) |
+| 소요 시간 | 약 10분 |
+| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
+| 목적 | Microsoft Copilot Studio 실습을 위한 Power Platform 환경 및 솔루션 구성 |
 
 ## 실습 1 - Power Platform 환경 만들기
 

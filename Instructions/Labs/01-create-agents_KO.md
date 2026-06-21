@@ -1,4 +1,6 @@
 ---
+layout: default
+toc: true
 lab:
   title: Copilot Studio로 에이전트 만들기
   module: Microsoft Copilot Studio에서 에이전트 만들기
@@ -12,6 +14,15 @@ lab:
 ---
 
 # Copilot Studio로 에이전트 만들기
+
+## 실습 개요
+
+| 구분 | 내용 |
+|------|------|
+| 난이도 | Level 200 (Developer) |
+| 소요 시간 | 약 45분 |
+| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
+| 목적 | Copilot Studio 포털에서 새 에이전트를 생성하고 기본 구성 완료 |
 
 ## 시나리오
 

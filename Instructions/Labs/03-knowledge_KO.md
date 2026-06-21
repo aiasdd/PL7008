@@ -1,4 +1,6 @@
 ---
+layout: default
+toc: true
 lab:
   title: Copilot Studio 에이전트에서 지식 관리
   module: 지식 소스로 에이전트 근거화
@@ -11,6 +13,15 @@ lab:
 ---
 
 # Copilot Studio 에이전트에서 지식 관리
+
+## 실습 개요
+
+| 구분 | 내용 |
+|------|------|
+| 난이도 | Level 200 (Developer) |
+| 소요 시간 | 약 60분 |
+| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
+| 목적 | Dataverse 테이블 생성 및 에이전트 지식 소스 추가, 생성형 AI 구성 |
 
 ## 시나리오
 
