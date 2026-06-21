@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Agent 실습 가이드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --fluent-brand-1: #1678d4;
+            --fluent-brand-2: #5b5fc7;
+            --fluent-brand-3: #c239b3;
+            --fluent-brand-4: #8f3fd6;
+            --fluent-bg-canvas: #f4f4f8;
+            --fluent-bg-surface: #ffffff;
+            --fluent-bg-soft: #f8f8fc;
+            --fluent-text-primary: #1f2937;
+            --fluent-text-secondary: #4b5563;
+            --fluent-accent: #1678d4;
+            --fluent-accent-hover: #125ea8;
+            --fluent-neutral-stroke: #d8d7e7;
+            --fluent-code-bg: #f3f1ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--fluent-text-primary);
+            background:
+                radial-gradient(1400px 320px at 10% -5%, rgba(22, 120, 212, 0.12) 0%, rgba(22, 120, 212, 0) 52%),
+                radial-gradient(1200px 260px at 95% -8%, rgba(143, 63, 214, 0.11) 0%, rgba(143, 63, 214, 0) 58%),
+                var(--fluent-bg-canvas);
+        }
+
+        .header {
+            background: linear-gradient(120deg, var(--fluent-brand-1) 0%, var(--fluent-brand-2) 52%, var(--fluent-brand-3) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(91, 95, 199, 0.28);
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header p {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header .course-path {
+            display: none;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--fluent-text-primary);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--fluent-neutral-stroke);
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .lab-card:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .lab-card {
+            background: var(--fluent-bg-surface);
+            border: 1px solid var(--fluent-neutral-stroke);
+            border-radius: 16px;
+            box-shadow: 0 8px 22px rgba(73, 84, 162, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 28px 26px;
+        }
+
+        .lab-card:hover {
+            box-shadow: 0 16px 40px rgba(73, 84, 162, 0.18);
+            border-color: var(--fluent-neutral-stroke);
+            transform: translateY(-4px);
+        }
+
+        .lab-card-header {
+            padding: 0;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+
+        .lab-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #edefff;
+            color: #4044a5;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 75px;
+            text-align: center;
+            flex-shrink: 0;
+            border: 1px solid #d4d8ff;
+            line-height: 1;
+        }
+
+        .lab-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2f337f;
+            margin: 0;
+        }
+            margin: 0;
+        }
+
+        .lab-card-body {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lab-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--fluent-text-secondary);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .lab-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #edefff;
+            color: #4044a5;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #d4d8ff;
+            line-height: 1;
+        }
+
+        .meta-item:first-child {
+            background: #edefff;
+            border-color: #d4d8ff;
+            color: #4044a5;
+        }
+
+        .meta-item:last-child {
+            background: #edefff;
+            border-color: #d4d8ff;
+            color: #4044a5;
+        }
+
+        .lab-button {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--fluent-brand-1) 0%, var(--fluent-brand-2) 52%, var(--fluent-brand-3) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: fit-content;
+            box-shadow: 0 4px 12px rgba(91, 95, 199, 0.2);
+            margin-top: auto;
+        }
+
+        .lab-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(91, 95, 199, 0.3);
+            text-decoration: none;
+        }
+
+        .lab-button:active {
+            transform: translateY(0);
+        }
+
+        .note {f5f4ff;
+            border-left: 4px solid #8f88e8;
+            padding: 12px 14px;
+            margin-top: 32px;
+            border-radius: 8px;
+            color: #353a73;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .note strong {
+            color: #353a7
+            color: #333;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-card:first-child {
+                grid-column: 1;
+            }
+
+            .lab-card {
+                padding: 20px;
+            }
+
+            .lab-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .lab-title {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-badge">Microsoft Copilot Studio Hands-on Labs</div>
+        <h1>Copilot Agent 실습 가이드</h1>
+        <p>이 실습 시리즈는 Microsoft Copilot Studio를 활용한 엔터프라이즈 AI 에이전트 개발의 전 과정을 다룹니다. Power Platform 환경 구성에서 시작하여 생성형 AI 기반 에이전트 설계, 대화형 토픽 관리, 다양한 지식 소스 통합, 그리고 Power Automate 워크플로를 통한 기능 확장까지 완전한 개발 워크플로우를 습득할 수 있습니다. 각 실습은 실무 기반의 시나리오를 통해 에이전트의 동작 원리와 효과적인 구성 방법을 단계적으로 학습하도록 설계되었습니다.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Section Title -->
+        <h2 class="section-title">실습</h2>
+
+        <!-- Labs Grid -->
+        <div class="labs-grid">
+            <!-- Lab 00 -->
+            <div class="lab-card">
+                <div class="lab-card-header">
+                    <div class="lab-number">Lab 00</div>
+                    <div class="lab-title">실습 환경 준비</div>
+                </div>
+                <div class="lab-card-body">
+                    <div class="lab-meta">
+                        <div class="meta-item">난이도: Level 200</div>
+                        <div class="meta-item">예상 시간: 약 10분</div>
+                    </div>
+                    <div class="lab-description">
+                        이 실습에서는 Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
+                    </div>
+                    <a href="Instructions/Labs/00-ILT-setup_KO.md" class="lab-button">Lab 00 시작하기</a>
+                </div>
+            </div>
+
+            <!-- Lab 01 -->
+            <div class="lab-card">
+                <div class="lab-card-header">
+                    <div class="lab-number">Lab 01</div>
+                    <div class="lab-title">에이전트 만들기</div>
+                </div>
+                <div class="lab-card-body">
+                    <div class="lab-meta">
+                        <div class="meta-item">난이도: Level 200</div>
+                        <div class="meta-item">예상 시간: 약 45분</div>
+                    </div>
+                    <div class="lab-description">
+                        이 실습에서는 Microsoft Copilot Studio 포털에 액세스하고, 적절한 환경을 선택한 다음, 새 에이전트를 만듭니다.
+                    </div>
+                    <a href="Instructions/Labs/01-create-agents_KO.md" class="lab-button">Lab 01 시작하기</a>
+                </div>
+            </div>
+
+            <!-- Lab 02 -->
+            <div class="lab-card">
+                <div class="lab-card-header">
+                    <div class="lab-number">Lab 02</div>
+                    <div class="lab-title">토픽 관리</div>
+                </div>
+                <div class="lab-card-body">
+                    <div class="lab-meta">
+                        <div class="meta-item">난이도: Level 200</div>
+                        <div class="meta-item">예상 시간: 약 45분</div>
+                    </div>
+                    <div class="lab-description">
+                        이 실습에서는 Copilot을 사용해 에이전트를 만들고, 설명에서 토픽을 생성하고, 노드를 추가하고, 엔터티를 사용합니다.
+                    </div>
+                    <a href="Instructions/Labs/02-manage-topics_KO.md" class="lab-button">Lab 02 시작하기</a>
+                </div>
+            </div>
+
+            <!-- Lab 03 -->
+            <div class="lab-card">
+                <div class="lab-card-header">
+                    <div class="lab-number">Lab 03</div>
+                    <div class="lab-title">지식 관리</div>
+                </div>
+                <div class="lab-card-body">
+                    <div class="lab-meta">
+                        <div class="meta-item">난이도: Level 200</div>
+                        <div class="meta-item">예상 시간: 약 50분</div>
+                    </div>
+                    <div class="lab-description">
+                        이 실습에서는 Copilot을 사용해 에이전트를 만들고, Dataverse 테이블을 만들고, 에이전트에 지식을 추가합니다.
+                    </div>
+                    <a href="Instructions/Labs/03-knowledge_KO.md" class="lab-button">Lab 03 시작하기</a>
+                </div>
+            </div>
+
+            <!-- Lab 04 -->
+            <div class="lab-card">
+                <div class="lab-card-header">
+                    <div class="lab-number">Lab 04</div>
+                    <div class="lab-title">워크플로 도구</div>
+                </div>
+                <div class="lab-card-body">
+                    <div class="lab-meta">
+                        <div class="meta-item">난이도: Level 200</div>
+                        <div class="meta-item">예상 시간: 약 45분</div>
+                    </div>
+                    <div class="lab-description">
+                        이 실습에서는 Copilot을 사용해 에이전트를 만들고, 워크플로를 생성하고, 워크플로를 에이전트와 토픽의 도구로 추가합니다.
+                    </div>
+                    <a href="Instructions/Labs/04-workflow-tools_KO.md" class="lab-button">Lab 04 시작하기</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Note -->
+        <div class="note">
+            <strong>참고:</strong> 이 실습은 Microsoft Learning 컨텐츠를 기반으로 하여 제작되었습니다.
+        </div>
+    </div>
+</body>
+</html>

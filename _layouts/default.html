@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --fluent-brand-1: #1678d4;
+            --fluent-brand-2: #5b5fc7;
+            --fluent-brand-3: #c239b3;
+            --fluent-brand-4: #8f3fd6;
+            --fluent-bg-canvas: #f4f4f8;
+            --fluent-bg-surface: #ffffff;
+            --fluent-bg-soft: #f8f8fc;
+            --fluent-text-primary: #1f2937;
+            --fluent-text-secondary: #4b5563;
+            --fluent-accent: #1678d4;
+            --fluent-accent-hover: #125ea8;
+            --fluent-neutral-stroke: #d8d7e7;
+            --fluent-code-bg: #f3f1ff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--fluent-text-primary);
+            background:
+                radial-gradient(1400px 320px at 10% -5%, rgba(22, 120, 212, 0.12) 0%, rgba(22, 120, 212, 0) 52%),
+                radial-gradient(1200px 260px at 95% -8%, rgba(143, 63, 214, 0.11) 0%, rgba(143, 63, 214, 0) 58%),
+                var(--fluent-bg-canvas);
+        }
+
+        .page-layout {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 260px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .page-main {
+            min-width: 0;
+            background-color: var(--fluent-bg-surface);
+            border: 1px solid var(--fluent-neutral-stroke);
+            border-radius: 16px;
+            box-shadow: 0 12px 34px rgba(73, 84, 162, 0.12);
+            padding: 24px 26px 28px;
+        }
+
+        .toc-panel {
+            position: sticky;
+            top: 20px;
+            align-self: start;
+        }
+
+        .toc-card {
+            background-color: var(--fluent-bg-surface);
+            border: 1px solid var(--fluent-neutral-stroke);
+            border-radius: 12px;
+            padding: 16px 14px;
+            box-shadow: 0 8px 22px rgba(73, 84, 162, 0.1);
+        }
+
+        .toc-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e3e8ee;
+        }
+
+        .toc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .toc-link {
+            color: #374151;
+            text-decoration: none;
+            line-height: 1.4;
+            border-left: 3px solid transparent;
+            padding: 6px 0 6px 10px;
+            border-radius: 0 8px 8px 0;
+            display: block;
+        }
+
+        .toc-link:hover {
+            color: var(--fluent-accent);
+            text-decoration: none;
+            background-color: #f7faff;
+            border-left-color: #b7d3f2;
+        }
+
+        .toc-h2 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #6b7280;
+        }
+
+        .toc-h3 {
+            font-size: 13px;
+            margin-left: 12px;
+            font-weight: 400;
+            color: #7a8494;
+        }
+
+        .toc-empty {
+            color: #6b7280;
+            font-size: 13px;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 26px 28px;
+            background-color: var(--fluent-bg-surface);
+            border: 1px solid var(--fluent-neutral-stroke);
+            border-radius: 16px;
+            box-shadow: 0 12px 34px rgba(73, 84, 162, 0.12);
+        }
+
+        .is-home .container {
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            background: transparent;
+            padding: 20px;
+        }
+
+        .page-top-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #d4d8ff;
+            background-color: #ffffff;
+            color: #4044a5;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .home-button:hover {
+            background-color: #edefff;
+            color: #3236a3;
+            border-color: #bcc1ff;
+            text-decoration: none;
+        }
+
+        .is-doc .page-main > h1:first-of-type,
+        .is-doc .container > h1:first-of-type {
+            margin-top: 6px;
+            margin-bottom: 22px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            color: #ffffff;
+            background:
+                linear-gradient(120deg, var(--fluent-brand-1) 0%, var(--fluent-brand-2) 52%, var(--fluent-brand-3) 100%);
+            box-shadow: 0 8px 20px rgba(91, 95, 199, 0.28);
+        }
+
+        .is-doc h2 {
+            margin-top: 30px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e4e2f4;
+            color: #2f337f;
+        }
+
+        .is-doc h3 {
+            color: #3f468f;
+        }
+
+        .is-doc ol,
+        .is-doc ul {
+            color: #2f3442;
+        }
+
+        .is-doc li::marker {
+            color: #5b5fc7;
+            font-weight: 700;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: var(--fluent-text-primary);
+        }
+        
+        h1 { font-size: 32px; }
+        h2 { font-size: 24px; }
+        h3 { font-size: 20px; }
+        
+        p, ul, ol, blockquote, pre, table, hr {
+            margin-bottom: 16px;
+        }
+        
+        ul, ol {
+            padding-left: 2em;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        code {
+            background-color: var(--fluent-code-bg);
+            border-radius: 3px;
+            padding: 0.2em 0.4em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 85%;
+            color: var(--fluent-text-primary);
+        }
+        
+        pre {
+            background-color: var(--fluent-code-bg);
+            border-radius: 6px;
+            padding: 16px;
+            overflow-x: auto;
+            border: 1px solid #dfdbff;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        blockquote {
+            border-left: 4px solid #c8c2fa;
+            padding-left: 16px;
+            color: var(--fluent-text-secondary);
+        }
+
+        .is-doc blockquote {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-left: 4px solid #8f88e8;
+            border-radius: 8px;
+            background-color: #f5f4ff;
+            color: #353a73;
+        }
+
+        hr {
+            border: 0;
+            border-top: 4px solid #cfd6dd;
+            margin: 22px 0 18px;
+        }
+
+        .is-doc hr {
+            border-top: 0;
+            height: 1px;
+            margin: 24px 0 20px;
+            background: linear-gradient(90deg, rgba(22, 120, 212, 0) 0%, rgba(91, 95, 199, 0.46) 50%, rgba(194, 57, 179, 0) 100%);
+        }
+
+        hr + h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e3e8ee;
+        }
+
+        h2 + hr {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 16px 0;
+            border: 1px solid var(--fluent-neutral-stroke);
+        }
+
+        th,
+        td {
+            border: 1px solid var(--fluent-neutral-stroke);
+            padding: 11px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f1f3ff;
+            font-weight: 700;
+            color: #31358f;
+        }
+
+        tbody tr:nth-child(even) td {
+            background-color: #fbfbff;
+        }
+
+        tbody tr:nth-child(odd) td {
+            background-color: #ffffff;
+        }
+
+        /* 이미지 스타일 - 비율 유지하면서 최대 너비 제한 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 16px 0;
+            border-radius: 6px;
+        }
+
+        .is-doc img {
+            border: 1px solid #dfdcf5;
+            box-shadow: 0 6px 18px rgba(84, 88, 158, 0.14);
+            background-color: #ffffff;
+        }
+        
+        a {
+            color: var(--fluent-accent);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: var(--fluent-accent-hover);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 960px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .toc-panel {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body class="{% if page.url == '/' %}is-home{% else %}is-doc{% endif %}{% if page.toc %} has-toc{% endif %}">
+    {% if page.toc %}
+    <div class="page-layout">
+        <aside class="toc-panel" aria-label="목차">
+            <div class="toc-card">
+                <div class="toc-title">목차</div>
+                <nav class="toc-list" id="page-toc">
+                    <div class="toc-empty">섹션을 불러오는 중...</div>
+                </nav>
+            </div>
+        </aside>
+        <main class="page-main" id="page-content">
+            {% if page.url != '/' %}
+            <div class="page-top-actions">
+                <a class="home-button" href="{{ '/' | relative_url }}">홈으로 가기</a>
+            </div>
+            {% endif %}
+            {{ content }}
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const content = document.getElementById('page-content');
+            const toc = document.getElementById('page-toc');
+            if (!content || !toc) return;
+
+            const headings = Array.from(content.querySelectorAll('h1, h2, h3')).filter(function (heading) {
+                return /(use case|학습 요약|전체 학습 정리|월간 비즈니스 리뷰\(mbr\) 에이전트 만들기|지식 소스, 도구, 토픽으로 지능형 경비 청구 지원 에이전트 생성 및 배포)/i.test((heading.textContent || '').trim());
+            });
+            toc.innerHTML = '';
+
+            if (!headings.length) {
+                const empty = document.createElement('div');
+                empty.className = 'toc-empty';
+                empty.textContent = '표시할 섹션이 없습니다.';
+                toc.appendChild(empty);
+                return;
+            }
+
+            const slugCounts = {};
+            const slugify = function (text) {
+                return text
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^\w\u3131-\uD79D\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+            };
+
+            const makeId = function (text) {
+                let base = slugify(text) || 'section';
+                slugCounts[base] = (slugCounts[base] || 0) + 1;
+                return slugCounts[base] === 1 ? base : `${base}-${slugCounts[base]}`;
+            };
+
+            headings.forEach(function (heading) {
+                if (!heading.id) {
+                    heading.id = makeId(heading.textContent || 'section');
+                }
+
+                const link = document.createElement('a');
+                if (heading.tagName === 'H1') {
+                    link.className = 'toc-link toc-h2';
+                } else if (heading.tagName === 'H3') {
+                    link.className = 'toc-link toc-h3';
+                } else {
+                    link.className = 'toc-link toc-h2';
+                }
+                link.href = `#${heading.id}`;
+                link.textContent = heading.textContent || '';
+                toc.appendChild(link);
+            });
+        });
+    </script>
+    {% else %}
+    <div class="container">
+        {% if page.url != '/' %}
+        <div class="page-top-actions">
+            <a class="home-button" href="{{ '/' | relative_url }}">홈으로 가기</a>
+        </div>
+        {% endif %}
+        {{ content }}
+    </div>
+    {% endif %}
+</body>
+</html>
