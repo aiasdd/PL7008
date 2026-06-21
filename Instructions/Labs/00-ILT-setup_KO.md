@@ -39,7 +39,7 @@ lab:
    - **유형**: Developer
    - **지역**: **대한민국**
    - **Name**: *Student00_env* <-00을 제공한 실습 계정 ID의 번호로 바꿉니다. (예: Student60_env)>
-   ![alt text](image-21.png)
+   ![alt text](../../Allfiles/image-21.png)
 
 2. **다음**을 선택합니다.
 
@@ -47,27 +47,27 @@ lab:
    - **언어**: 한국어(대한민국)
    - **통화**: KRW
    - **샘플 앱 및 데이터 배포**: 예
-   ![alt text](image-22.png)
+   ![alt text](../../Allfiles/image-22.png)
 
 4. **저장**을 선택하고 환경 상태가 **준비**가 될 때까지 기다립니다(화면 갱신을 위해 **Refresh** 버튼을 사용할 수 있습니다).
    > [!NOTE]
    > 테넌트 구성에 따라 환경 프로비저닝에는 몇 분이 소요될 수 있습니다.
 
    Power Platform 관리 센터에서 환경이 생성되었습니다.
-   ![alt text](image-23.png)
+   ![alt text](../../Allfiles/image-23.png)
 
 ### 작업 1.2 - 솔루션 만들기
 
 1. Copilot Studio (https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
 
-   ![alt text](image-24.png)
+   ![alt text](../../Allfiles/image-24.png)
 
 1. 왼쪽 탐색 창에서 줄임표(**...**)를 선택한 다음 **솔루션**을 선택합니다.
-   ![alt text](image-25.png)
+   ![alt text](../../Allfiles/image-25.png)
 
 1. *Default Solution* 및 *Common Data Services Default Solution*을 포함한 여러 솔루션이 표시되는지 확인합니다.
 
-   ![alt text](image-26.png)
+   ![alt text](../../Allfiles/image-26.png)
 
 1. **+ 새 솔루션**을 선택합니다.
 
@@ -83,7 +83,7 @@ lab:
 
 1. **접두사**에 `fab`를 입력합니다.
 
-   ![alt text](image-27.png)
+   ![alt text](../../Allfiles/image-27.png)
 
 1. **저장**를 선택합니다.
 
@@ -94,15 +94,16 @@ lab:
    > [!NOTE]
    > 이를 선호 솔루션으로 설정하면 이후 실습에서 만드는 새 자산이 기본적으로 Lab Exercises 솔루션에 추가됩니다.
 
-   ![alt text](image-28.png)
+   ![alt text](../../Allfiles/image-28.png)
 
 1. **만들기**를 선택합니다.
 
 1. **솔루션** 이 생성된것을 확인하고 뒤로 가기를 클릭하여 솔루션 화면으로 이동합니다.
-![alt text](image-29.png)
+![alt text](../../Allfiles/image-29.png)
 
 1. 생성된 솔루션을 다시 한번 확인하고 브라우저를 닫습니다. 
-![alt text](image-30.png)
+![alt text](../../Allfiles/image-30.png)
 
 1. **Copilot Studio** 페이지를 새로 고칩니다.
 이제 작업에 사용할 Power Platform 환경과 솔루션이 준비되었습니다.
+

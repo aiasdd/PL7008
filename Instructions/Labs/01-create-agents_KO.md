@@ -80,36 +80,36 @@ lab:
 
 1. **에이전트 탬플릿으로 시작** 섹션에서 **안전한 여행(Safe Travels)** 템플릿을 선택합니다.
 
-   ![alt text](image-31.png)
+   ![alt text](../../Allfiles/image-31.png)
 
 1. 페이지 오른쪽 위에서 줄임표(**...**)를 선택하고 **고급 설정 편집**을 선택합니다.
-![alt text](image-32.png)
+![alt text](../../Allfiles/image-32.png)
 
 1. 선택된 *Solution*이 **Lab Exercises**이고 *스키마 이름* 접두사가 **fab**인지 확인한 뒤 **취소**를 선택합니다. 만약, 다른 솔루션이 선택되어있을 경우 **Lab Exercises**를 선택하고, *스키마 이름* 접두사가 **fab**인지 확인 후 저장합니다.
-![alt text](image-33.png)
+![alt text](../../Allfiles/image-33.png)
 
 1. 페이지 오른쪽 위에서 **만들기**를 선택합니다.
-![alt text](image-34.png)
+![alt text](../../Allfiles/image-34.png)
 
 1. **개요** 탭에서 **에이전트 상태**가 **Ready**인지 확인하고, **이름**, **설명**, **에이전트 지침**을 검토합니다.
-![alt text](image-35.png)
+![alt text](../../Allfiles/image-35.png)
 
 1. **참조 자료** 탭을 선택해 지식 소스로 추가된 공개 웹사이트를 검토합니다.
 
 1. 페이지 오른쪽 위에서 **설정** 버튼을 선택합니다.
-![alt text](image-36.png)
+![alt text](../../Allfiles/image-36.png)
 
 1. **오케스트레이션**이 **아니요 - 클래식 오케스트레이션을 사용하여 에이전트의 토픽에 정의된 콘텐츠와 동작에 대한 응답을 제한합니다.**로 설정되어 있는지 확인합니다.
 
 1. Settings 페이지 오른쪽 위에서 **X**를 선택해 설정을 닫습니다.
-![alt text](image-38.png)
+![alt text](../../Allfiles/image-38.png)
 
 1. **토픽** 탭을 선택하고 **시스템** 필터를 선택합니다.
-![alt text](image-39.png)
+![alt text](../../Allfiles/image-39.png)
 
 1. **Conversational Start** 토픽을 선택합니다. **Message** 노드의 내용을 검토합니다. 메시지 내용이 **Test** 창에 표시되는지 확인합니다.
 
-   ![alt text](image-40.png)
+   ![alt text](../../Allfiles/image-40.png)
 
 
 ### 작업 1.2 - 에이전트 테스트
@@ -118,7 +118,7 @@ lab:
 
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **토픽 간 추적**을 **On**으로 전환합니다.
 
-   ![alt text](image-41.png)
+   ![alt text](../../Allfiles/image-41.png)
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -127,25 +127,25 @@ lab:
    ```
 
    **Greeting** 토픽이 선택되고, Greeting 토픽의 메시지 노드에서 응답이 제공되어야 합니다.
-   ![alt text](image-42.png)
+   ![alt text](../../Allfiles/image-42.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
-![alt text](image-43.png)
+![alt text](../../Allfiles/image-43.png)
 
 1. 다음 프롬프트를 입력합니다:
 
    ```prompt
    What can I ask?
    ```
-![alt text](image-44.png)
+![alt text](../../Allfiles/image-44.png)
    **What Can I Ask** 토픽이 트리거되어, 대화를 이어갈 수 있는 여러 프롬프트 옵션이 제시되어야 합니다.
-   ![alt text](image-45.png)
+   ![alt text](../../Allfiles/image-45.png)
 
 1. **How do I get a passport?** 옵션을 선택합니다.
 
    응답은 구성된 지식 소스를 사용해 생성되며 Conversational boosting 시스템 토픽을 참조할 수 있습니다.
 
-   ![alt text](image-46.png)
+   ![alt text](../../Allfiles/image-46.png)
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -154,14 +154,14 @@ lab:
    ```
 
    **Fallback** 토픽이 선택되고, 에이전트가 질문을 다시 표현해보라고 안내해야 합니다.
-   ![alt text](image-47.png)
+   ![alt text](../../Allfiles/image-47.png)
    
 
 1. 같은 프롬프트를 두 번 더 반복합니다.
   환경 및 오케스트레이션 동작에 따라 에이전트가 Fallback 또는 Escalate 시스템 토픽을 트리거할 수 있습니다.
 
 1. 왼쪽 탐색 메뉴에서 **에이전트**를 선택합니다. **안전한 여행** 에이전트가 목록에 표시되어야 합니다.
-![alt text](image-48.png)
+![alt text](../../Allfiles/image-48.png)
 
 ## 실습 2 - Copilot을 사용해 에이전트 만들기
 
@@ -175,7 +175,7 @@ lab:
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **에이전트 설정** 아이콘(톱니바퀴 이미지)을 선택합니다.
 
-   ![alt text](image-49.png)
+   ![alt text](../../Allfiles/image-49.png)
 
 1. 에이전트 기본 언어는 **한국어 (대한민국)**로 유지합니다.
 
@@ -184,7 +184,7 @@ lab:
 1. *Schema name*에 `govbenefitsagent`를 입력합니다.
 
 1. **Update**를 선택합니다.
-![alt text](image-50.png)
+![alt text](../../Allfiles/image-50.png)
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
@@ -193,11 +193,11 @@ lab:
    ```
 
 1. **전송** 아이콘을 선택합니다.
-![alt text](image-51.png)
+![alt text](../../Allfiles/image-51.png)
 
    에이전트가 생성됩니다.
 
-  ![alt text](image-53.png)
+  ![alt text](../../Allfiles/image-53.png)
 
    에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
@@ -216,7 +216,7 @@ lab:
    보건복지부, 한국사회보장정보원에서 제공하는 대한민국 대표 복지 프로그램에 대한 정보를 제공합니다. 국민이 받을 수 있는 다양한 복지 혜택과 관련된 질문에 답변하고 안내하는 에이전트입니다.
    ```
 
-![alt text](image-54.png)
+![alt text](../../Allfiles/image-54.png)
 
 1. **지침** 섹션에서 **편집**을 선택합니다.
 
@@ -236,22 +236,22 @@ lab:
 1. **프롬프트**에 `이용 가능한 의료 지원 프로그램은 무엇인가요?`를 입력합니다.
 
 1. **저장**를 선택합니다.
-![alt text](image-55.png)
+![alt text](../../Allfiles/image-55.png)
 
 ### 작업 2.3 - 공개 웹사이트를 지식 소스로 추가
 
 1. **참조 자료** 탭을 선택합니다.
 
 1. **+ 참조 자료 추가**를 선택합니다.
-![alt text](image-56.png)
+![alt text](../../Allfiles/image-56.png)
 
 1. **공개 웹 사이트**를 선택합니다.
-![alt text](image-57.png)
+![alt text](../../Allfiles/image-57.png)
 
 1. **공개 웹 사이트 링크** 텍스트 상자에 `https://www.bokjiro.go.kr`를 입력합니다. 이 공식 정부 공개 웹사이트는 에이전트에 유용한 복지 프로그램 정보를 포함합니다.
 
 1. **추가**를 선택합니다.
-![alt text](image-58.png)
+![alt text](../../Allfiles/image-58.png)
 - **이름**:
 ```
 정부 복지 정보
@@ -260,9 +260,9 @@ lab:
 ```
 이 자료는 복지 혜택, 복지 시설 및 기본적인 생활비를 지원하는 정부 프로그램에 대한 정보를 담고 있습니다.
 ```
-![alt text](image-59.png)
+![alt text](../../Allfiles/image-59.png)
 1. **에이전트에 추가**를 선택합니다.
-![alt text](image-60.png)
+![alt text](../../Allfiles/image-60.png)
 
    > [!NOTE]
    > 공개 웹사이트 인덱싱에는 몇 분이 걸릴 수 있습니다. 응답이 불완전하면 몇 분 기다린 후 에이전트를 다시 테스트하세요.
@@ -270,7 +270,7 @@ lab:
 ### 작업 2.4 - 에이전트 설정
 
 1. 페이지 오른쪽 위에서 **설정** 버튼을 선택합니다.
-![alt text](image-61.png)
+![alt text](../../Allfiles/image-61.png)
 
 1. **오케스트레이션**이  **예 - 응답은 사용 가능한 도구와 참조 자료를 적절히 활용해 동적으로 진행됩니다.** 로 설정되어 있는지 확인합니다.
 
@@ -280,27 +280,27 @@ lab:
    - 프로세스 관련 답변은 한 문장으로 작성합니다.
    - 데이터 관련 답변은 글머리 기호를 사용하여 작성합니다.
    ```
-   ![alt text](image-62.png)
+   ![alt text](../../Allfiles/image-62.png)
 1. **지식** 섹션에서 **근거 없는 응답 허용하기*를 **끄기**로 설정합니다.
 
 1. **지식** 섹션에서 **웹의 정보 사용**를 **끄기**으로 설정합니다.
 
 1. **저장**를 선택합니다.
-![alt text](image-75.png)
+![alt text](../../Allfiles/image-75.png)
 
 1. **설정** 페이지 왼쪽에서 **보안**을 선택합니다.
 
 1. **인증**을 선택합니다.
-![alt text](image-64.png)
+![alt text](../../Allfiles/image-64.png)
 
 1. Demo website 채널 테스트를 단순화하기 위해 이 실습에서는 **인증 없음**을 선택합니다.
-![alt text](image-65.png)
+![alt text](../../Allfiles/image-65.png)
 
 1. **저장**를 선택한 후 다시 한 번 **저장**를 선택합니다.
-![alt text](image-66.png)
+![alt text](../../Allfiles/image-66.png)
 
 1. **설정** 페이지 오른쪽 위에서 **X**를 선택해 설정을 닫습니다.
-![alt text](image-67.png)
+![alt text](../../Allfiles/image-67.png)
 
 ### 작업 2.5 - 에이전트 테스트
 
@@ -308,10 +308,10 @@ lab:
 
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
 
-   ![alt text](image-68.png)
+   ![alt text](../../Allfiles/image-68.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
-![alt text](image-69.png)
+![alt text](../../Allfiles/image-69.png)
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -328,11 +328,11 @@ lab:
 ### 작업 2.6 - 에이전트를 Demo website에 게시
 
 1. 에이전트의 작업 표시줄에서 **게시** 버튼을 선택하고, 다시 **게시**를 선택합니다.
-![alt text](image-70.png)
+![alt text](../../Allfiles/image-70.png)
 
 1. **채널** 탭을 선택합니다.
 
-   ![alt text](image-71.png)
+   ![alt text](../../Allfiles/image-71.png)
 
 1. **데모 웹 사이트** 채널을 선택합니다. 이 채널은 에이전트 환경을 빠르게 테스트하고 미리보기하는 데 유용합니다.
 
@@ -350,7 +350,7 @@ lab:
 1. **저장**를 선택합니다.
 
 1. **데모 웹사이트 열기**를 선택합니다.
-![alt text](image-77.png)
+![alt text](../../Allfiles/image-77.png)
 
 1. 다음 프롬프트를 입력합니다:
 
@@ -359,9 +359,10 @@ lab:
    ```
 
    응답은 구성된 지식 소스 정보를 참조해야 하며, 인용 또는 출처 참조를 포함할 수 있습니다.
-![alt text](image-76.png)
+![alt text](../../Allfiles/image-76.png)
 1. 몇 가지 질문을 더 시도하고 에이전트 응답을 확인합니다. 기능은 제한적일 수 있지만 복지 관련 질문에 대해 관련성 있는 답변을 제공할 수 있어야 합니다.
 
 ## 요약
 
 이 실습에서는 에이전트를 만들고 지침을 사용해 기대 동작을 정의했습니다. 또한 공개 웹사이트를 지식 소스로 추가하고, 해당 지식 소스가 답변에 도움이 되는 질문으로 에이전트를 테스트했습니다. 이러한 지침은 생성 응답을 안내하지만, 이후 실습에서 토픽, 지식, 도구를 사용해 동작을 제어하는 방법을 확인하게 됩니다.
+

@@ -88,7 +88,7 @@ lab:
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **에이전트 설정** 아이콘(톱니바퀴 이미지)을 선택합니다.
 
-   ![alt text](image-78.png)
+   ![alt text](../../Allfiles/image-78.png)
 
 1. 에이전트 기본 언어는 **한국어 (대한민국)**로 유지합니다.
 
@@ -105,7 +105,7 @@ lab:
    ```
 
 1. **전송** 아이콘을 선택합니다.
-![alt text](image-80.png)
+![alt text](../../Allfiles/image-80.png)
 
    에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
@@ -123,7 +123,7 @@ lab:
 
 1. **에스컬레이션** 토픽의 **설정**을 **끄기**로 전환합니다.
 
-   ![alt text](image-81.png)
+   ![alt text](../../Allfiles/image-81.png)
 
 사용하지 않는 토픽을 비활성화하면 여러 토픽 또는 생성 응답이 동일한 요청을 처리할 수 있는 상황에서 모호성을 줄일 수 있습니다.
 
@@ -135,7 +135,7 @@ lab:
 
 1. **+ 토픽 추가**를 선택하고 **Copilot을 사용하여 설명에서 추가**를 선택합니다. 새 대화 상자가 열립니다.
 
-   ![alt text](image-82.png)
+   ![alt text](../../Allfiles/image-82.png)
 
 
 1. 텍스트 상자에 다음을 입력합니다.
@@ -149,11 +149,11 @@ lab:
 ```
 고객에게 이름과 이메일 주소를 물어보세요.
 ```
-![alt text](image-83.png)
+![alt text](../../Allfiles/image-83.png)
 1. **만들기**를 선택합니다.
 
 1. 고객정보 토픽이 생성되어 열리면 **저장**을 선택합니다. 
-![alt text](image-84.png)
+![alt text](../../Allfiles/image-84.png)
 
 ### 작업 3.2 - 자연어로 노드 편집
 
@@ -165,7 +165,7 @@ lab:
 
 1. 두 번째 **질문** 노드 **이메일 주소를 입력해주세요.** 를 선택합니다.
 
-   ![alt text](image-85.png)
+   ![alt text](../../Allfiles/image-85.png)
 
 1. **Copilot으로 편집** 패널의 **무엇을 하시겠습니까?** 필드에 다음 텍스트를 입력합니다:
 
@@ -173,9 +173,9 @@ lab:
       두 번째 질문 노드의  "이메일 주소를 입력해주세요."라는 문구를 다음과 같이 업데이트 합니다. 
       이전 노드의 Name 변수를 받아서 감사 인사를 하고, 이어지는 문장으로 이메일 주소를 묻는 질문으로 진행합니다.
    ```
-   ![alt text](image-89.png)
+   ![alt text](../../Allfiles/image-89.png)
 1. **업데이트**를 선택합니다.
-   ![alt text](image-88.png)
+   ![alt text](../../Allfiles/image-88.png)
 
    > [!NOTE]
    > 업데이트된 메시지는 이전 질문 노드에서 수집한 **Name** 변수를 참조해야 하며, 스크린샷과 유사해야 합니다. ** Copilot으로 편집**이 질문 노드를 올바르게 업데이트하지 못하면 **실행 취소**를 선택하고 다른 프롬프트로 다시 시도하세요.
@@ -193,16 +193,16 @@ lab:
    ```
    적응형 카드를 추가하여 수집된 정보를 요약하세요.
    ```
-   ![alt text](image-90.png)
+   ![alt text](../../Allfiles/image-90.png)
    **업데이트**를 선택합니다.
 
 1. 토픽 끝에 Adaptive Card가 포함된 메시지 노드가 추가됩니다.
 
-   ![alt text](image-91.png)
+   ![alt text](../../Allfiles/image-91.png)
 
 1. Adaptive Card의 **미디어** 상자를 선택합니다. 페이지 오른쪽에 적응형 카드 속성이 표시되어야 합니다.
 
-   ![alt text](image-93.png)
+   ![alt text](../../Allfiles/image-93.png)
 
    Adaptive Card 수식은 위와 유사해야 합니다. 수식이 크게 다르면 다음 수식으로 교체할 수 있습니다:
 
@@ -253,11 +253,11 @@ lab:
 사용자가 입력한 정보가 정확한지 여부를 '예' 또는 '아니오' 선택지로 묻는 다중 선택 옵션 질문을 아래에 추가하세요.
 
 1. **업데이트**를 선택합니다.
-![alt text](image-95.png)
+![alt text](../../Allfiles/image-95.png)
 
 1. 사용자 선택 옵션이 있는 새 질문 노드가 토픽 끝에 추가됩니다.
 
-   ![alt text](image-97.png)
+   ![alt text](../../Allfiles/image-97.png)
 
 1. **저장**를 선택합니다.
 
@@ -275,14 +275,14 @@ lab:
 
 1. 세 개 토픽 변수의 오른쪽 체크박스를 선택합니다. 이렇게 하면 에이전트의 다른 토픽에서도 변수를 사용할 수 있습니다.
 
-   ![alt text](image-98.png)
+   ![alt text](../../Allfiles/image-98.png)
 
 1. **저장**을 선택합니다.
 1. 현재까지 작성한 **고객 정보** 토픽을 확인합니다.
    - 고객 이름과 이메일을 묻는 질문 노드가 있어야 합니다.
    - 고객이 입력한 정보를 요약하는 적응형 카드 노드가 있어야 합니다.
    - 정보가 정확한지 묻는 객관식 질문 노드가 있어야 합니다.
-   ![alt text](image-99.png)
+   ![alt text](../../Allfiles/image-99.png)
 
 
 ## 실습 5 - 빈 토픽에서 시작해 만들기
@@ -294,7 +294,7 @@ lab:
 1. **토픽** 탭을 선택합니다.
 
 1. **+ 토픽 추가**을 선택하고 **새로 시작**를 선택합니다.
-![alt text](image-100.png)
+![alt text](../../Allfiles/image-100.png)
 
 1. **세부 정보** 아이콘을 선택해 **토픽 세부 정보** 창을 열고 다음을 입력합니다:
 - **이름**:
@@ -308,7 +308,7 @@ lab:
 ```
 
 
-   ![alt text](image-101.png)
+   ![alt text](../../Allfiles/image-101.png)
 
 1. **저장**을 선택합니다.
 
@@ -322,14 +322,14 @@ lab:
 ### 작업 5.3 - 메시지 노드 추가
 
 1. 트리거 노드 아래의 **+** 아이콘을 선택하고 **메시지 보내기**를 선택합니다.
-![alt text](image-102.png)
-![alt text](image-103.png)
+![alt text](../../Allfiles/image-102.png)
+![alt text](../../Allfiles/image-103.png)
 
 1. **메시지 입력** 필드에 다음 텍스트를 입력합니다:
 ```
 안녕하세요, 수리 견적 예약을 도와드리겠습니다.
 ```
-![alt text](image-105.png)
+![alt text](../../Allfiles/image-105.png)
 
 1. **저장**을 선택합니다.
 
@@ -339,46 +339,46 @@ lab:
 
 1. **토픽 관리** > **다른 토픽으로 이동** > **고객 정보**를 선택합니다.
 
-   ![alt text](image-106.png)
+   ![alt text](../../Allfiles/image-106.png)
 
 1. 토픽 노드가 추가된 것을 확인 하고 **저장**을 선택합니다.
-![alt text](image-107.png)
+![alt text](../../Allfiles/image-107.png)
 
 ### 작업 5.5 - 조건 노드 추가
 
 1. **토픽** 노드 아래의 **+** 아이콘을 선택하고 **조건 추가**을 선택합니다.
-![alt text](image-108.png)
+![alt text](../../Allfiles/image-108.png)
 
 1. **조건** 노드에서 **InfoConfirmed (or DetailsCorrect..)** 변수를 선택합니다. (변수 이름은 다를 수 있습니다.)
-![alt text](image-109.png)
+![alt text](../../Allfiles/image-109.png)
 
 1. **다음과 같음**를 선택합니다.
 
 1. **예**를 선택합니다.
 
-   ![alt text](image-110.png)
+   ![alt text](../../Allfiles/image-110.png)
 
 1. 조건 구성을 다시 한 번 검토 후 **저장**을 선택합니다.
-![alt text](image-111.png)
+![alt text](../../Allfiles/image-111.png)
 
 ### 작업 5.6 - 질문 노드 추가
 
 1. 왼쪽 **조건** 노드 아래의 **+** 아이콘을 선택하고 **질문 하기**을 선택합니다.
-![alt text](image-112.png)
+![alt text](../../Allfiles/image-112.png)
 
 1. **메시지 입력** 필드에 다음 텍스트를 입력합니다:
 ```
 수리 견적을 예약하고 싶은 날짜와 시간은 언제입니까?
 ```
-![alt text](image-113.png)
+![alt text](../../Allfiles/image-113.png)
    
 
 1. **식별**에서 **날짜 및 시간**을 선택합니다.
-![alt text](image-114.png)
+![alt text](../../Allfiles/image-114.png)
 
 1. **다음 이름으로 사용자 응답 저장**의 변수를 선택하고 **변수 이름**에 **`VisitDateTime`**을 입력합니다.
-![alt text](image-115.png)
-![alt text](image-116.png)
+![alt text](../../Allfiles/image-115.png)
+![alt text](../../Allfiles/image-116.png)
 1. 왼쪽 **질문** 노드 아래의 **+** 아이콘을 선택하고 **메시지 보내기**를 선택합니다.
 
 1. **메시지 입력** 필드에 다음 텍스트를 입력합니다:
@@ -387,13 +387,13 @@ lab:
    좋아요! 제가 일정을 잡아드릴게요.
    ```
 
-   ![alt text](image-117.png)
+   ![alt text](../../Allfiles/image-117.png)
 1. 해당 메시지 노드 뒤에 **토픽 관리** > **모든 토픽 종료**를 선택해 토픽 종료 노드를 추가합니다.
-![alt text](image-118.png)
+![alt text](../../Allfiles/image-118.png)
 
 1. **저장**을 선택합니다.
 1. 토픽이 다음과 같은 흐름을 따르는지 확인합니다:
-![alt text](image-119.png)
+![alt text](../../Allfiles/image-119.png)
 
 ### 작업 5.7 - 에이전트 지침 업데이트
 
@@ -403,8 +403,8 @@ lab:
 
 1. 에이전트 지침의 *## 기술* 아래에 `- 수리 견적이 필요할 때 `를 입력하고 `/`를 입력해 **수리 견적** 토픽을 선택한 뒤, `을 사용`을 입력합니다.
 
-   ![alt text](image-120.png)
-   ![alt text](image-121.png)
+   ![alt text](../../Allfiles/image-120.png)
+   ![alt text](../../Allfiles/image-121.png)
 
 1. **저장**을 선택합니다.
 
@@ -418,7 +418,7 @@ lab:
 
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
 
-   ![alt text](image-126.png)
+   ![alt text](../../Allfiles/image-126.png)
 
 1. **테스트 창** 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -430,14 +430,14 @@ lab:
 
 1. 대화가 고객 이름을 묻는 것으로 시작되어야 합니다.
 
-   ![alt text](image-124.png)
+   ![alt text](../../Allfiles/image-124.png)
 
 1. 이름을 입력합니다.
 
 1. 이메일 주소를 입력합니다.
 
 1. 정보를 입력하면, **적응형 카드**가 입력한 정보를 표시하고 정보가 맞는지 묻습니다. **예**를 선택합니다.
-![alt text](image-128.png)
+![alt text](../../Allfiles/image-128.png)
 
    대화 흐름이 다시 **수리 견적** 토픽으로 돌아오는지 확인합니다.
 
@@ -445,10 +445,11 @@ lab:
 
    에이전트가 수리 견적 예약이 완료되었음을 알리는 확인 메시지를 응답해야 합니다.
    예시는 다음과 같습니다.
-   ![alt text](image-127.png)
+   ![alt text](../../Allfiles/image-127.png)
    토픽간 추적 활성화 시 예시 
-   ![alt text](image-125.png)
+   ![alt text](../../Allfiles/image-125.png)
 
 ## 요약
 
 이 실습에서는 고객 정보 및 수리 견적 토픽을 만들고, 생성형 AI를 활성화한 상태에서 노드를 사용해 구조화된 단계별 상호작용을 구현했습니다. 또한 변수 범위를 구성해 고객 정보에서 수집한 정보를 여러 토픽에서 사용할 수 있도록 했습니다.
+

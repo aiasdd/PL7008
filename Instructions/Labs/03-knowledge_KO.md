@@ -78,23 +78,23 @@ lab:
 
 1. 페이지 상단에서 이 실습에 사용할 환경인지 확인합니다.
 
-   ![alt text](image-129.png)
+   ![alt text](../../Allfiles/image-129.png)
 
 1. **Maker portal** 왼쪽 탐색 메뉴에서 **테이블**을 선택합니다.
 
 1. **Copilot 시작** 타일을 선택합니다.
-![alt text](image-130.png)
+![alt text](../../Allfiles/image-130.png)
 
 1. **Copilot 시작** 대화 상자에서 **테이블 옵션** 아이콘을 선택하고 **단일 테이블**을 선택합니다.
 
-   ![alt text](image-131.png)
+   ![alt text](../../Allfiles/image-131.png)
 
 1. *Copilot으로 빌드하려는 테이블을 설명하세요....* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
    ```prompt
    경비 청구 내역을 저장하고 처리하는 테이블로, 경비 제목, 경비 유형(숙박, 식사, 접대비 또는 교통비), 경비 발생일, 제출일, 승인일, 청구 금액, 승인 금액 및 경비 상태(제출됨, 검토 중, 승인됨, 거부됨)를 포함합니다.
    ```
-   ![alt text](image-132.png)
+   ![alt text](../../Allfiles/image-132.png)
 1. **생성**을 선택합니다.
   
     > [!NOTE]
@@ -102,10 +102,10 @@ lab:
 
 1. 테이블이 생성됩니다. 테이블 이름을 메모해 둡니다.
 
-   ![alt text](image-133.png)
+   ![alt text](../../Allfiles/image-133.png)
 
 1. **저장 후 종료**를 선택하고, 다시 **저장 후 종료**를 선택합니다.
-![alt text](image-134.png)
+![alt text](../../Allfiles/image-134.png)
 
 ## 실습 2 - 에이전트 만들기
 
@@ -128,7 +128,7 @@ lab:
 1. *스키마 이름*에 `expenseagent`를 입력합니다.
 
 1. **업데이트**를 선택합니다.
-![alt text](image-135.png)
+![alt text](../../Allfiles/image-135.png)
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
@@ -137,7 +137,7 @@ lab:
    ```
 
 1. **전송** 아이콘을 선택합니다.
-![alt text](image-136.png)
+![alt text](../../Allfiles/image-136.png)
 
    에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
@@ -153,16 +153,16 @@ lab:
 
 1. **참조 자료** 탭을 선택하여 에이전트에 정의된 지식 소스를 확인합니다(현재는 없어야 함).
 
-   ![alt text](image-137.png)
+   ![alt text](../../Allfiles/image-137.png)
 
 1. **+ 참조 자료 추가**를 선택하고, 에이전트에 추가할 수 있는 다양한 지식 소스 유형을 확인합니다.
 
-   ![alt text](image-138.png)
+   ![alt text](../../Allfiles/image-138.png)
 
 1. **파일 업로드** 섹션에서 **선택하여 찾아보기**를 사용해 앞에서 다운로드한 경비처리 가이드 문서를 업로드하고 **에이전트에 추가**를 선택합니다.
 
-   ![alt text](image-139.png)
-   ![alt text](image-140.png)
+   ![alt text](../../Allfiles/image-139.png)
+   ![alt text](../../Allfiles/image-140.png)
 
 > [!NOTE]
 > 파일 업로드 후 Copilot Studio가 인덱싱을 시작합니다. 10분 이상 소요될 수 있으므로 다음 실습 후 다시 확인합니다.
@@ -174,7 +174,7 @@ lab:
 1. **+ 참조 자료 추가**를 선택합니다.
 
 1. **공개 웹 사이트**를 선택합니다.
-![alt text](image-141.png)
+![alt text](../../Allfiles/image-141.png)
 
 1. **공개 웹 사이트** 텍스트 상자에 **`https://taxlaw.nts.go.kr/`**를 입력합니다. 이 국세청 법령정보시스템은 에이전트에 유용한 세금 신고 시 경비·여비·식비·접대비 등 처리 기준 정보를 포함합니다.
 
@@ -183,7 +183,7 @@ lab:
 1. *이름*에 `경비, 접대비 및 차량 관련 비용 | 국세법령정보시스템`를 입력합니다.
 
 1. *설명*에 `이 자료는 여행 경비 환급에 관한 정보를 담고 있습니다.`를 입력합니다.
-   ![alt text](image-155.png)
+   ![alt text](../../Allfiles/image-155.png)
 1. **에이전트에 추가**를 선택합니다.
 > [!NOTE]
 > 공개 웹사이트 인덱싱에는 몇 분이 걸릴 수 있습니다. 응답이 불완전하면 몇 분 기다린 후 에이전트를 다시 테스트하세요.
@@ -195,15 +195,15 @@ lab:
 1. **+ 참조 자료 추가**를 선택합니다.
 
 1. **Dataverse**를 선택합니다.
-![alt text](image-143.png)
+![alt text](../../Allfiles/image-143.png)
 
 1. 실습 2에서 생성한 *경비청구* 테이블을 검색해 선택합니다.
 
-   ![alt text](image-144.png)
+   ![alt text](../../Allfiles/image-144.png)
 
 1. **에이전트에 추가**를 선택합니다.
 
-   ![alt text](image-145.png)
+   ![alt text](../../Allfiles/image-145.png)
 
 ### 작업 3.4 - Dataverse 지식 소스 구성
 
@@ -211,10 +211,10 @@ lab:
 
 1. Dataverse 테이블의 줄임표(**⋮**)를 선택하고 **편집**을 선택합니다.
 
-   ![alt text](image-146.png)
+   ![alt text](../../Allfiles/image-146.png)
 
 1. **세부 정보** 탭에서 *이름*에 `경비 청구 데이터`를 입력합니다.
-![alt text](image-147.png)
+![alt text](../../Allfiles/image-147.png)
 
 1. **동의어** 탭을 선택합니다.
 
@@ -222,7 +222,7 @@ lab:
 
 1. `경비 항목` ,`비용 유형` ,`비용 항목`, `비용 카테고리`, `경비 카테고리`, `비용 분류`를 입력하고 **추가**를 선택합니다.
 
-   ![alt text](image-148.png)
+   ![alt text](../../Allfiles/image-148.png)
 
 1. **완료**를 선택합니다.
 
@@ -233,7 +233,7 @@ lab:
 1. *설명 입력*에 `팁이나 수수료와 같은 주요 비용 외에 발생하는 사소하지만 필요한 경비.`를 입력합니다.
 
 1. **추가** > **저장**를 선택합니다.
-![alt text](image-149.png)
+![alt text](../../Allfiles/image-149.png)
 
 ### 작업 3.5 - 파일 인덱싱 상태 확인
 
@@ -249,7 +249,7 @@ lab:
 
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
 
-   ![alt text](image-150.png)
+   ![alt text](../../Allfiles/image-150.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -261,7 +261,7 @@ lab:
 
 1. 응답은 업로드한 경비처리_가이드 문서를 근거로 생성되어야 하며, 다른 구성된 지식 소스를 참조할 수도 있습니다.
 
-   ![alt text](image-153.png)
+   ![alt text](../../Allfiles/image-153.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -274,7 +274,7 @@ lab:
 
 1. 에이전트는 모든 지식 소스를 검색하고 Dataverse 테이블을 사용해 응답을 생성해야 합니다.
 
-   ![alt text](image-152.png)
+   ![alt text](../../Allfiles/image-152.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -286,7 +286,7 @@ lab:
    
 
 1. 에이전트는 모든 지식 소스를 검색하고 공개 웹사이트를 사용해 응답을 생성해야 합니다.
-![alt text](image-156.png)
+![alt text](../../Allfiles/image-156.png)
   
 
 ## 실습 4 - 생성형 AI 설정
@@ -296,16 +296,16 @@ lab:
 ### 작업 4.1 - 에이전트 지식 설정 구성
 
 1. 에이전트 페이지 오른쪽 위에서 **설정** 버튼을 선택합니다.
-![alt text](image-157.png)
+![alt text](../../Allfiles/image-157.png)
 
 1. **오케스트레이션**이 **예 - 응답은 사용 가능한 도구와 참조 자료를 적절히 활용해 동적으로 진행됩니다.** 로 설정되어 있는지 확인합니다.
-![alt text](image-158.png)
+![alt text](../../Allfiles/image-158.png)
 
 1. **지식** 섹션에서 **근거 없는 응답 허용하기**를 **끄기**로 설정합니다.
 
 1. **지식** 섹션에서 **웹의 정보 사용**를 **끄기**로 설정합니다.
 
-   ![alt text](image-159.png)
+   ![alt text](../../Allfiles/image-159.png)
 
 1. **저장**를 선택합니다.
 
@@ -320,21 +320,21 @@ lab:
 1. **시스템** 토픽으로 필터링합니다.
 
 1. **생성형 답변 사용** 토픽을 엽니다.
-![alt text](image-160.png)
+![alt text](../../Allfiles/image-160.png)
 
 1. **Copilot으로 대화를 부스팅시켜보세요** 대화 상자가 표시되면 **완료**를 선택합니다.
 
 1. **생성형 답변 사용** 노드를 선택합니다.
 
 1. **데이터 원본**의 **편집**을 선택합니다.
-![alt text](image-161.png)
+![alt text](../../Allfiles/image-161.png)
 
 1. **선택한 원본만 검색**를 선택하고 활성화합니다.
 
 1. **경비처리_가이드** 지식 소스를 선택합니다.
-![alt text](image-162.png)
+![alt text](../../Allfiles/image-162.png)
 1. **웹 검색**을 허용합니다.
-![alt text](image-164.png)
+![alt text](../../Allfiles/image-164.png)
 
 1. **저장**를 선택합니다.
 
@@ -343,7 +343,7 @@ lab:
 1. 페이지 오른쪽 위의 **테스트** 아이콘을 선택해 테스트 창을 엽니다.
 
 1. **Test** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **Off**, **토픽 간 추적**를 **On**으로 전환합니다.
-![alt text](image-163.png)
+![alt text](../../Allfiles/image-163.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -355,7 +355,7 @@ lab:
 
 1. 지식 소스는 직접 답을 제공하지 않지만, 에이전트가 생성형 답변으로 웹 검색을 사용해 응답을 생성합니다.
 
-   ![alt text](image-165.png)
+   ![alt text](../../Allfiles/image-165.png)
 
 
 ## 실습 5 - 에이전트를 Microsoft Teams에 게시
@@ -365,15 +365,15 @@ lab:
 ### 작업 5.1 - Microsoft Entra ID 인증
 
 1. 에이전트 페이지 오른쪽 위에서 **설정** 버튼을 선택합니다.
-![alt text](image-167.png)
+![alt text](../../Allfiles/image-167.png)
 
 1. **설정** 페이지 왼쪽에서 **보안**을 선택합니다.
 
 1. **인증**을 선택합니다.
-![alt text](image-168.png)
+![alt text](../../Allfiles/image-168.png)
 
 1. 아직 선택되지 않았다면 **Microsoft로 인증**를 선택합니다.
-![alt text](image-169.png)
+![alt text](../../Allfiles/image-169.png)
 
 1. **저장**를 선택한 후 다시 **저장**를 선택합니다.
 
@@ -382,7 +382,7 @@ lab:
 ### 작업 5.2 - 에이전트 게시
 
 1. 에이전트 페이지에서 **게시**를 선택하고 확인을 위해 다시 **게시**를 선택합니다.
-![alt text](image-170.png)
+![alt text](../../Allfiles/image-170.png)
 
 ### 작업 5.3 - Microsoft Teams 채널
 > [!NOTE]
@@ -391,36 +391,37 @@ lab:
 1. **채널** 탭을 선택합니다.
 
 1. **Microsoft 365 and Microsoft Teams** 타일을 선택합니다.
-   ![alt text](image-171.png)
+   ![alt text](../../Allfiles/image-171.png)
 
 1. **채널 추가**를 선택합니다.
 
-   ![alt text](image-172.png)
+   ![alt text](../../Allfiles/image-172.png)
 
 1. **Teams에서 에이전트 보기**를 선택합니다.
-![alt text](image-173.png)
+![alt text](../../Allfiles/image-173.png)
 
 1. **이 사이트에서 Microsoft Teams을 열려고 합니다** 대화 상자에서 **취소**를 선택합니다.
 
 1. **웹 응용 프로그램을 대시 사용합니다.**를 선택합니다.
-![alt text](image-174.png)
+![alt text](../../Allfiles/image-174.png)
 
 1. Teams에 에이전트를 추가하려면 **추가**를 선택합니다.
 
-   ![alt text](image-175.png)
+   ![alt text](../../Allfiles/image-175.png)
 
 1. **열기**를 선택하고 Teams에서 에이전트가 로드될 때까지 기다립니다.
-![alt text](image-176.png)
+![alt text](../../Allfiles/image-176.png)
 
 1. Microsoft Teams에서 게시된 에이전트를 테스트합니다.
 
-   ![alt text](image-177.png)   
+   ![alt text](../../Allfiles/image-177.png)   
 
 1. **Microsoft 365에서 에이전트 보기**를 선택합니다.
-![alt text](image-178.png)
+![alt text](../../Allfiles/image-178.png)
 
 1. M365 챗에서 에이전트를 테스트합니다.
-![alt text](image-179.png)
+![alt text](../../Allfiles/image-179.png)
 ## 요약
 
 이 실습에서는 에이전트에 지식 소스를 추가하고, 프롬프트 응답 생성 시 지식 소스가 언제 어떻게 사용되는지에 대해 생성형 AI 설정이 미치는 영향을 확인했습니다.
+
