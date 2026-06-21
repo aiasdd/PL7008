@@ -137,7 +137,7 @@ lab:
    ```prompt
    What can I ask?
    ```
-![alt text](../../Allfiles/image-44.png)
+   ![alt text](../../Allfiles/image-44.png)
    **What Can I Ask** 토픽이 트리거되어, 대화를 이어갈 수 있는 여러 프롬프트 옵션이 제시되어야 합니다.
    ![alt text](../../Allfiles/image-45.png)
 
@@ -179,11 +179,11 @@ lab:
 
 1. 에이전트 기본 언어는 **한국어 (대한민국)**로 유지합니다.
 
-1. **Solution** 드롭다운에서 **Lab Exercises**를 선택합니다.
+1. **솔루션** 드롭다운에서 **Lab Exercises**를 선택합니다.
 
-1. *Schema name*에 `govbenefitsagent`를 입력합니다.
+1. *스키마 이름*에 `govbenefitsagent`를 입력합니다.
 
-1. **Update**를 선택합니다.
+1. **업데이트**를 선택합니다.
 ![alt text](../../Allfiles/image-50.png)
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
@@ -196,8 +196,7 @@ lab:
 ![alt text](../../Allfiles/image-51.png)
 
    에이전트가 생성됩니다.
-
-  ![alt text](../../Allfiles/image-53.png)
+   ![alt text](../../Allfiles/image-53.png)
 
    에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
@@ -325,7 +324,7 @@ lab:
 
 1. **테스트** 창을 닫습니다.
 
-### 작업 2.6 - 에이전트를 Demo website에 게시
+### 작업 2.6 - 에이전트를 데모 웹 사이트에 게시
 
 1. 에이전트의 작업 표시줄에서 **게시** 버튼을 선택하고, 다시 **게시**를 선택합니다.
 ![alt text](../../Allfiles/image-70.png)

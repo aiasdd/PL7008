@@ -142,7 +142,7 @@ lab:
 1. **저장**을 선택합니다.
 ![alt text](../../Allfiles/image-189.png)
 
-### 작업 2.2 - Post to Teams 작업
+### 작업 2.2 - Teams에 게시 작업
 
 1. **디자이너** 탭을 선택합니다.
 
@@ -158,9 +158,6 @@ lab:
 
 1. **로그인**을 선택합니다.
 ![alt text](../../Allfiles/image-193.png)
-
-   > [!NOTE]
-   > "Failed to create OAuth connection: ClientWarning: The browser has blocked the connection authentication popup window" 오류가 발생하면, 브라우저 주소 표시줄의 **pop-up blocked** 아이콘을 선택한 다음 **Always allow pop-ups and redirects from `https://copilotstudio.microsoft.com**`**를 선택하세요.
 
 1. 계정을 선택합니다.
 ![alt text](../../Allfiles/image-194.png)
@@ -408,7 +405,10 @@ lab:
 
 1. **토픽 이름 지정** 텍스트 상자에 **`작업 우선순위`**를 입력합니다.
 
-1. **에 대한 토픽 만들기...** 텍스트 상자에 `사용자에게 높음, 중간, 낮음 세 가지 우선순위 목록에서 원하는 우선순위를 선택하도록 요청하세요.`를 입력합니다.
+1. **에 대한 토픽 만들기...** 텍스트 상자에 입력합니다.
+```
+사용자에게 높음, 중간, 낮음 세 가지 우선순위 목록에서 원하는 우선순위를 선택하도록 요청하세요.
+```
 ![alt text](../../Allfiles/image-246.png)
 
 1. **만들기**를 선택합니다.
