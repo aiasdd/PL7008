@@ -31,52 +31,43 @@ lab:
 # 환경 생성
 실습을 시작하기 전에, 작업할 개발 환경을 만들어야 합니다.
 
-1. https://copilotstudio.microsoft.com/ 에서 Microsoft Copilot Studio 포털에 액세스합니다. 요청되면 이 실습용 자격 증명으로 로그인합니다.
-2. 요청되면 **시작하기/Get Started**를 선택하고 기본 국가 또는 지역 설정은 **한국**을 유지합니다.
-3. 환영 메시지가 표시되면 건너뜁니다.
-4. 페이지 오른쪽 위에서 **환경**에서 Student00(제공된 실습 계정, 예시:Student60) 으로 환경이 생성되었는지 확인합니다. 
-![alt text](image.png)
-
-5.  웹 브라우저를 열고 `https://admin.powerplatform.microsoft.com/manage/environments`로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 
+1.  웹 브라우저를 열고 `https://admin.powerplatform.microsoft.com/manage/environments`로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 
 2. 표시되는 팝업 메시지는 모두 닫습니다.
-3. **환경** 페이지에서 아래와 같이 Student00 환경이 표시되는지 확인합니다.
-![alt text](image-1.png)
-표시 되지 않을 경우 다음 (Optional) 단계를 수행하여 환경을 생성합니다.
+3. **환경** 페이지에서 환경을 생성합니다.
 
-   (**Optional**, 환경이 이미 생성되어 있는 경우 이 단계를 건너뜁니다.)
-   1. **+ 새로 만들기**를 선택하여 다음 설정으로 새 환경을 생성합니다:
-      - **유형**: Developer
-      - **지역**: **대한민국**
-      - **Name**: *Student00* <-00을 제공한 실습 계정 ID의 번호로 바꿉니다. (예: Student60)>
-      ![alt text](image-2.png)
+1. **+ 새로 만들기**를 선택하여 다음 설정으로 새 환경을 생성합니다:
+   - **유형**: Developer
+   - **지역**: **대한민국**
+   - **Name**: *Student00_env* <-00을 제공한 실습 계정 ID의 번호로 바꿉니다. (예: Student60_env)>
+   ![alt text](image-21.png)
 
-   2. **다음**을 선택합니다.
+2. **다음**을 선택합니다.
 
-   3. 다음 설정을 입력합니다:
-      - **언어**: 한국어(대한민국)
-      - **통화**: KRW
-      - **샘플 앱 및 데이터 배포**: 예
-      ![alt text](image-4.png)
+3. 다음 설정을 입력합니다:
+   - **언어**: 한국어(대한민국)
+   - **통화**: KRW
+   - **샘플 앱 및 데이터 배포**: 예
+   ![alt text](image-22.png)
 
-   4. **저장**을 선택하고 환경 상태가 **Ready**(준비됨)가 될 때까지 기다립니다(화면 갱신을 위해 **Refresh** 버튼을 사용할 수 있습니다).
-      > [!NOTE]
-      > 테넌트 구성에 따라 환경 프로비저닝에는 몇 분이 소요될 수 있습니다.
+4. **저장**을 선택하고 환경 상태가 **준비**가 될 때까지 기다립니다(화면 갱신을 위해 **Refresh** 버튼을 사용할 수 있습니다).
+   > [!NOTE]
+   > 테넌트 구성에 따라 환경 프로비저닝에는 몇 분이 소요될 수 있습니다.
 
-      Power Platform 관리 센터에서 환경이 생성되었습니다.
-      ![alt text](image-5.png)
+   Power Platform 관리 센터에서 환경이 생성되었습니다.
+   ![alt text](image-23.png)
 
 ### 작업 1.2 - 솔루션 만들기
 
-1. Copilot Studio (https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00)으로 전환합니다. 
+1. Copilot Studio (https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
 
-   ![alt text](image-6.png)
+   ![alt text](image-24.png)
 
 1. 왼쪽 탐색 창에서 줄임표(**...**)를 선택한 다음 **솔루션**을 선택합니다.
-   ![alt text](image-8.png)
+   ![alt text](image-25.png)
 
 1. *Default Solution* 및 *Common Data Services Default Solution*을 포함한 여러 솔루션이 표시되는지 확인합니다.
 
-   ![alt text](image-9.png)
+   ![alt text](image-26.png)
 
 1. **+ 새 솔루션**을 선택합니다.
 
@@ -92,7 +83,7 @@ lab:
 
 1. **접두사**에 `fab`를 입력합니다.
 
-   ![alt text](image-10.png)
+   ![alt text](image-27.png)
 
 1. **저장**를 선택합니다.
 
@@ -103,15 +94,15 @@ lab:
    > [!NOTE]
    > 이를 선호 솔루션으로 설정하면 이후 실습에서 만드는 새 자산이 기본적으로 Lab Exercises 솔루션에 추가됩니다.
 
-   ![alt text](image-12.png)
+   ![alt text](image-28.png)
 
 1. **만들기**를 선택합니다.
 
 1. **솔루션** 이 생성된것을 확인하고 뒤로 가기를 클릭하여 솔루션 화면으로 이동합니다.
-![alt text](image-14.png)
+![alt text](image-29.png)
 
 1. 생성된 솔루션을 다시 한번 확인하고 브라우저를 닫습니다. 
-![alt text](image-15.png)
+![alt text](image-30.png)
 
 1. **Copilot Studio** 페이지를 새로 고칩니다.
 이제 작업에 사용할 Power Platform 환경과 솔루션이 준비되었습니다.

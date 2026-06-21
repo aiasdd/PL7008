@@ -123,3 +123,12 @@ lab:
 1. **Copilot Studio** 페이지를 새로 고칩니다.
 
 이제 작업에 사용할 Power Platform 환경과 솔루션이 준비되었습니다.
+
+
+------------------------
+Backup
+1. https://copilotstudio.microsoft.com/ 에서 Microsoft Copilot Studio 포털에 액세스합니다. 요청되면 이 실습용 자격 증명으로 로그인합니다.
+2. 요청되면 **시작하기/Get Started**를 선택하고 기본 국가 또는 지역 설정은 **한국**을 유지합니다.
+3. 환영 메시지가 표시되면 건너뜁니다.
+4. 페이지 오른쪽 위에서 **환경**에서 Student00(제공된 실습 계정, 예시:Student60) 으로 환경이 생성되었는지 확인합니다. 
+![alt text](image.png)
