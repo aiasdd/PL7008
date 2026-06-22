@@ -37,12 +37,23 @@
                 var(--fluent-bg-canvas);
         }
 
+            .page-shell {
+                max-width: 960px;
+                margin: 24px auto;
+                border: 1px solid var(--fluent-neutral-stroke);
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 12px 34px rgba(73, 84, 162, 0.12);
+                background: var(--fluent-bg-surface);
+            }
+
         .header {
             background: linear-gradient(120deg, var(--fluent-brand-1) 0%, var(--fluent-brand-2) 52%, var(--fluent-brand-3) 100%);
             color: white;
             padding: 60px 40px;
             text-align: left;
-            box-shadow: 0 8px 20px rgba(91, 95, 199, 0.28);
+                box-shadow: none;
+                border-radius: 0;
         }
 
         .header h1 {
@@ -77,9 +88,10 @@
         }
 
         .container {
-            max-width: 960px;
-            margin: 0 auto;
+            max-width: none;
+            margin: 0;
             padding: 40px 20px;
+            background: var(--fluent-bg-surface);
         }
 
         .section-title {
@@ -286,19 +298,23 @@
             .container {
                 padding: 30px 15px;
             }
+
+            .page-shell {
+                margin: 16px 15px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <div class="header">
-        <div class="header-badge">Microsoft Copilot Studio Hands-on Labs</div>
-        <h1>Copilot Studion Agent 실습 가이드</h1>
-        <p>이 실습 시리즈는 Microsoft Copilot Studio를 활용한 엔터프라이즈 AI 에이전트 개발의 전 과정을 다룹니다. Power Platform 환경 구성에서 시작하여 생성형 AI 기반 에이전트 설계, 대화형 토픽 관리, 다양한 지식 소스 통합, 그리고 Power Automate 워크플로를 통한 기능 확장까지 완전한 개발 워크플로우를 습득할 수 있습니다. 각 실습은 실무 기반의 시나리오를 통해 에이전트의 동작 원리와 효과적인 구성 방법을 단계적으로 학습하도록 설계되었습니다.</p>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
+    <div class="page-shell">
+        <div class="header">
+            <div class="header-badge">Microsoft Copilot Studio Hands-on Labs</div>
+            <h1>Copilot Studio Agent 실습 가이드</h1>
+            <p>이 실습 시리즈는 Microsoft Copilot Studio를 활용한 엔터프라이즈 AI 에이전트 개발의 전 과정을 다룹니다. Power Platform 환경 구성에서 시작하여 생성형 AI 기반 에이전트 설계, 대화형 토픽 관리, 다양한 지식 소스 통합, 그리고 워크플로를 통한 기능 확장까지 완전한 개발 워크플로우를 습득할 수 있습니다.</p>
+        </div>
+        <!-- Main Content -->
+        <div class="container">
         <!-- Section Title -->
         <h2 class="section-title">실습</h2>
 
@@ -398,6 +414,7 @@
         <!-- Note -->
         <div class="note">
             <strong>참고:</strong> 이 실습은 Microsoft Learning 컨텐츠를 기반으로 하여 제작되었습니다.
+        </div>
         </div>
     </div>
 </body>
