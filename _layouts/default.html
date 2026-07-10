@@ -305,9 +305,12 @@
             background-color: var(--fluent-code-bg);
             border-radius: 6px;
             padding: 16px;
-            overflow-x: auto;
+            overflow-x: hidden;
             border: 1px solid #dfdbff;
             position: relative;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .code-copy-btn {
@@ -331,6 +334,10 @@
         pre code {
             background-color: transparent;
             padding: 0;
+            display: block;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
         
         blockquote {
