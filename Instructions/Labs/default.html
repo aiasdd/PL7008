@@ -40,10 +40,10 @@
         .page-layout {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 14px;
             display: grid;
-            grid-template-columns: 260px minmax(0, 1fr);
-            gap: 24px;
+            grid-template-columns: 244px minmax(0, 1fr);
+            gap: 10px;
             align-items: start;
         }
 
@@ -66,23 +66,49 @@
             background-color: var(--fluent-bg-surface);
             border: 1px solid var(--fluent-neutral-stroke);
             border-radius: 12px;
-            padding: 16px 14px;
+            padding: 12px 12px 14px;
             box-shadow: 0 8px 22px rgba(73, 84, 162, 0.1);
         }
 
         .toc-title {
+            width: 100%;
+            appearance: none;
+            border: 0;
+            background: transparent;
+            font: inherit;
+            text-align: left;
+            cursor: pointer;
             font-size: 14px;
             font-weight: 700;
             color: #1f2937;
             margin-bottom: 12px;
             padding-bottom: 10px;
             border-bottom: 1px solid #e3e8ee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .toc-title::after {
+            content: "−";
+            font-size: 18px;
+            line-height: 1;
+            color: #6b7280;
+        }
+
+        .toc-card.is-collapsed .toc-title::after {
+            content: "+";
         }
 
         .toc-list {
             display: flex;
             flex-direction: column;
             gap: 6px;
+        }
+
+        .toc-card.is-collapsed .toc-list {
+            display: none;
         }
 
         .toc-link {
@@ -351,8 +377,8 @@
     {% if page.toc %}
     <div class="page-layout">
         <aside class="toc-panel" aria-label="목차">
-            <div class="toc-card">
-                <div class="toc-title">목차</div>
+            <div class="toc-card" id="toc-card">
+                <button class="toc-title" id="toc-toggle" type="button" aria-expanded="true" aria-controls="page-toc">목차</button>
                 <nav class="toc-list" id="page-toc">
                     <div class="toc-empty">섹션을 불러오는 중...</div>
                 </nav>
@@ -371,7 +397,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             const content = document.getElementById('page-content');
             const toc = document.getElementById('page-toc');
-            if (!content || !toc) return;
+            const tocCard = document.getElementById('toc-card');
+            const tocToggle = document.getElementById('toc-toggle');
+            if (!content || !toc || !tocCard || !tocToggle) return;
+
+            tocToggle.addEventListener('click', function () {
+                const isCollapsed = tocCard.classList.toggle('is-collapsed');
+                tocToggle.setAttribute('aria-expanded', String(!isCollapsed));
+            });
 
             const headings = Array.from(content.querySelectorAll('h2, h3'));
             toc.innerHTML = '';
