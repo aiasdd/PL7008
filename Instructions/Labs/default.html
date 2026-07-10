@@ -47,6 +47,11 @@
             align-items: start;
         }
 
+        .page-layout.toc-collapsed {
+            grid-template-columns: 32px minmax(0, 1fr);
+            gap: 8px;
+        }
+
         .page-main {
             min-width: 0;
             background-color: var(--fluent-bg-surface);
@@ -60,6 +65,10 @@
             position: sticky;
             top: 20px;
             align-self: start;
+        }
+
+        .page-layout.toc-collapsed .toc-panel {
+            width: 32px;
         }
 
         .toc-card {
@@ -109,6 +118,31 @@
 
         .toc-card.is-collapsed .toc-list {
             display: none;
+        }
+
+        .toc-card.is-collapsed {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .toc-card.is-collapsed .toc-title {
+            width: 32px;
+            height: 180px;
+            margin: 0;
+            padding: 10px 0;
+            border: 1px solid var(--fluent-neutral-stroke);
+            border-radius: 12px;
+            background: var(--fluent-bg-surface);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toc-card.is-collapsed .toc-title::after {
+            margin-top: 8px;
         }
 
         .toc-link {
@@ -375,7 +409,7 @@
 </head>
 <body class="{% if page.url == '/' %}is-home{% else %}is-doc{% endif %}{% if page.toc %} has-toc{% endif %}">
     {% if page.toc %}
-    <div class="page-layout">
+    <div class="page-layout" id="page-layout">
         <aside class="toc-panel" aria-label="목차">
             <div class="toc-card" id="toc-card">
                 <button class="toc-title" id="toc-toggle" type="button" aria-expanded="true" aria-controls="page-toc">목차</button>
@@ -399,10 +433,12 @@
             const toc = document.getElementById('page-toc');
             const tocCard = document.getElementById('toc-card');
             const tocToggle = document.getElementById('toc-toggle');
-            if (!content || !toc || !tocCard || !tocToggle) return;
+            const pageLayout = document.getElementById('page-layout');
+            if (!content || !toc || !tocCard || !tocToggle || !pageLayout) return;
 
             tocToggle.addEventListener('click', function () {
                 const isCollapsed = tocCard.classList.toggle('is-collapsed');
+                pageLayout.classList.toggle('toc-collapsed', isCollapsed);
                 tocToggle.setAttribute('aria-expanded', String(!isCollapsed));
             });
 
