@@ -41,7 +41,7 @@ lab:
 - 워크플로를 도구로 구성하는 방법
 - 토픽에서 워크플로를 사용하는 방법
 
-## 상위 수준 실습 단계
+## 전반적인 실습 단계
 
 - Copilot을 사용해 에이전트 만들기
 - Microsoft Teams로 메시지를 전송하는 워크플로 만들기
@@ -72,7 +72,7 @@ lab:
 
 ### 작업 1.1 - 작업 분석용 에이전트 만들기
 
-1. **Copilot Studio** 홈 페이지 `https://copilotstudio.microsoft.com/`에서, 이 실습에 사용할 환경인지 확인합니다.
+1. **Copilot Studio** 홈 페이지 [https://copilotstudio.microsoft.com/](https://copilotstudio.microsoft.com/)에서, 이 실습에 사용할 환경인지 확인합니다.
 
 1. 왼쪽 탐색 메뉴에서 **에이전트**를 선택합니다.
 
@@ -256,20 +256,16 @@ lab:
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
 ![alt text](../../Allfiles/image-212.png)
 
-
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
-1.  생성한 토픽을 트리거하기 위해 다음을 입력합니다:
-
-```
-다음 작업 목록을 분석하세요. 1. 에이전트 구축, 2. 에이전트 테스트, 3. 에이전트 배포
-```
-
+1. 생성한 토픽을 트리거하기 위해 다음을 입력합니다:
+   ```
+   다음 작업 목록을 분석하세요. 1. 에이전트 구축, 2. 에이전트 테스트, 3. 에이전트 배포
+   ```
 1. Microsoft Teams 연결 메시지가 표시되면 **허용**를 선택합니다.
-
 ![alt text](../../Allfiles/image-213.png)
 
-1. 새 브라우저 탭에서 `https://teams.cloud.microsoft/`로 이동하고, 필요 시 로그인합니다.
+1. 새 브라우저 탭에서 [https://teams.cloud.microsoft/](https://teams.cloud.microsoft/)로 이동하고, 필요 시 로그인합니다.
 
 1. 워크플로에서 이전에 선택한 팀/채널로 이동해 작업 분석 요약이 Teams 채널에 게시되었는지 확인합니다.
 
@@ -280,9 +276,11 @@ lab:
 
 이 실습에서는 Copilot으로 설명 기반 토픽을 만들고, Excel 파일의 작업을 분석하는 워크플로 도구를 만든 뒤, 토픽에서 해당 도구를 호출합니다.
 
-### 작업 3.1 - Excel 파일 만들기
+### 작업 3.1 - Excel 파일(작업 목록) 업로드
 
-1. Copilot Studio에서 왼쪽 위 **App launcher** 아이콘을 선택한 다음 **OneDrive**를 선택합니다.
+1. [작업목록](https://iksskr.sharepoint.com/:x:/s/AgentLabs/IQCQC-AqkTn5Sp3F4O-RMJWlAagioCWMMGsrjXIocRIDbn0?e=0p6fnx) 파일을 다운로드합니다. 
+
+2. Copilot Studio에서 왼쪽 위 **App launcher** 아이콘을 선택한 다음 **OneDrive**를 선택합니다.
 
    ![alt text](../../Allfiles/image-216.png)
 
@@ -290,21 +288,15 @@ lab:
 
 1. **+ 만들기 또는 업로드**를 선택합니다.
 
-1. **Excel 통합 문서**을 선택합니다.
+1. **파일 업로드**를 선택합니다.
 
-   ![alt text](../../Allfiles/image-219.png)
+   ![alt text](../../Allfiles/image-311.png)
 
-1. **Excel 통합 문서** 왼쪽 위에서 **Book**을 선택해 파일명을 `작업목록`로 변경합니다.
-
-1. [작업목록](https://iksskr.sharepoint.com/:x:/s/AgentLabs/IQCQC-AqkTn5Sp3F4O-RMJWlAagioCWMMGsrjXIocRIDbn0?e=0p6fnx) 파일을 열어서 테이블을 복사하여 내가 만든 Excel 통합 문서에 붙여넣습니다. 
-
-1. **테이블 디자인** 탭에서 왼쪽 위 테이블 이름을 *Table1*에서 **`Tasks`**로 변경합니다.
+1. 업로드한 **작업목록**을 열고, **표 디자인** 탭에서 왼쪽 위 테이블 이름이 **Tasks** 인 것을 확인합니다.
 
    ![alt text](../../Allfiles/image-288.png)
 
 1. Excel 워크북이 열린 브라우저 탭을 닫습니다.
-
-1. OneDrive에서 **My files**를 선택하고 `작업목록` 워크북이 목록에 있는지 확인합니다.
 
 1. OneDrive 브라우저 탭을 닫습니다.
 
@@ -403,7 +395,7 @@ lab:
 1. **+ 토픽 추가**를 선택하고 **Copilot을 사용하여 설명에서 추가**를 선택합니다. 새 대화 상자 창이 나타납니다.
 ![alt text](../../Allfiles/image-244.png)
 
-1. **토픽 이름 지정** 텍스트 상자에 **`작업 우선순위`**를 입력합니다.
+1. **토픽 이름 지정** 텍스트 상자에 **작업 우선순위**를 입력합니다.
 
 1. **에 대한 토픽 만들기...** 텍스트 상자에 입력합니다.
 ```
@@ -482,7 +474,7 @@ lab:
 1. **지침** 섹션에서 **편집**을 선택합니다.
 
 1. 에이전트 지침의 *## 기술* 아래 마지막 단계에 다음을 추가합니다: 
-`작업 목록을 얻으려면 `을 입력하고 `/`를 입력해 **작업 우선순위** 토픽을 선택한 뒤 ` 를 사용합니다`를 입력합니다.
+`작업 목록을 얻으려면 `을 입력하고 `/`를 입력해 **작업 우선순위** 토픽을 선택한 뒤 ` 를 사용합니다 `를 입력합니다.
 ![alt text](../../Allfiles/image-259.png)
 ![alt text](../../Allfiles/image-260.png)
 1. **저장**을 선택합니다.
@@ -497,10 +489,9 @@ lab:
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
 1. **Conversation Start** 메시지가 나타나면 에이전트가 대화를 시작합니다. 생성한 토픽을 트리거하기 위해 다음을 입력합니다:
-
-```
-작업 목록 분석
-```
+   ```
+   작업 목록 분석
+   ```
 
 1. **작업 우선순위** 토픽이 표시됩니다.
 
@@ -513,7 +504,7 @@ lab:
 
    ![alt text](../../Allfiles/image-286.png)
 
-1. 새 브라우저 탭에서 `https://teams.cloud.microsoft/`로 이동하고, 필요 시 로그인합니다.
+1. 새 브라우저 탭에서 [https://teams.cloud.microsoft/](https://teams.cloud.microsoft/)로 이동하고, 필요 시 로그인합니다.
 
 1. 이전에 선택한 팀/채널로 이동해 채널에 게시된 두 개 작업을 검토합니다.
 

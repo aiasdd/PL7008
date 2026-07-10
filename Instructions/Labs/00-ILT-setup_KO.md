@@ -31,14 +31,14 @@ lab:
 # 환경 생성
 실습을 시작하기 전에, 작업할 개발 환경을 만들어야 합니다.
 
-1.  웹 브라우저를 열고 `https://admin.powerplatform.microsoft.com/manage/environments`로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 
+1.  웹 브라우저를 열고 [https://admin.powerplatform.microsoft.com/manage/environments](https://admin.powerplatform.microsoft.com/manage/environments) 로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 
 2. 표시되는 팝업 메시지는 모두 닫습니다.
 3. **환경** 페이지에서 환경을 생성합니다.
 
 1. **+ 새로 만들기**를 선택하여 다음 설정으로 새 환경을 생성합니다:
    - **유형**: Developer
    - **지역**: **대한민국**
-   - **Name**: *Student00_env* <-00을 제공한 실습 계정 ID의 번호로 바꿉니다. (예: Student60_env)>
+   - **Name**: *Student00_env* <-00을 제공한 실습 계정 ID의 번호로 변경합니다. (예: Student60_env)>
    ![alt text](../../Allfiles/image-21.png)
 
 2. **다음**을 선택합니다.
@@ -58,7 +58,7 @@ lab:
 
 ### 작업 1.2 - 솔루션 만들기
 
-1. Copilot Studio `https://copilotstudio.microsoft.com/` 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
+1. Copilot Studio [https://copilotstudio.microsoft.com/](https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
 
    ![alt text](../../Allfiles/image-24.png)
 

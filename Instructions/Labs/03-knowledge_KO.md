@@ -43,7 +43,7 @@ lab:
 - 에이전트에 지식 소스를 추가하는 방법
 - 생성 오케스트레이션 및 생성형 답변 동작을 구성하는 방법
 
-## 상위 수준 실습 단계
+## 전반적인 실습 단계
 
 - Copilot으로 Dataverse 테이블 만들기
 - Copilot으로 에이전트 만들기
@@ -74,7 +74,7 @@ lab:
 
 ### 작업 1.1 - 비용 청구용 테이블 만들기
 
-1. 웹 브라우저에서 `https://make.powerapps.com/`의 **Power Apps Maker portal**로 이동하고, 필요 시 로그인합니다. 환영 메시지는 건너뜁니다.
+1. 웹 브라우저에서 [https://make.powerapps.com/](https://make.powerapps.com/)의 **Power Apps Maker portal**로 이동하고, 필요 시 로그인합니다. 환영 메시지는 건너뜁니다.
 
 1. 페이지 상단에서 이 실습에 사용할 환경인지 확인합니다.
 
@@ -113,7 +113,7 @@ lab:
 
 ### 작업 2.1 - 비용 청구용 에이전트 만들기
 
-1. **Copilot Studio** 홈 페이지 `https://copilotstudio.microsoft.com/`로 이동합니다.
+1. **Copilot Studio** 홈 페이지 [https://copilotstudio.microsoft.com/](https://copilotstudio.microsoft.com/)로 이동합니다.
 
 1. 페이지 상단에서 이 실습에 사용할 환경인지 확인합니다.
 
@@ -138,8 +138,7 @@ lab:
 
 1. **전송** 아이콘을 선택합니다.
 ![alt text](../../Allfiles/image-136.png)
-
-   에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
+에이전트 프로비저닝이 완료되면 에이전트 구성을 계속 진행할 수 있습니다.
 
 ## 실습 3 - 지식으로 에이전트 근거화
 
@@ -182,7 +181,7 @@ lab:
 
 1. *이름*에 `경비, 접대비 및 차량 관련 비용 | 국세법령정보시스템`를 입력합니다.
 
-1. *설명*에 `이 자료는 여행 경비 환급에 관한 정보를 담고 있습니다.`를 입력합니다.
+1. *설명*에 `이 자료는 출장 경비 환급에 관한 정보를 담고 있습니다.`를 입력합니다.
    ![alt text](../../Allfiles/image-155.png)
 1. **에이전트에 추가**를 선택합니다.
 > [!NOTE]
@@ -218,7 +217,7 @@ lab:
 
 1. **동의어** 탭을 선택합니다.
 
-1. **Expense Type** 행에서 **+ Add synonyms**를 선택합니다.
+1. 열 이름 에서 **경비유형** 행으로 이동하여 **+ 동의어 추가**를 선택합니다.
 
 1. `경비 항목` ,`비용 유형` ,`비용 항목`, `비용 카테고리`, `경비 카테고리`, `비용 분류`를 입력하고 **추가**를 선택합니다.
 
@@ -291,7 +290,7 @@ lab:
 
 ## 실습 4 - 생성형 AI 설정
 
-이 실습에서는 에이전트 및 generative answers 노드의 생성형 AI를 구성합니다.
+이 실습에서는 에이전트 및 생성형 답변 노드의 생성형 AI를 구성합니다.
 
 ### 작업 4.1 - 에이전트 지식 설정 구성
 
@@ -352,7 +351,9 @@ lab:
    ```
    현재 세법 상 사업용 차량 경비 비용 처리 기준 알려주세요
    ```
-
+   ```
+   근로소득세 계산 방법을 알려주세요
+   ```
 1. 지식 소스는 직접 답을 제공하지 않지만, 에이전트가 생성형 답변으로 웹 검색을 사용해 응답을 생성합니다.
 
    ![alt text](../../Allfiles/image-165.png)
@@ -381,8 +382,13 @@ lab:
 
 ### 작업 5.2 - 에이전트 게시
 
+1. 게시 전 개요 페이지에서 편집을 클릭한 후 현재 이름에 **_실습계정번호** 를 추가하여 이름을 변경합니다. 
+![alt text](image.png)
+   예시: 다음은 실습ID가 Student60 인 경우의 예시 입니다.
+   ![alt text](../../Allfiles/image-301.png)
+
 1. 에이전트 페이지에서 **게시**를 선택하고 확인을 위해 다시 **게시**를 선택합니다.
-![alt text](../../Allfiles/image-170.png)
+![alt text](../../Allfiles/image-302.png)
 
 ### 작업 5.3 - Microsoft Teams 채널
 > [!NOTE]
@@ -391,36 +397,39 @@ lab:
 1. **채널** 탭을 선택합니다.
 
 1. **Microsoft 365 and Microsoft Teams** 타일을 선택합니다.
-   ![alt text](../../Allfiles/image-171.png)
+   ![alt text](../../Allfiles/image-303.png)
 
 1. **채널 추가**를 선택합니다.
-
-   ![alt text](../../Allfiles/image-172.png)
+   ![alt text](../../Allfiles/image-304.png)
 
 1. **Teams에서 에이전트 보기**를 선택합니다.
-![alt text](../../Allfiles/image-173.png)
+![alt text](../../Allfiles/image-305.png)
 
 1. **이 사이트에서 Microsoft Teams을 열려고 합니다** 대화 상자에서 **취소**를 선택합니다.
 
-1. **웹 응용 프로그램을 대시 사용합니다.**를 선택합니다.
+1. **웹 응용 프로그램을 대신 사용합니다.** 를 선택합니다.
 ![alt text](../../Allfiles/image-174.png)
 
 1. Teams에 에이전트를 추가하려면 **추가**를 선택합니다.
-
-   ![alt text](../../Allfiles/image-175.png)
+![alt text](../../Allfiles/image-306.png)
 
 1. **열기**를 선택하고 Teams에서 에이전트가 로드될 때까지 기다립니다.
-![alt text](../../Allfiles/image-176.png)
+![alt text](../../Allfiles/image-307.png)
 
 1. Microsoft Teams에서 게시된 에이전트를 테스트합니다.
-
-   ![alt text](../../Allfiles/image-177.png)   
+```
+출장 시 식비 처리 한도 알려줘
+```
+![alt text](../../Allfiles/image-308.png)
 
 1. **Microsoft 365에서 에이전트 보기**를 선택합니다.
-![alt text](../../Allfiles/image-178.png)
+![alt text](../../Allfiles/image-309.png)
 
 1. M365 챗에서 에이전트를 테스트합니다.
-![alt text](../../Allfiles/image-179.png)
+```
+출장비 처리 방법 알려줘
+```
+![alt text](../../Allfiles/image-310.png)
 ## 요약
 
 이 실습에서는 에이전트에 지식 소스를 추가하고, 프롬프트 응답 생성 시 지식 소스가 언제 어떻게 사용되는지에 대해 생성형 AI 설정이 미치는 영향을 확인했습니다.
