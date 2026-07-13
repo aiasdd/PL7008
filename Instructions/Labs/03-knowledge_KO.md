@@ -36,8 +36,6 @@ lab:
 - Create generative answers 노드 구성
 - 에이전트를 Microsoft Teams에 게시
 
-이 실습은 약 **60**분이 소요됩니다.
-
 ## 학습 내용
 
 - 에이전트에 지식 소스를 추가하는 방법
