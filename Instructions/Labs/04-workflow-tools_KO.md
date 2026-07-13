@@ -5,7 +5,7 @@ lab:
   title: 도구로 워크플로 사용
   module: 워크플로를 통합해 에이전트 동작 향상
   description: 이 실습에서는 Copilot을 사용해 에이전트를 만들고, 워크플로를 생성하고, 워크플로를 에이전트와 토픽의 도구로 추가합니다.
-  duration: 45분
+  duration: 50분
   level: 200
   islab: true
   primarytopics:

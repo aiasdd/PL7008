@@ -10,7 +10,7 @@ lab:
   islab: true
   primarytopics:
     - Microsoft Copilot
-    - Microsoft Copilot Studio
+    - Microsoft Copilot  Studio
 ---
 
 # 실습 환경 준비

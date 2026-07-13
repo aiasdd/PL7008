@@ -5,7 +5,7 @@ lab:
   title: Copilot Studio 에이전트에서 토픽 관리
   module: 토픽을 사용해 에이전트 대화 설계
   description: 이 실습에서는 Copilot을 사용해 에이전트를 만들고, 설명에서 토픽을 생성하고, 노드를 추가하고, 엔터티를 사용하고, 변수를 관리합니다.
-  duration: 45분
+  duration: 50분
   level: 200
   islab: true
   primarytopics:

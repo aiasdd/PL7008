@@ -5,7 +5,7 @@ lab:
   title: Copilot Studio로 에이전트 만들기
   module: Microsoft Copilot Studio에서 에이전트 만들기
   description: 이 실습에서는 Microsoft Copilot Studio 포털에 액세스하고, 적절한 환경을 선택한 다음, 새 에이전트를 만듭니다.
-  duration: 45분
+  duration: 50분
   level: 200
   islab: true
   primarytopics:

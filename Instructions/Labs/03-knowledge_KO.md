@@ -5,7 +5,7 @@ lab:
   title: Copilot Studio 에이전트에서 지식 관리
   module: 지식 소스로 에이전트 근거화
   description: 이 실습에서는 Copilot을 사용해 에이전트를 만들고, Dataverse 테이블을 만들고, 에이전트에 지식을 추가하고, 생성형 AI를 구성합니다.
-  duration: 60분
+  duration: 60분 
   level: 200
   islab: true
   primarytopics:
