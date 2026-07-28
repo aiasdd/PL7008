@@ -38,104 +38,107 @@
         }
 
         .page-layout {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 14px;
-            display: grid;
-            grid-template-columns: 244px minmax(0, 1fr);
-            gap: 10px;
-            align-items: start;
-        }
+            const content = document.getElementById('page-content');
+            const toc = document.getElementById('page-toc');
+            const tocCard = document.getElementById('toc-card');
+            const tocToggle = document.getElementById('toc-toggle');
+            const pageLayout = document.getElementById('page-layout');
+            if (!content || !toc || !tocCard || !tocToggle || !pageLayout) return;
 
-        .page-layout.toc-collapsed {
-            grid-template-columns: 32px minmax(0, 1fr);
-            gap: 8px;
-        }
+            tocToggle.addEventListener('click', function () {
+                const isCollapsed = tocCard.classList.toggle('is-collapsed');
+                pageLayout.classList.toggle('toc-collapsed', isCollapsed);
+                tocToggle.setAttribute('aria-expanded', String(!isCollapsed));
+            });
 
-        .page-main {
-            min-width: 0;
-            background-color: var(--fluent-bg-surface);
-            border: 1px solid var(--fluent-neutral-stroke);
-            border-radius: 16px;
-            box-shadow: 0 12px 34px rgba(73, 84, 162, 0.12);
-            padding: 24px 26px 28px;
-        }
+            const headings = Array.from(content.querySelectorAll('h2, h3'));
+            toc.innerHTML = '';
 
-        .toc-panel {
-            position: sticky;
-            top: 20px;
-            align-self: start;
-        }
+            if (!headings.length) {
+                const empty = document.createElement('div');
+                empty.className = 'toc-empty';
+                empty.textContent = '표시할 섹션이 없습니다.';
+                toc.appendChild(empty);
+                return;
+            }
 
-        .page-layout.toc-collapsed .toc-panel {
-            width: 32px;
-        }
+            const slugCounts = {};
+            const slugify = function (text) {
+                return text
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^\w\u3131-\uD79D\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+            };
 
-        .toc-card {
-            background-color: var(--fluent-bg-surface);
-            border: 1px solid var(--fluent-neutral-stroke);
-            border-radius: 12px;
-            padding: 12px 12px 14px;
-            box-shadow: 0 8px 22px rgba(73, 84, 162, 0.1);
-            max-height: calc(100vh - 40px);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+            const makeId = function (text) {
+                let base = slugify(text) || 'section';
+                slugCounts[base] = (slugCounts[base] || 0) + 1;
+                return slugCounts[base] === 1 ? base : `${base}-${slugCounts[base]}`;
+            };
 
-        .toc-title {
-            width: 100%;
-            appearance: none;
-            border: 0;
-            background: transparent;
-            font: inherit;
-            text-align: left;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e3e8ee;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
+            headings.forEach(function (heading) {
+                if (!heading.id) {
+                    heading.id = makeId(heading.textContent || 'section');
+                }
 
-        .toc-title::after {
-            content: "−";
-            font-size: 18px;
-            line-height: 1;
-            color: #6b7280;
-        }
+                const link = document.createElement('a');
+                if (heading.tagName === 'H3') {
+                    link.className = 'toc-link toc-h3';
+                } else {
+                    link.className = 'toc-link toc-h2';
+                }
+                link.href = `#${heading.id}`;
+                link.textContent = heading.textContent || '';
+                toc.appendChild(link);
+            });
 
-        .toc-card.is-collapsed .toc-title::after {
-            content: "+";
-        }
+            const headingLevels = { H2: 2, H3: 3 };
+            const collapsibleHeadings = headings.filter(function (heading) {
+                return headingLevels[heading.tagName];
+            });
 
-        .toc-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            min-height: 0;
-            overflow-y: auto;
-            padding-right: 2px;
-        }
+            collapsibleHeadings.forEach(function (heading) {
+                if (heading.dataset.sectionToggleReady === 'true') return;
+                heading.dataset.sectionToggleReady = 'true';
 
-        .toc-card.is-collapsed .toc-list {
-            display: none;
-        }
+                const headingText = heading.textContent || '';
+                const headingLevel = headingLevels[heading.tagName];
+                const body = document.createElement('div');
+                body.className = 'section-body';
 
-        .toc-card.is-collapsed {
-            padding: 0;
-            border: 0;
-            background: transparent;
-            box-shadow: none;
-            max-height: none;
-            overflow: visible;
-        }
+                let sibling = heading.nextElementSibling;
+                while (sibling) {
+                    const siblingLevel = headingLevels[sibling.tagName] || 99;
+                    if (siblingLevel <= headingLevel) {
+                        break;
+                    }
 
+                    const nextSibling = sibling.nextElementSibling;
+                    body.appendChild(sibling);
+                    sibling = nextSibling;
+                }
+
+                heading.insertAdjacentElement('afterend', body);
+
+                const toggle = document.createElement('button');
+                toggle.type = 'button';
+                toggle.className = 'section-toggle';
+                toggle.setAttribute('aria-expanded', 'true');
+                toggle.textContent = headingText;
+
+                heading.textContent = '';
+                heading.appendChild(toggle);
+                body.id = `${heading.id}-body`;
+                toggle.setAttribute('aria-controls', body.id);
+
+                toggle.addEventListener('click', function () {
+                    const isCollapsed = body.classList.toggle('is-collapsed');
+                    toggle.classList.toggle('is-collapsed', isCollapsed);
+                    toggle.setAttribute('aria-expanded', String(!isCollapsed));
+                });
+            });
         .toc-card.is-collapsed .toc-title {
             width: 32px;
             height: 180px;
