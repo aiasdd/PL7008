@@ -276,7 +276,7 @@ lab:
 
 ### 작업 3.1 - Excel 파일(작업 목록) 업로드
 
-1. [작업목록](https://iksskr.sharepoint.com/:x:/s/AgentLabs/IQCQC-AqkTn5Sp3F4O-RMJWlAagioCWMMGsrjXIocRIDbn0?e=0p6fnx) 파일을 다운로드합니다. 
+1. [작업목록](../Labfiles/작업목록.xlsx) 파일을 다운로드합니다. 
 
 2. Copilot Studio에서 왼쪽 위 **App launcher** 아이콘을 선택한 다음 **OneDrive**를 선택합니다.
 

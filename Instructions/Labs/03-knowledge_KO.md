@@ -144,7 +144,7 @@ lab:
 
 ### 작업 3.1 - 문서를 지식 소스로 추가
 
-1. [경비 정책 문서 다운로드](https://iksskr.sharepoint.com/:w:/s/AgentLabs/IQD1Fwnnhx2ERKN7glABrW3sAaWh-7c4IG3Pu6dIQf7MLbE?e=cIkqpe)  이 문서에는 가상의 기업 비용 정책 세부 정보가 포함되어 있습니다.
+1. [경비 정책 문서 다운로드](../Labfils/경비처리_가이드.docx)  이 문서에는 가상의 기업 비용 정책 세부 정보가 포함되어 있습니다.
 
 1. 실습 3에서 만든 에이전트가 있는 **Copilot Studio** 브라우저 탭으로 돌아가서 에이전트가 프로비저닝이 완료되었는지 확인합니다.
 

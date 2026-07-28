@@ -253,6 +253,37 @@
             color: #2f337f;
         }
 
+        .is-doc .section-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            appearance: none;
+            border: 0;
+            background: transparent;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .is-doc .section-toggle::after {
+            content: "−";
+            flex: 0 0 auto;
+            font-size: 18px;
+            line-height: 1;
+            color: #6b7280;
+        }
+
+        .is-doc .section-toggle.is-collapsed::after {
+            content: "+";
+        }
+
+        .is-doc .section-body.is-collapsed {
+            display: none;
+        }
+
         .is-doc h3 {
             color: #3f468f;
         }
@@ -463,6 +494,7 @@
             const headings = Array.from(content.querySelectorAll('h2, h3'));
             toc.innerHTML = '';
 
+            const sectionHeadings = Array.from(content.querySelectorAll('h2, h3'));
             if (!headings.length) {
                 const empty = document.createElement('div');
                 empty.className = 'toc-empty';
@@ -485,8 +517,7 @@
                 let base = slugify(text) || 'section';
                 slugCounts[base] = (slugCounts[base] || 0) + 1;
                 return slugCounts[base] === 1 ? base : `${base}-${slugCounts[base]}`;
-            };
-
+            sectionHeadings.forEach(function (heading) {
             headings.forEach(function (heading) {
                 if (!heading.id) {
                     heading.id = makeId(heading.textContent || 'section');
@@ -503,6 +534,45 @@
                 link.href = `#${heading.id}`;
                 link.textContent = heading.textContent || '';
                 toc.appendChild(link);
+            });
+
+            const sectionHeadings = Array.from(content.querySelectorAll('h2'));
+            sectionHeadings.forEach(function (heading) {
+                if (heading.dataset.sectionToggleReady === 'true') return;
+                heading.dataset.sectionToggleReady = 'true';
+
+                const headingText = heading.textContent || '';
+                const body = document.createElement('div');
+                body.className = 'section-body';
+
+                let sibling = heading.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H2') {
+                    const nextSibling = sibling.nextElementSibling;
+                    body.appendChild(sibling);
+                    sibling = nextSibling;
+                }
+
+                heading.insertAdjacentElement('afterend', body);
+
+                const toggle = document.createElement('button');
+                toggle.type = 'button';
+                toggle.className = 'section-toggle';
+                toggle.setAttribute('aria-expanded', 'true');
+                toggle.textContent = headingText;
+
+                heading.textContent = '';
+                heading.appendChild(toggle);
+                if (!heading.id) {
+                    heading.id = makeId(headingText || 'section');
+                }
+                body.id = `${heading.id}-body`;
+                toggle.setAttribute('aria-controls', body.id);
+
+                toggle.addEventListener('click', function () {
+                    const isCollapsed = body.classList.toggle('is-collapsed');
+                    toggle.classList.toggle('is-collapsed', isCollapsed);
+                    toggle.setAttribute('aria-expanded', String(!isCollapsed));
+                });
             });
         });
     </script>
