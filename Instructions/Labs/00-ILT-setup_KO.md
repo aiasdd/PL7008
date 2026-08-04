@@ -44,7 +44,7 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 1. **+ 새로 만들기**를 선택하여 다음 설정으로 새 환경을 생성합니다:
    - **유형**: Developer
    - **지역**: **대한민국**
-   - **Name**: *Student00_env* <-00을 제공한 실습 계정 ID의 번호로 변경합니다. (예: Student60_env)>
+   - **Name**: *Student00_env* (이름 자유롭게 변경하여 입력합니다.)
    ![alt text](../../Allfiles/image-21.png)
 
 2. **다음**을 선택합니다.
@@ -62,7 +62,27 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
    Power Platform 관리 센터에서 환경이 생성되었습니다.
    ![alt text](../../Allfiles/image-23.png)
 
-### 작업 1.2 - 솔루션 만들기
+### 작업 1.2 - 사용자 추가
+1. 생성한 **환경** 을 클릭합니다.
+   ![alt text](image-1.png)
+
+2. **액세스** 하위의 **사용자:** **모두보기**를 클릭합니다.
+   ![alt text](image-2.png)
+
+1. **+ 사용자 추가**를 클릭하여 나타나는 사용자 추가 화면에서 사용자 정보를 검색 후 선택합니다.
+   ![alt text](image-3.png)
+   **추가** 합니다.
+   ![alt text](image-4.png)
+
+1. 추가가 완료되면 보안 역할 관리 화면에서 **Environment Maker** 와 **Basic User**역할을 선택하고 **저장**을 클릭합니다.
+   ![alt text](image-5.png)
+   ![alt text](image-6.png)
+   
+   이 과정을 반복하여 사용자를 추가합니다.
+   사용자에게 정상적으로 환경에 권한이 추가된 경우, [Copilot Studio](https://copilotstudio.microsoft.com/) 페이지에 접속 시 해당 환경이 **지원 환경** 하위에 표시됩니다.
+   ![alt text](image-7.png)
+
+### 작업 1.3 - 솔루션 만들기
 
 1. Copilot Studio [https://copilotstudio.microsoft.com/](https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
 
