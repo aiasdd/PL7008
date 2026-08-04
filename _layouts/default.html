@@ -37,19 +37,88 @@
                 var(--fluent-bg-canvas);
         }
 
-        .page-layout {
-            max-width: 1280px;
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--fluent-brand-1), var(--fluent-brand-2), var(--fluent-brand-3)) 1;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 8px 24px rgba(8, 111, 202, 0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        .topbar-inner {
+            width: min(calc(100% - 32px), 1380px);
+            min-height: 64px;
             margin: 0 auto;
-            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .viewer-title {
+            min-width: 0;
+            overflow: hidden;
+            color: var(--fluent-text-primary);
+            font-size: 16px;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .page-layout {
+            width: min(calc(100% - 32px), 1380px);
+            margin: 24px auto 48px;
             display: grid;
-            grid-template-columns: 244px minmax(0, 1fr);
-            gap: 10px;
+            grid-template-columns: 250px 8px minmax(0, 1fr);
+            gap: 0;
             align-items: start;
         }
 
         .page-layout.toc-collapsed {
-            grid-template-columns: 32px minmax(0, 1fr);
-            gap: 8px;
+            grid-template-columns: 48px 0 minmax(0, 1fr);
+        }
+
+        .toc-panel {
+            grid-column: 1;
+            min-width: 0;
+            position: sticky;
+            top: 88px;
+            max-height: calc(100vh - 112px);
+            overflow: auto;
+            background-color: var(--fluent-bg-surface);
+            border: 1px solid var(--fluent-neutral-stroke);
+            border-radius: 16px;
+            box-shadow: 0 10px 28px rgba(28, 55, 96, 0.07);
+        }
+
+        .toc-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .resizer {
+            grid-column: 2;
+            position: sticky;
+            top: 88px;
+            width: 8px;
+            height: calc(100vh - 112px);
+            border: 0;
+            border-right: 1px solid var(--fluent-neutral-stroke);
+            background: transparent;
+            cursor: col-resize;
+            touch-action: none;
+        }
+
+        .resizer:hover,
+        .resizer:focus-visible,
+        .resizer.active {
+            border-right-color: var(--fluent-accent);
+            background: var(--fluent-bg-soft);
+            outline: 0;
         }
 
         .toc-title {
@@ -63,8 +132,8 @@
             font-size: 14px;
             font-weight: 700;
             color: #1f2937;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
+            margin: 0;
+            padding: 14px 16px;
             border-bottom: 1px solid #e3e8ee;
             display: flex;
             align-items: center;
@@ -86,10 +155,10 @@
         .toc-list {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 2px;
             min-height: 0;
             overflow-y: auto;
-            padding-right: 2px;
+            padding: 10px;
         }
 
         .toc-card.is-collapsed .toc-list {
@@ -101,26 +170,20 @@
             border: 0;
             background: transparent;
             box-shadow: none;
-            max-height: none;
-            overflow: visible;
         }
 
-        .toc-card.is-collapsed .toc-title {
-            width: 32px;
-            height: 180px;
+        .page-layout.toc-collapsed .toc-title {
+            width: 100%;
+            height: auto;
             margin: 0;
-            padding: 10px 0;
-            border: 1px solid var(--fluent-neutral-stroke);
-            border-radius: 12px;
-            background: var(--fluent-bg-surface);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
+            padding: 14px 0;
+            border: 0;
+            font-size: 0;
             justify-content: center;
-            align-items: center;
         }
 
-        .toc-card.is-collapsed .toc-title::after {
-            margin-top: 8px;
+        .page-layout.toc-collapsed .toc-title::after {
+            font-size: 16px;
         }
 
         .toc-link {
@@ -169,8 +232,11 @@
         }
 
         .page-main {
+            grid-column: 3;
             min-width: 0;
-            padding: 24px 26px 28px;
+            margin-left: 16px;
+            padding: 43px;
+            overflow: hidden;
             background-color: var(--fluent-bg-surface);
             border: 1px solid var(--fluent-neutral-stroke);
             border-radius: 16px;
@@ -506,34 +572,77 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 960px) {
+        @media (max-width: 860px) {
             .page-layout {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .page-layout.toc-collapsed {
                 grid-template-columns: 1fr;
             }
 
             .toc-panel {
+                grid-column: 1;
                 position: static;
+                max-height: none;
+            }
+
+            .resizer {
+                display: none;
+            }
+
+            .page-main {
+                grid-column: 1;
+                margin-left: 0;
+            }
+
+            .page-layout.toc-collapsed .toc-title {
+                justify-content: space-between;
+                padding: 14px 16px;
+                font-size: 14px;
+            }
+
+            .toc-card.mobile-default .toc-list {
+                display: none;
+            }
+
+            .toc-card.mobile-default .toc-title::after {
+                content: "+";
+            }
+        }
+
+        @media (max-width: 540px) {
+            .topbar-inner,
+            .page-layout {
+                width: min(calc(100% - 20px), 1380px);
+            }
+
+            .page-main {
+                padding: 24px 20px 40px;
             }
         }
     </style>
 </head>
 <body class="{% if page.url == '/' %}is-home{% else %}is-doc{% endif %}{% if page.toc %} has-toc{% endif %}">
     {% if page.toc %}
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="viewer-title" id="viewer-title">실습 문서</div>
+            <a class="home-button" href="{{ '/' | relative_url }}">← 홈으로 가기</a>
+        </div>
+    </header>
     <div class="page-layout" id="page-layout">
         <aside class="toc-panel" aria-label="목차">
-            <div class="toc-card" id="toc-card">
-                <button class="toc-title" id="toc-toggle" type="button" aria-expanded="true" aria-controls="page-toc">목차</button>
+            <div class="toc-card mobile-default" id="toc-card">
+                <button class="toc-title" id="toc-toggle" type="button" aria-expanded="false" aria-controls="page-toc">목차</button>
                 <nav class="toc-list" id="page-toc">
                     <div class="toc-empty">섹션을 불러오는 중...</div>
                 </nav>
             </div>
         </aside>
+        <div class="resizer" id="resizer" role="separator" aria-label="목차 너비 조절" aria-orientation="vertical" aria-valuemin="200" aria-valuemax="520" aria-valuenow="250" tabindex="0"></div>
         <main class="page-main" id="page-content">
-            {% if page.url != '/' %}
-            <div class="page-top-actions">
-                <a class="home-button" href="{{ '/' | relative_url }}">홈으로 가기</a>
-            </div>
-            {% endif %}
             {{ content }}
         </main>
     </div>
@@ -644,11 +753,64 @@
             const tocCard = document.getElementById('toc-card');
             const tocToggle = document.getElementById('toc-toggle');
             const pageLayout = document.getElementById('page-layout');
-            if (!content || !toc || !tocCard || !tocToggle || !pageLayout) return;
+            const resizer = document.getElementById('resizer');
+            const viewerTitle = document.getElementById('viewer-title');
+            if (!content || !toc || !tocCard || !tocToggle || !pageLayout || !resizer) return;
+
+            const documentHeading = content.querySelector('h1');
+            if (documentHeading && viewerTitle) {
+                viewerTitle.textContent = documentHeading.textContent || '실습 문서';
+            }
+
+            const setTocWidth = function (width) {
+                const boundedWidth = Math.min(520, Math.max(200, width));
+                pageLayout.style.gridTemplateColumns = `${boundedWidth}px 8px minmax(0, 1fr)`;
+                resizer.setAttribute('aria-valuenow', String(Math.round(boundedWidth)));
+            };
+
+            let resizing = false;
+            resizer.addEventListener('pointerdown', function (event) {
+                if (pageLayout.classList.contains('toc-collapsed')) return;
+                resizing = true;
+                resizer.classList.add('active');
+                resizer.setPointerCapture(event.pointerId);
+            });
+
+            resizer.addEventListener('pointermove', function (event) {
+                if (!resizing) return;
+                const layoutLeft = pageLayout.getBoundingClientRect().left;
+                setTocWidth(event.clientX - layoutLeft);
+            });
+
+            resizer.addEventListener('pointerup', function (event) {
+                resizing = false;
+                resizer.classList.remove('active');
+                if (resizer.hasPointerCapture(event.pointerId)) {
+                    resizer.releasePointerCapture(event.pointerId);
+                }
+            });
+
+            resizer.addEventListener('keydown', function (event) {
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+                event.preventDefault();
+                const currentWidth = Number(resizer.getAttribute('aria-valuenow'));
+                setTocWidth(currentWidth + (event.key === 'ArrowRight' ? 16 : -16));
+            });
 
             tocToggle.addEventListener('click', function () {
-                const isCollapsed = tocCard.classList.toggle('is-collapsed');
+                const wasMobileDefault = tocCard.classList.contains('mobile-default');
+                tocCard.classList.remove('mobile-default');
+                const isCollapsed = wasMobileDefault
+                    ? false
+                    : tocCard.classList.toggle('is-collapsed');
+                if (wasMobileDefault) {
+                    tocCard.classList.remove('is-collapsed');
+                }
                 pageLayout.classList.toggle('toc-collapsed', isCollapsed);
+                if (!isCollapsed) {
+                    pageLayout.style.removeProperty('grid-template-columns');
+                    resizer.setAttribute('aria-valuenow', '250');
+                }
                 tocToggle.setAttribute('aria-expanded', String(!isCollapsed));
             });
 
