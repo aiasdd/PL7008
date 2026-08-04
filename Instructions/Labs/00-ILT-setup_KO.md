@@ -15,14 +15,20 @@ lab:
 
 # 실습 환경 준비
 
-## 실습 개요
+## 개요
+Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
 
-| 구분 | 내용 |
-|------|------|
-| 난이도 | Level 200 (Developer) |
-| 소요 시간 | 약 10분 |
-| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
-| 목적 | Microsoft Copilot Studio 실습을 위한 Power Platform 환경 및 솔루션 구성 |
+## 실습 중 접속 URL
+
+| 서비스/용도 | URL | 비고 |
+|---|---|---|
+| Power Platform 관리 센터 | [https://admin.powerplatform.microsoft.com/manage/environments](https://admin.powerplatform.microsoft.com/manage/environments) | 실습 환경 생성 및 관리 |
+| Microsoft Copilot Studio | [https://copilotstudio.microsoft.com/](https://copilotstudio.microsoft.com/) | 에이전트 생성 및 관리 |
+| Power Apps Maker Portal | [https://make.powerapps.com/](https://make.powerapps.com/) | Dataverse 테이블 생성 및 관리 |
+| Microsoft Teams 웹 | [https://teams.cloud.microsoft/](https://teams.cloud.microsoft/) | 게시된 에이전트 및 워크플로 테스트 |
+| 복지로 | [https://www.bokjiro.go.kr](https://www.bokjiro.go.kr) | 공개 웹 사이트 지식 소스 등록 |
+| 국세법령정보시스템 | [https://taxlaw.nts.go.kr/](https://taxlaw.nts.go.kr/) | 공개 웹 사이트 지식 소스 등록 |
+
 
 ## 실습 1 - Power Platform 환경 만들기
 
