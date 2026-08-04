@@ -646,7 +646,6 @@
             const headings = Array.from(content.querySelectorAll('h2, h3'));
             toc.innerHTML = '';
 
-            const sectionHeadings = Array.from(content.querySelectorAll('h2, h3'));
             if (!headings.length) {
                 const empty = document.createElement('div');
                 empty.className = 'toc-empty';
@@ -669,7 +668,8 @@
                 let base = slugify(text) || 'section';
                 slugCounts[base] = (slugCounts[base] || 0) + 1;
                 return slugCounts[base] === 1 ? base : `${base}-${slugCounts[base]}`;
-            sectionHeadings.forEach(function (heading) {
+            };
+
             headings.forEach(function (heading) {
                 if (!heading.id) {
                     heading.id = makeId(heading.textContent || 'section');
