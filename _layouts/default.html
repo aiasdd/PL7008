@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <style>
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
         * {
             margin: 0;
             padding: 0;
@@ -27,8 +29,15 @@
             --fluent-code-bg: #f3f1ff;
         }
         
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: "Pretendard Variable", "Pretendard", "Segoe UI", sans-serif;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--fluent-text-primary);
             background:
@@ -382,7 +391,7 @@
             background-color: var(--fluent-code-bg);
             border-radius: 3px;
             padding: 0.2em 0.4em;
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-family: Consolas, 'Liberation Mono', Menlo, monospace;
             font-size: 85%;
             color: var(--fluent-text-primary);
         }
@@ -391,7 +400,7 @@
             background-color: var(--fluent-code-bg);
             border-radius: 6px;
             padding: 16px;
-            font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            font-family: Consolas, 'Liberation Mono', Menlo, monospace;
             overflow-x: hidden;
             border: 1px solid #dfdbff;
             position: relative;
@@ -422,10 +431,20 @@
             background-color: transparent;
             padding: 0;
             display: block;
-            font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            font-family: Consolas, 'Liberation Mono', Menlo, monospace;
             white-space: pre-wrap;
             overflow-wrap: anywhere;
             word-break: break-word;
+        }
+
+        code.code-korean-only,
+        code .code-korean {
+            font-family: "Pretendard Variable", "Pretendard", "Segoe UI", sans-serif !important;
+            letter-spacing: 0;
+        }
+
+        code.code-korean-only {
+            font-size: 100%;
         }
         
         blockquote {
@@ -693,6 +712,44 @@
                     }
                 });
             };
+
+            const koreanPattern = /[\u3131-\u318E\uAC00-\uD7A3]+/;
+            const koreanPartsPattern = /([\u3131-\u318E\uAC00-\uD7A3]+)/g;
+            const koreanOnlyPattern = /^[\u3131-\u318E\uAC00-\uD7A3\s.,:;!?()[\]{}'"“”‘’·/-]+$/;
+            const codeElements = Array.from(document.querySelectorAll('code'));
+            codeElements.forEach(function (codeElement) {
+                const codeText = codeElement.textContent || '';
+                if (!codeElement.closest('pre') && koreanPattern.test(codeText) && koreanOnlyPattern.test(codeText)) {
+                    codeElement.classList.add('code-korean-only');
+                }
+
+                const walker = document.createTreeWalker(codeElement, NodeFilter.SHOW_TEXT);
+                const textNodes = [];
+                let textNode = walker.nextNode();
+
+                while (textNode) {
+                    if (koreanPattern.test(textNode.nodeValue || '')) {
+                        textNodes.push(textNode);
+                    }
+                    textNode = walker.nextNode();
+                }
+
+                textNodes.forEach(function (node) {
+                    const fragment = document.createDocumentFragment();
+                    (node.nodeValue || '').split(koreanPartsPattern).forEach(function (part) {
+                        if (!part) return;
+                        if (koreanPattern.test(part)) {
+                            const koreanText = document.createElement('span');
+                            koreanText.className = 'code-korean';
+                            koreanText.textContent = part;
+                            fragment.appendChild(koreanText);
+                        } else {
+                            fragment.appendChild(document.createTextNode(part));
+                        }
+                    });
+                    node.parentNode.replaceChild(fragment, node);
+                });
+            });
 
             const codeBlocks = Array.from(document.querySelectorAll('pre > code'));
             codeBlocks.forEach(function (codeBlock) {
