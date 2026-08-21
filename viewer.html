@@ -12,7 +12,7 @@
         })();
     </script>
     <title>Lab Viewer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" media="print" onload="this.media='all'">
     <style>
         :root {
             color-scheme: light;
@@ -672,6 +672,41 @@
         </div>
     </header>
 
+    <script id="lab-paths" type="application/json">
+        [
+            "Instructions/Labs/00-ILT-setup_KO.md",
+            "Instructions/Labs/01-create-agents_KO.md",
+            "Instructions/Labs/02-manage-topics_KO.md",
+            "Instructions/Labs/03-knowledge_KO.md",
+            "Instructions/Labs/04-workflow-tools_KO.md",
+            "Instructions/Labs/05-create-agent-new-experience_KO.md"
+        ]
+    </script>
+    <script>
+        (() => {
+            const paths = JSON.parse(document.getElementById("lab-paths").textContent);
+            const currentPath = new URLSearchParams(window.location.search).get("file") || "";
+            const currentIndex = paths.indexOf(currentPath);
+
+            const setInitialLink = (id, path) => {
+                const link = document.getElementById(id);
+                if (!path) {
+                    return;
+                }
+                link.href = "./viewer.html?file=" + encodeURIComponent(path);
+                link.removeAttribute("aria-disabled");
+                link.removeAttribute("tabindex");
+            };
+
+            setInitialLink("previous-link", currentIndex > 0 ? paths[currentIndex - 1] : "");
+            setInitialLink(
+                "next-link",
+                currentIndex >= 0 && currentIndex < paths.length - 1 ? paths[currentIndex + 1] : ""
+            );
+            window.viewerLabPaths = paths;
+        })();
+    </script>
+
     <div class="workspace" id="workspace">
         <aside class="toc-panel mobile-default" id="toc-panel" aria-label="목차">
             <button class="toc-header" id="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-nav">목차</button>
@@ -699,13 +734,7 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const filePath = params.get("file") || "";
-        const labPaths = [
-            "Instructions/Labs/00-ILT-setup_KO.md",
-            "Instructions/Labs/01-create-agents_KO.md",
-            "Instructions/Labs/02-manage-topics_KO.md",
-            "Instructions/Labs/03-knowledge_KO.md",
-            "Instructions/Labs/04-workflow-tools_KO.md"
-        ];
+        const labPaths = window.viewerLabPaths;
         const viewerTitle = document.getElementById("viewer-title");
         const previousLink = document.getElementById("previous-link");
         const nextLink = document.getElementById("next-link");
@@ -1094,12 +1123,18 @@
             tocList.innerHTML = "<li>목차를 만들 수 없습니다.</li>";
         }
 
-        async function fetchMarkdown(path) {
-            const response = await fetch(new URL(path, siteBase), { cache: "no-cache" });
-            if (!response.ok) {
-                throw new Error("HTTP " + response.status);
+        async function fetchDocument(path) {
+            const localResponse = await fetch(new URL(path, siteBase), { cache: "no-cache" });
+            if (localResponse.ok) {
+                return { content: await localResponse.text(), rendered: false };
             }
-            return response.text();
+
+            const renderedPath = path.replace(/\.md$/, ".html");
+            const renderedResponse = await fetch(new URL(renderedPath, siteBase), { cache: "no-cache" });
+            if (!renderedResponse.ok) {
+                throw new Error("HTTP " + renderedResponse.status);
+            }
+            return { content: await renderedResponse.text(), rendered: true };
         }
 
         async function loadMarkdown() {
@@ -1114,10 +1149,23 @@
             }
 
             try {
-                const markdown = stripFrontMatter(await fetchMarkdown(filePath));
-                marked.setOptions({ gfm: true, breaks: false });
-                const rendered = marked.parse(markdown);
-                markdownBody.innerHTML = window.DOMPurify ? DOMPurify.sanitize(rendered) : rendered;
+                const documentSource = await fetchDocument(filePath);
+                if (documentSource.rendered) {
+                    const parsedDocument = new DOMParser().parseFromString(documentSource.content, "text/html");
+                    const renderedContent = parsedDocument.getElementById("page-content");
+                    if (!renderedContent) {
+                        throw new Error("렌더링된 문서에서 본문을 찾을 수 없습니다.");
+                    }
+                    renderedContent.querySelector(".page-bottom-navigation")?.remove();
+                    markdownBody.innerHTML = window.DOMPurify
+                        ? DOMPurify.sanitize(renderedContent.innerHTML)
+                        : renderedContent.innerHTML;
+                } else {
+                    const markdown = stripFrontMatter(documentSource.content);
+                    marked.setOptions({ gfm: true, breaks: false });
+                    const rendered = marked.parse(markdown);
+                    markdownBody.innerHTML = window.DOMPurify ? DOMPurify.sanitize(rendered) : rendered;
+                }
                 enhanceMarkdownAlerts();
                 enhanceLinksAndImages();
                 enhanceCodeBlocks();
