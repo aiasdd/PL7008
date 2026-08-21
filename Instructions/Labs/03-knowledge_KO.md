@@ -22,19 +22,18 @@ lab:
 | 난이도 | Level 200 (Developer) |
 | 소요 시간 | 약 60분 |
 | 대상 | Power Platform 개발자, Copilot Studio 학습자 |
-| 목적 | Dataverse 테이블 생성 및 에이전트 지식 소스 추가, 생성형 AI 구성 |
+| 목적 | 에이전트 지식 소스 추가, 생성형 AI 구성 |
 
 ## 시나리오
 
 이 실습에서 수행할 작업:
 
-- Dataverse 테이블 만들기
 - 에이전트 만들기
 - 파일 업로드 후 지식 소스로 사용
 - 공개 웹사이트를 지식 소스로 추가
 - SharePoint 엑셀 데이터를 지식 소스로 추가
 - 생성 오케스트레이션 설정 구성
-- Create generative answers 노드 구성
+- 생성형 답변 노드 구성
 - 에이전트를 Microsoft Teams에 게시
 
 ### 학습 내용
