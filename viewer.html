@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (() => {
+            const param = new URLSearchParams(window.location.search).get("scoutTheme");
+            const theme =
+                param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
+    <title>Lab Viewer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+    <style>
+        :root {
+            color-scheme: light;
+            --cp-bg: #f7f4ef;
+            --cp-bg-elevated: #fcfbf8;
+            --cp-surface: #ffffff;
+            --cp-surface-soft: #f5f5f5;
+            --cp-border: #dedede;
+            --cp-border-strong: #919191;
+            --cp-text: #242424;
+            --cp-text-muted: #5c5c5c;
+            --cp-text-soft: #6f6f6f;
+            --cp-accent: #b11f4b;
+            --cp-accent-hover: #9a1a41;
+            --cp-accent-soft: rgba(177, 31, 75, 0.08);
+            --cp-accent-fg: #ffffff;
+            --cp-success: #16a34a;
+            --cp-danger: #dc2626;
+            --cp-warning: #f59e0b;
+            --cp-link: #0078d4;
+            --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+            --cp-overlay: rgba(255, 255, 255, 0.8);
+            --cp-panel: rgba(255, 255, 255, 0.86);
+            --cp-panel-strong: rgba(255, 255, 255, 0.96);
+            --cp-sheen: rgba(255, 255, 255, 0.55);
+            --cp-highlight: rgba(177, 31, 75, 0.12);
+            --cp-shadow-subtle: 0 0 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+            --cp-brand-1: #1678d4;
+            --cp-brand-2: #5b5fc7;
+            --cp-brand-3: #c239b3;
+            --cp-brand-4: #8f3fd6;
+            --cp-brand-text: #4044a5;
+            --cp-brand-text-hover: #3236a3;
+            --cp-brand-soft: #edefff;
+            --cp-brand-border: #d4d8ff;
+            --cp-brand-border-hover: #bcc1ff;
+            --cp-canvas: #f4f4f8;
+            --cp-heading: #2f337f;
+            --cp-heading-secondary: #3f468f;
+            --cp-code-bg: #f3f1ff;
+            --cp-callout-bg: #f5f4ff;
+            --cp-callout-text: #353a73;
+            --cp-page-background: radial-gradient(1400px 320px at 10% -5%, rgba(22, 120, 212, 0.12) 0%, rgba(22, 120, 212, 0) 52%), radial-gradient(1200px 260px at 95% -8%, rgba(143, 63, 214, 0.11) 0%, rgba(143, 63, 214, 0) 58%), var(--cp-canvas);
+            --cp-brand-gradient: linear-gradient(120deg, var(--cp-brand-1) 0%, var(--cp-brand-2) 52%, var(--cp-brand-3) 100%);
+            --cp-header-background: rgba(255, 255, 255, 0.96);
+            --cp-brand-shadow: 0 12px 34px rgba(73, 84, 162, 0.12);
+            --cp-title-shadow: 0 8px 20px rgba(91, 95, 199, 0.28);
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --cp-bg: #3d3b3a;
+            --cp-bg-elevated: #343231;
+            --cp-surface: #292929;
+            --cp-surface-soft: #2e2e2e;
+            --cp-border: #474747;
+            --cp-border-strong: #5f5f5f;
+            --cp-text: #dedede;
+            --cp-text-muted: #919191;
+            --cp-text-soft: #b0b0b0;
+            --cp-accent: #fd8ea1;
+            --cp-accent-hover: #fb7b91;
+            --cp-accent-soft: rgba(253, 142, 161, 0.14);
+            --cp-accent-fg: #1a1a1a;
+            --cp-success: #4ade80;
+            --cp-danger: #f87171;
+            --cp-warning: #fbbf24;
+            --cp-link: #4da6ff;
+            --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+            --cp-overlay: rgba(41, 41, 41, 0.88);
+            --cp-panel: rgba(41, 41, 41, 0.72);
+            --cp-panel-strong: rgba(41, 41, 41, 0.96);
+            --cp-sheen: rgba(255, 255, 255, 0.04);
+            --cp-highlight: rgba(253, 142, 161, 0.12);
+            --cp-shadow-subtle: 0 0 2px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cp-page-background);
+            color: var(--cp-text);
+            font-family: "Pretendard Variable", Pretendard, "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--cp-brand-1), var(--cp-brand-2), var(--cp-brand-3)) 1;
+            background: var(--cp-header-background);
+            box-shadow: var(--cp-brand-shadow);
+        }
+
+        .topbar-inner {
+            width: min(calc(100% - 32px), 1380px);
+            min-height: 52px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .viewer-title {
+            flex: 1 1 auto;
+            min-width: 0;
+            overflow: hidden;
+            color: var(--cp-text);
+            font-size: 16px;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .top-navigation {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .action-button {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 11px;
+            border: 1px solid var(--cp-brand-border);
+            border-radius: 8px;
+            background: var(--cp-surface);
+            color: var(--cp-brand-text);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .action-button:hover,
+        .action-button:focus-visible {
+            border-color: var(--cp-brand-border-hover);
+            background: var(--cp-brand-soft);
+            color: var(--cp-brand-text-hover);
+            outline: none;
+        }
+
+        .action-button[aria-disabled="true"] {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .workspace {
+            width: min(calc(100% - 32px), 1380px);
+            margin: 24px auto 48px;
+            display: grid;
+            grid-template-columns: 250px 8px minmax(0, 1fr);
+            align-items: start;
+        }
+
+        .workspace.toc-collapsed {
+            grid-template-columns: 48px 0 minmax(0, 1fr);
+        }
+
+        .toc-panel {
+            grid-column: 1;
+            min-width: 0;
+            position: sticky;
+            top: 88px;
+            max-height: calc(100vh - 112px);
+            overflow: hidden;
+            border: 1px solid var(--cp-border);
+            border-radius: 16px;
+            background: var(--cp-surface);
+            box-shadow: var(--cp-brand-shadow);
+        }
+
+        .toc-header {
+            width: 100%;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 16px;
+            border: 0;
+            border-bottom: 1px solid var(--cp-border);
+            background: var(--cp-surface);
+            color: var(--cp-text);
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .toc-header::after {
+            content: "−";
+            color: var(--cp-text-muted);
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .toc-panel.collapsed {
+            border-radius: 0.625rem;
+        }
+
+        .toc-panel.collapsed .toc-header {
+            justify-content: center;
+            padding: 12px 0;
+            border-bottom: 0;
+            font-size: 0;
+        }
+
+        .toc-panel.collapsed .toc-header::after {
+            content: "+";
+            font-size: 18px;
+        }
+
+        .toc-panel.collapsed .toc-nav {
+            display: none;
+        }
+
+        .toc-nav {
+            max-height: calc(100vh - 162px);
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .toc-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin: 2px 0;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 7px 9px;
+            border-left: 3px solid transparent;
+            border-radius: 0 0.625rem 0.625rem 0;
+            color: var(--cp-text-muted);
+            font-size: 14px;
+            line-height: 1.35;
+            text-decoration: none;
+        }
+
+        .toc-list a.level-2 {
+            font-weight: 650;
+        }
+
+        .toc-list a.level-3 {
+            padding-left: 20px;
+            font-size: 13px;
+        }
+
+        .toc-list a.level-4 {
+            padding-left: 32px;
+            font-size: 12px;
+        }
+
+        .toc-list a:hover,
+        .toc-list a.active {
+            border-left-color: var(--cp-brand-2);
+            background: var(--cp-brand-soft);
+            color: var(--cp-brand-text);
+        }
+
+        .resizer {
+            grid-column: 2;
+            position: sticky;
+            top: 88px;
+            width: 8px;
+            height: calc(100vh - 112px);
+            border: 0;
+            border-right: 1px solid var(--cp-border);
+            background: transparent;
+            cursor: col-resize;
+            touch-action: none;
+        }
+
+        .resizer:hover,
+        .resizer:focus-visible,
+        .resizer.active {
+            border-right-color: var(--cp-brand-1);
+            background: var(--cp-brand-soft);
+            outline: none;
+        }
+
+        .document-panel {
+            grid-column: 3;
+            min-width: 0;
+            margin-left: 16px;
+            padding: 42px;
+            overflow: hidden;
+            border: 1px solid var(--cp-border);
+            border-radius: 16px;
+            background: var(--cp-surface);
+            box-shadow: var(--cp-brand-shadow);
+        }
+
+        .document-status {
+            margin: 0;
+            padding: 18px;
+            border: 1px solid var(--cp-border);
+            border-radius: 0.625rem;
+            background: var(--cp-surface-soft);
+            color: var(--cp-text-muted);
+        }
+
+        .document-status.error {
+            border-color: var(--cp-danger);
+            color: var(--cp-danger);
+        }
+
+        .markdown-body {
+            min-width: 0;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4 {
+            color: var(--cp-text);
+            letter-spacing: 0;
+            scroll-margin-top: 88px;
+        }
+
+        .markdown-body h1 {
+            margin: 0 0 28px;
+            padding: 16px 18px;
+            border-radius: 0.625rem;
+            background: var(--cp-brand-gradient);
+            color: var(--cp-accent-fg);
+            box-shadow: var(--cp-title-shadow);
+            font-size: 32px;
+            line-height: 1.25;
+        }
+
+        .markdown-body h2 {
+            margin: 34px 0 16px;
+            padding: 10px 34px 10px 0;
+            border-bottom: 1px solid var(--cp-border);
+            color: var(--cp-heading);
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        .markdown-body h3 {
+            margin: 28px 0 14px;
+            font-size: 20px;
+            line-height: 1.35;
+            color: var(--cp-heading-secondary);
+        }
+
+        .markdown-body h4 {
+            margin: 24px 0 12px;
+            font-size: 17px;
+        }
+
+        .markdown-body .collapsible-heading {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .markdown-body .collapsible-heading::after {
+            content: "−";
+            position: absolute;
+            top: 12px;
+            right: 4px;
+            color: var(--cp-text-muted);
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .markdown-body .collapsible-heading.collapsed::after {
+            content: "+";
+        }
+
+        .markdown-body p,
+        .markdown-body ul,
+        .markdown-body ol,
+        .markdown-body blockquote,
+        .markdown-body table,
+        .markdown-body pre {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            padding-left: 2em;
+        }
+
+        .markdown-body li {
+            margin: 7px 0;
+        }
+
+        .markdown-body li::marker {
+            color: var(--cp-brand-2);
+            font-weight: 700;
+        }
+
+        .markdown-body a {
+            color: var(--cp-link);
+        }
+
+        .markdown-body a:hover {
+            color: var(--cp-accent-hover);
+        }
+
+        .markdown-body hr {
+            height: 1px;
+            margin: 28px 0;
+            border: 0;
+            background: var(--cp-border);
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 18px 0;
+            border: 1px solid var(--cp-border);
+            border-radius: 0.625rem;
+            background: var(--cp-surface);
+            box-shadow: var(--cp-shadow-subtle);
+            cursor: zoom-in;
+        }
+
+        .markdown-body table {
+            width: 100%;
+            display: block;
+            overflow-x: auto;
+            border-collapse: collapse;
+        }
+
+        .markdown-body th,
+        .markdown-body td {
+            padding: 10px 12px;
+            border: 1px solid var(--cp-border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .markdown-body th {
+            background: var(--cp-surface-soft);
+        }
+
+        .markdown-body code {
+            padding: 0.2em 0.4em;
+            border-radius: 0.3rem;
+            background: var(--cp-code-bg);
+            color: var(--cp-text);
+            font-family: Consolas, "Pretendard Variable", Pretendard, "Courier New", Courier, monospace;
+            font-size: 0.88em;
+        }
+
+        .markdown-body code.inline-copyable {
+            position: relative;
+            cursor: copy;
+            outline: none;
+        }
+
+        .markdown-body code.inline-copyable.copied {
+            background: var(--cp-surface);
+            color: var(--cp-success);
+        }
+
+        .code-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body .code-wrapper pre {
+            margin: 0;
+            padding: 8px calc(72px + var(--copy-button-reserve, 0px)) 8px 14px;
+            overflow-x: auto;
+            border: 1px solid var(--cp-border);
+            border-radius: 0.625rem;
+            background: var(--cp-code-bg);
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .markdown-body pre code {
+            display: block;
+            padding: 0;
+            background: transparent;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            min-width: 36px;
+            padding: 4px 7px;
+            border: 1px solid var(--cp-border-strong);
+            border-radius: 0.4rem;
+            background: var(--cp-surface);
+            color: var(--cp-text);
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-button:hover,
+        .copy-button:focus-visible {
+            border-color: var(--cp-brand-border-hover);
+            background: var(--cp-brand-soft);
+            outline: none;
+        }
+
+        .markdown-alert {
+            margin: 18px 0;
+            padding: 14px 16px;
+            border-left: 4px solid var(--cp-brand-4);
+            border-radius: 0.625rem;
+            background: var(--cp-callout-bg);
+            color: var(--cp-callout-text);
+        }
+
+        .markdown-alert-important,
+        .markdown-alert-warning,
+        .markdown-alert-caution {
+            border-left-color: var(--cp-warning);
+        }
+
+        .markdown-alert-title {
+            margin-bottom: 6px;
+            color: var(--cp-text);
+            font-weight: 700;
+        }
+
+        .markdown-alert > :last-child {
+            margin-bottom: 0;
+        }
+
+        .image-dialog {
+            max-width: min(94vw, 1500px);
+            max-height: 94vh;
+            padding: 12px;
+            border: 1px solid var(--cp-border);
+            border-radius: 16px;
+            background: var(--cp-surface);
+            box-shadow: var(--cp-shadow);
+            cursor: zoom-out;
+        }
+
+        .image-dialog::backdrop {
+            background: var(--cp-overlay);
+        }
+
+        .image-dialog img {
+            max-width: calc(94vw - 24px);
+            max-height: calc(94vh - 24px);
+            display: block;
+        }
+
+        @media (max-width: 860px) {
+            .workspace,
+            .workspace.toc-collapsed {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .toc-panel {
+                grid-column: 1;
+                position: static;
+                max-height: none;
+            }
+
+            .toc-panel.mobile-default .toc-nav {
+                display: none;
+            }
+
+            .toc-panel.mobile-default .toc-header::after {
+                content: "+";
+            }
+
+            .resizer {
+                display: none;
+            }
+
+            .document-panel {
+                grid-column: 1;
+                margin-left: 0;
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .topbar-inner,
+            .workspace {
+                width: min(calc(100% - 20px), 1380px);
+            }
+
+            .viewer-title {
+                display: none;
+            }
+
+            .top-navigation {
+                width: 100%;
+            }
+
+            .action-button {
+                min-height: 34px;
+                padding: 5px 9px;
+                font-size: 13px;
+            }
+
+            .document-panel {
+                padding: 24px 20px;
+            }
+
+            .markdown-body h1 {
+                font-size: 27px;
+            }
+
+            .markdown-body h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="viewer-title" id="viewer-title">실습 문서</div>
+            <nav class="top-navigation" aria-label="실습 페이지 이동">
+                <a class="action-button" id="previous-link" aria-disabled="true">← 이전</a>
+                <a class="action-button" href="./index.html">홈으로 가기</a>
+                <a class="action-button" id="next-link" aria-disabled="true">다음 →</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="workspace" id="workspace">
+        <aside class="toc-panel mobile-default" id="toc-panel" aria-label="목차">
+            <button class="toc-header" id="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-nav">목차</button>
+            <nav class="toc-nav" id="toc-nav">
+                <ul class="toc-list" id="toc-list">
+                    <li>섹션을 불러오는 중...</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="resizer" id="resizer" role="separator" aria-label="목차 너비 조절" aria-orientation="vertical" aria-valuemin="200" aria-valuemax="520" aria-valuenow="250" tabindex="0"></div>
+
+        <main class="document-panel">
+            <p class="document-status" id="document-status">문서를 불러오는 중...</p>
+            <article class="markdown-body" id="markdown-body" hidden></article>
+        </main>
+    </div>
+
+    <dialog class="image-dialog" id="image-dialog" aria-label="확대 이미지">
+        <img id="dialog-image" alt="">
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const filePath = params.get("file") || "";
+        const labPaths = [
+            "Instructions/Labs/00-ILT-setup_KO.md",
+            "Instructions/Labs/01-create-agents_KO.md",
+            "Instructions/Labs/02-manage-topics_KO.md",
+            "Instructions/Labs/03-knowledge_KO.md",
+            "Instructions/Labs/04-workflow-tools_KO.md"
+        ];
+        const viewerTitle = document.getElementById("viewer-title");
+        const previousLink = document.getElementById("previous-link");
+        const nextLink = document.getElementById("next-link");
+        const workspace = document.getElementById("workspace");
+        const markdownBody = document.getElementById("markdown-body");
+        const documentStatus = document.getElementById("document-status");
+        const tocPanel = document.getElementById("toc-panel");
+        const tocToggle = document.getElementById("toc-toggle");
+        const tocList = document.getElementById("toc-list");
+        const resizer = document.getElementById("resizer");
+        const imageDialog = document.getElementById("image-dialog");
+        const dialogImage = document.getElementById("dialog-image");
+        const siteBase = new URL("./", window.location.href);
+
+        function setNavigationLink(link, path) {
+            if (!path) {
+                link.removeAttribute("href");
+                link.setAttribute("aria-disabled", "true");
+                link.tabIndex = -1;
+                return;
+            }
+
+            link.href = "./viewer.html?file=" + encodeURIComponent(path);
+            link.removeAttribute("aria-disabled");
+            link.removeAttribute("tabindex");
+        }
+
+        function updatePageNavigation() {
+            const currentIndex = labPaths.indexOf(filePath);
+            setNavigationLink(previousLink, currentIndex > 0 ? labPaths[currentIndex - 1] : "");
+            setNavigationLink(
+                nextLink,
+                currentIndex >= 0 && currentIndex < labPaths.length - 1 ? labPaths[currentIndex + 1] : ""
+            );
+        }
+
+        function isAllowedMarkdownPath(path) {
+            return path.startsWith("Instructions/Labs/") &&
+                path.endsWith(".md") &&
+                !path.includes("..") &&
+                !path.includes("\\") &&
+                !path.endsWith("_KO_raw.md");
+        }
+
+        function stripFrontMatter(markdown) {
+            return markdown.replace(/^---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n/, "");
+        }
+
+        function slugify(text) {
+            return text
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-가-힣]/g, "")
+                .replace(/\s+/g, "-")
+                .replace(/-+/g, "-") || "section";
+        }
+
+        function resolveDocumentUrl(target) {
+            return new URL(target, new URL(filePath, siteBase));
+        }
+
+        function getSiteRelativePath(url) {
+            if (url.origin !== siteBase.origin || !url.pathname.startsWith(siteBase.pathname)) {
+                return "";
+            }
+            return decodeURIComponent(url.pathname.slice(siteBase.pathname.length));
+        }
+
+        function enhanceLinksAndImages() {
+            markdownBody.querySelectorAll("a[href]").forEach((link) => {
+                const target = link.getAttribute("href");
+                if (!target || target.startsWith("#") || target.startsWith("mailto:")) {
+                    return;
+                }
+
+                const resolved = resolveDocumentUrl(target);
+                const relativePath = getSiteRelativePath(resolved);
+                if (relativePath.endsWith(".md") && isAllowedMarkdownPath(relativePath)) {
+                    link.href = "./viewer.html?file=" + encodeURIComponent(relativePath);
+                    return;
+                }
+
+                link.href = resolved.href;
+                if (resolved.origin !== window.location.origin) {
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+                }
+            });
+
+            markdownBody.querySelectorAll("img[src]").forEach((image) => {
+                image.src = resolveDocumentUrl(image.getAttribute("src")).href;
+                image.tabIndex = 0;
+                image.setAttribute("role", "button");
+                image.setAttribute("aria-label", (image.alt || "실습 이미지") + " 확대");
+            });
+        }
+
+        function enhanceMarkdownAlerts() {
+            const labels = {
+                NOTE: "참고",
+                TIP: "팁",
+                IMPORTANT: "중요",
+                WARNING: "경고",
+                CAUTION: "주의"
+            };
+
+            markdownBody.querySelectorAll("blockquote").forEach((blockquote) => {
+                const firstContent = blockquote.firstElementChild;
+                if (!firstContent) {
+                    return;
+                }
+
+                const textNode = Array.from(firstContent.childNodes).find(
+                    (node) => node.nodeType === Node.TEXT_NODE && /^\s*\[![A-Z]+\]/i.test(node.textContent)
+                );
+                if (!textNode) {
+                    return;
+                }
+
+                const match = textNode.textContent.match(/^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*/i);
+                if (!match) {
+                    return;
+                }
+
+                const type = match[1].toUpperCase();
+                textNode.textContent = textNode.textContent.slice(match[0].length);
+                blockquote.classList.add("markdown-alert", "markdown-alert-" + type.toLowerCase());
+
+                const title = document.createElement("div");
+                title.className = "markdown-alert-title";
+                title.textContent = labels[type];
+                blockquote.insertBefore(title, firstContent);
+
+                if (!firstContent.textContent.trim() && !firstContent.children.length) {
+                    firstContent.remove();
+                }
+            });
+        }
+
+        function buildToc() {
+            const headings = Array.from(markdownBody.querySelectorAll("h2, h3, h4"));
+            const usedIds = new Set();
+            tocList.replaceChildren();
+
+            if (!headings.length) {
+                const item = document.createElement("li");
+                item.textContent = "목차 항목이 없습니다.";
+                tocList.appendChild(item);
+                return;
+            }
+
+            headings.forEach((heading) => {
+                const baseId = slugify(heading.textContent);
+                let headingId = baseId;
+                let suffix = 2;
+                while (usedIds.has(headingId)) {
+                    headingId = baseId + "-" + suffix;
+                    suffix += 1;
+                }
+                usedIds.add(headingId);
+                heading.id = headingId;
+
+                const item = document.createElement("li");
+                const link = document.createElement("a");
+                link.href = "#" + headingId;
+                link.dataset.headingId = headingId;
+                link.textContent = heading.textContent;
+                link.className = "level-" + heading.tagName.slice(1);
+                item.appendChild(link);
+                tocList.appendChild(item);
+            });
+        }
+
+        function initTocScrollSpy() {
+            const headings = Array.from(markdownBody.querySelectorAll("h2, h3, h4"));
+            const links = Array.from(tocList.querySelectorAll("a[href^='#']"));
+            let activeId = "";
+            let updatePending = false;
+
+            const setActiveLink = (headingId) => {
+                if (!headingId || headingId === activeId) {
+                    return;
+                }
+                activeId = headingId;
+                links.forEach((link) => {
+                    const isActive = link.dataset.headingId === headingId;
+                    link.classList.toggle("active", isActive);
+                    if (isActive) {
+                        link.setAttribute("aria-current", "location");
+                        link.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                    } else {
+                        link.removeAttribute("aria-current");
+                    }
+                });
+            };
+
+            const updateActiveLink = () => {
+                updatePending = false;
+                const visibleHeadings = headings.filter((heading) => heading.offsetParent !== null);
+                if (!visibleHeadings.length) {
+                    return;
+                }
+                const activationLine = Math.min(window.innerHeight * 0.3, 240);
+                let currentHeading = visibleHeadings[0];
+                visibleHeadings.forEach((heading) => {
+                    if (heading.getBoundingClientRect().top <= activationLine) {
+                        currentHeading = heading;
+                    }
+                });
+                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+                    currentHeading = visibleHeadings[visibleHeadings.length - 1];
+                }
+                setActiveLink(currentHeading.id);
+            };
+
+            const requestUpdate = () => {
+                if (!updatePending) {
+                    updatePending = true;
+                    window.requestAnimationFrame(updateActiveLink);
+                }
+            };
+
+            links.forEach((link) => {
+                link.addEventListener("click", () => setActiveLink(link.dataset.headingId));
+            });
+            window.addEventListener("scroll", requestUpdate, { passive: true });
+            window.addEventListener("resize", requestUpdate);
+            updateActiveLink();
+        }
+
+        function copyText(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(text);
+            }
+
+            return new Promise((resolve, reject) => {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.select();
+                const copied = document.execCommand("copy");
+                textArea.remove();
+                copied ? resolve() : reject(new Error("Copy command failed"));
+            });
+        }
+
+        function enhanceCodeBlocks() {
+            markdownBody.querySelectorAll("pre").forEach((pre) => {
+                const wrapper = document.createElement("div");
+                const button = document.createElement("button");
+                wrapper.className = "code-wrapper";
+                button.type = "button";
+                button.className = "copy-button";
+                button.textContent = "복사";
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(pre);
+                wrapper.appendChild(button);
+
+                button.addEventListener("click", async () => {
+                    try {
+                        await copyText(pre.textContent || "");
+                        button.textContent = "복사됨";
+                    } catch (error) {
+                        button.textContent = "복사 실패";
+                    }
+                    window.setTimeout(() => {
+                        button.textContent = "복사";
+                    }, 1200);
+                });
+            });
+        }
+
+        function enhanceInlineCodes() {
+            markdownBody.querySelectorAll("code").forEach((code) => {
+                if (code.closest("pre")) {
+                    return;
+                }
+                code.classList.add("inline-copyable");
+                code.tabIndex = 0;
+                code.setAttribute("role", "button");
+                code.setAttribute("aria-label", (code.textContent || "") + " 복사");
+                code.title = "클릭하여 복사";
+
+                const copy = async () => {
+                    try {
+                        await copyText(code.textContent || "");
+                        code.classList.add("copied");
+                        code.title = "복사됨";
+                    } catch (error) {
+                        code.title = "복사 실패";
+                    }
+                    window.setTimeout(() => {
+                        code.classList.remove("copied");
+                        code.title = "클릭하여 복사";
+                    }, 1000);
+                };
+
+                code.addEventListener("click", copy);
+                code.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        copy();
+                    }
+                });
+            });
+        }
+
+        function makeCollapsibleSections() {
+            markdownBody.querySelectorAll("h2").forEach((heading) => {
+                const content = document.createElement("div");
+                content.className = "section-content";
+                let sibling = heading.nextElementSibling;
+                while (sibling && sibling.tagName !== "H2") {
+                    const next = sibling.nextElementSibling;
+                    content.appendChild(sibling);
+                    sibling = next;
+                }
+                heading.parentNode.insertBefore(content, heading.nextSibling);
+                heading.classList.add("collapsible-heading");
+                heading.tabIndex = 0;
+                heading.setAttribute("role", "button");
+                heading.setAttribute("aria-expanded", "true");
+
+                const toggle = () => {
+                    const collapsed = heading.classList.toggle("collapsed");
+                    content.hidden = collapsed;
+                    heading.setAttribute("aria-expanded", String(!collapsed));
+                };
+                heading.addEventListener("click", toggle);
+                heading.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        toggle();
+                    }
+                });
+            });
+        }
+
+        function setTocWidth(width) {
+            const boundedWidth = Math.min(520, Math.max(200, width));
+            workspace.style.gridTemplateColumns = boundedWidth + "px 8px minmax(0, 1fr)";
+            resizer.setAttribute("aria-valuenow", String(Math.round(boundedWidth)));
+        }
+
+        function initResizer() {
+            let resizing = false;
+            resizer.addEventListener("pointerdown", (event) => {
+                if (workspace.classList.contains("toc-collapsed")) {
+                    return;
+                }
+                resizing = true;
+                resizer.classList.add("active");
+                resizer.setPointerCapture(event.pointerId);
+            });
+            resizer.addEventListener("pointermove", (event) => {
+                if (!resizing) {
+                    return;
+                }
+                setTocWidth(event.clientX - workspace.getBoundingClientRect().left);
+            });
+            resizer.addEventListener("pointerup", (event) => {
+                resizing = false;
+                resizer.classList.remove("active");
+                if (resizer.hasPointerCapture(event.pointerId)) {
+                    resizer.releasePointerCapture(event.pointerId);
+                }
+            });
+            resizer.addEventListener("keydown", (event) => {
+                if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+                    return;
+                }
+                event.preventDefault();
+                const currentWidth = Number(resizer.getAttribute("aria-valuenow"));
+                setTocWidth(currentWidth + (event.key === "ArrowRight" ? 16 : -16));
+            });
+        }
+
+        function showError(message) {
+            viewerTitle.textContent = "문서 로드 실패";
+            documentStatus.textContent = message;
+            documentStatus.classList.add("error");
+            documentStatus.hidden = false;
+            markdownBody.hidden = true;
+            tocList.innerHTML = "<li>목차를 만들 수 없습니다.</li>";
+        }
+
+        async function fetchMarkdown(path) {
+            const response = await fetch(new URL(path, siteBase), { cache: "no-cache" });
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status);
+            }
+            return response.text();
+        }
+
+        async function loadMarkdown() {
+            if (!isAllowedMarkdownPath(filePath)) {
+                showError("올바른 실습 문서 경로가 아닙니다.");
+                return;
+            }
+
+            if (!window.marked) {
+                showError("Markdown 렌더러를 불러오지 못했습니다.");
+                return;
+            }
+
+            try {
+                const markdown = stripFrontMatter(await fetchMarkdown(filePath));
+                marked.setOptions({ gfm: true, breaks: false });
+                const rendered = marked.parse(markdown);
+                markdownBody.innerHTML = window.DOMPurify ? DOMPurify.sanitize(rendered) : rendered;
+                enhanceMarkdownAlerts();
+                enhanceLinksAndImages();
+                enhanceCodeBlocks();
+                enhanceInlineCodes();
+                buildToc();
+                makeCollapsibleSections();
+
+                const firstHeading = markdownBody.querySelector("h1");
+                const title = firstHeading ? firstHeading.textContent.trim() : filePath.split("/").pop();
+                viewerTitle.textContent = title;
+                document.title = title + " - Lab Viewer";
+                documentStatus.hidden = true;
+                markdownBody.hidden = false;
+                initTocScrollSpy();
+            } catch (error) {
+                const localHint = window.location.protocol === "file:"
+                    ? " file:// 대신 로컬 웹 서버 또는 GitHub Pages에서 열어 주세요."
+                    : "";
+                showError("문서를 불러오지 못했습니다: " + error.message + localHint);
+            }
+        }
+
+        tocToggle.addEventListener("click", () => {
+            const wasMobileDefault = tocPanel.classList.contains("mobile-default");
+            tocPanel.classList.remove("mobile-default");
+            const collapsed = wasMobileDefault ? false : tocPanel.classList.toggle("collapsed");
+            if (wasMobileDefault) {
+                tocPanel.classList.remove("collapsed");
+            }
+            workspace.classList.toggle("toc-collapsed", collapsed);
+            if (!collapsed) {
+                workspace.style.removeProperty("grid-template-columns");
+                resizer.setAttribute("aria-valuenow", "250");
+            }
+            tocToggle.setAttribute("aria-expanded", String(!collapsed));
+        });
+
+        markdownBody.addEventListener("click", (event) => {
+            const image = event.target.closest("img");
+            if (!image) {
+                return;
+            }
+            dialogImage.src = image.currentSrc || image.src;
+            dialogImage.alt = image.alt;
+            imageDialog.showModal();
+        });
+
+        markdownBody.addEventListener("keydown", (event) => {
+            if ((event.key === "Enter" || event.key === " ") && event.target.matches("img")) {
+                event.preventDefault();
+                event.target.click();
+            }
+        });
+
+        imageDialog.addEventListener("click", (event) => {
+            if (event.target === imageDialog || event.target === dialogImage) {
+                imageDialog.close();
+            }
+        });
+
+        initResizer();
+        updatePageNavigation();
+        loadMarkdown();
+    </script>
+</body>
+</html>

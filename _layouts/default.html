@@ -280,15 +280,18 @@
         .home-button {
             display: inline-flex;
             align-items: center;
-            padding: 8px 12px;
-            border-radius: 8px;
+            justify-content: center;
+            min-height: 48px;
+            padding: 11px 18px;
+            border-radius: 12px;
             border: 1px solid #d4d8ff;
             background-color: #ffffff;
-            color: #4044a5;
-            font-size: 14px;
+            color: #3545a3;
+            font-size: 20px;
             font-weight: 600;
             text-decoration: none;
-            line-height: 1;
+            line-height: 1.2;
+            white-space: nowrap;
         }
 
         .home-button:hover {
@@ -296,6 +299,28 @@
             color: #3236a3;
             border-color: #bcc1ff;
             text-decoration: none;
+        }
+
+        .page-bottom-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e4e7f0;
+        }
+
+        .navigation-button {
+            color: #17213d;
+            border-color: #d7dfef;
+        }
+
+        .navigation-button:hover {
+            color: #17213d;
+            border-color: #bfcbe0;
+            background-color: #f7f9fc;
         }
 
         .is-doc .page-main > h1:first-of-type,
@@ -395,11 +420,56 @@
             font-size: 85%;
             color: var(--fluent-text-primary);
         }
+
+        code.inline-copy {
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        code.inline-copy:hover,
+        code.inline-copy:focus-visible {
+            background-color: #e5e3ff;
+            box-shadow: 0 0 0 2px rgba(91, 95, 199, 0.22);
+        }
+
+        code.inline-copy::after {
+            content: "클릭하여 복사";
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 8px);
+            z-index: 300;
+            padding: 5px 8px;
+            border-radius: 5px;
+            background-color: #17213d;
+            color: #ffffff;
+            font-family: "Pretendard Variable", "Pretendard", "Segoe UI", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.2;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 3px);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+
+        code.inline-copy:hover::after,
+        code.inline-copy:focus-visible::after,
+        code.inline-copy.is-copied::after {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        code.inline-copy.is-copied::after {
+            content: "복사됨";
+        }
         
         pre {
             background-color: var(--fluent-code-bg);
             border-radius: 6px;
-            padding: 16px;
+            padding: 8px 72px 8px 14px;
             font-family: Consolas, 'Liberation Mono', Menlo, monospace;
             overflow-x: hidden;
             border: 1px solid #dfdbff;
@@ -411,8 +481,9 @@
 
         .code-copy-btn {
             position: absolute;
-            top: 10px;
+            top: 50%;
             right: 10px;
+            transform: translateY(-50%);
             border: 1px solid #c9c4f5;
             background-color: #ffffff;
             color: #37308c;
@@ -432,6 +503,7 @@
             padding: 0;
             display: block;
             font-family: Consolas, 'Liberation Mono', Menlo, monospace;
+            line-height: 1.45;
             white-space: pre-wrap;
             overflow-wrap: anywhere;
             word-break: break-word;
@@ -665,6 +737,40 @@
         <div class="resizer" id="resizer" role="separator" aria-label="목차 너비 조절" aria-orientation="vertical" aria-valuemin="200" aria-valuemax="520" aria-valuenow="250" tabindex="0"></div>
         <main class="page-main" id="page-content">
             {{ content }}
+            {% assign lab_pages = site.pages | where_exp: "item", "item.lab.islab == true" | sort: "path" %}
+            {% assign previous_lab = nil %}
+            {% assign next_lab = nil %}
+            {% assign current_lab_found = false %}
+            {% for lab_page in lab_pages %}
+                {% assign include_lab = false %}
+                {% if page.path contains '/en/' %}
+                    {% if lab_page.path contains '/en/' %}
+                        {% assign include_lab = true %}
+                    {% endif %}
+                {% elsif lab_page.path contains '_KO.md' %}
+                    {% unless lab_page.path contains '_raw.md' %}
+                        {% assign include_lab = true %}
+                    {% endunless %}
+                {% endif %}
+                {% if include_lab %}
+                    {% if lab_page.url == page.url %}
+                        {% assign current_lab_found = true %}
+                    {% elsif current_lab_found and next_lab == nil %}
+                        {% assign next_lab = lab_page %}
+                    {% elsif current_lab_found == false %}
+                        {% assign previous_lab = lab_page %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <nav class="page-bottom-navigation" aria-label="실습 페이지 이동">
+                {% if previous_lab %}
+                <a class="home-button navigation-button" href="{{ previous_lab.url | relative_url }}">← 이전</a>
+                {% endif %}
+                <a class="home-button navigation-button" href="{{ '/' | relative_url }}">홈으로 가기</a>
+                {% if next_lab %}
+                <a class="home-button navigation-button" href="{{ next_lab.url | relative_url }}">다음 →</a>
+                {% endif %}
+            </nav>
         </main>
     </div>
     {% else %}
@@ -719,8 +825,34 @@
             const codeElements = Array.from(document.querySelectorAll('code'));
             codeElements.forEach(function (codeElement) {
                 const codeText = codeElement.textContent || '';
-                if (!codeElement.closest('pre') && koreanPattern.test(codeText) && koreanOnlyPattern.test(codeText)) {
+                const isInlineCode = !codeElement.closest('pre');
+                if (isInlineCode && koreanPattern.test(codeText) && koreanOnlyPattern.test(codeText)) {
                     codeElement.classList.add('code-korean-only');
+                }
+
+                if (isInlineCode) {
+                    codeElement.classList.add('inline-copy');
+                    codeElement.setAttribute('role', 'button');
+                    codeElement.setAttribute('tabindex', '0');
+                    codeElement.setAttribute('aria-label', `${codeText} 복사`);
+
+                    const copyInlineCode = function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        copyText(codeText).then(function () {
+                            codeElement.classList.add('is-copied');
+                            setTimeout(function () {
+                                codeElement.classList.remove('is-copied');
+                            }, 1200);
+                        });
+                    };
+
+                    codeElement.addEventListener('click', copyInlineCode);
+                    codeElement.addEventListener('keydown', function (event) {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            copyInlineCode(event);
+                        }
+                    });
                 }
 
                 const walker = document.createTreeWalker(codeElement, NodeFilter.SHOW_TEXT);
