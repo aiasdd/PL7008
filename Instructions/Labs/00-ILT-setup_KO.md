@@ -34,7 +34,7 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 
 ### 작업 1.1 - Power Platform 관리 센터
 
-# 환경 생성
+
 실습을 시작하기 전에, 작업할 개발 환경을 만들어야 합니다.
 
 1.  웹 브라우저를 열고 [https://admin.powerplatform.microsoft.com/manage/environments](https://admin.powerplatform.microsoft.com/manage/environments) 로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 

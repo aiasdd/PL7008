@@ -348,22 +348,22 @@ lab:
    ```
 
    응답은 구성된 지식 소스 정보를 참조해야 하며, 인용 또는 출처 참조를 포함할 수 있습니다.
-![alt text](../../Allfiles/image-76.png)
+   ![alt text](../../Allfiles/image-76.png)
 1. 몇 가지 질문을 더 시도하고 에이전트 응답을 확인합니다. 기능은 제한적일 수 있지만 복지 관련 질문에 대해 관련성 있는 답변을 제공할 수 있어야 합니다.
 
 ### 작업 2.7 - 에이전트를 Microsoft 채널에 게시
 1. 에이전트의 작업 표시줄에서 **게시** 버튼을 선택하고, 다시 **게시**를 선택합니다.
-![alt text](../../Allfiles/01/image-8.png)
+   ![alt text](../../Allfiles/01/image-8.png)
 
 1. **채널** 탭으로 이동하여 Microsoft 채널을 선택합니다.
-![alt text](../../Allfiles/01/image-10.png)
+   ![alt text](../../Allfiles/01/image-10.png)
 
 1. **Microsoft 365에서 에이전트 보기** 를 선택하여 이동합니다. Microsoft 365 챗에서 에이전트를 테스트할 수 있습니다.
-![alt text](../../Allfiles/01/image-13.png)
+   ![alt text](../../Allfiles/01/image-13.png)
 
 1. 에이전트를 추가한 후, Microsoft 365 챗에서 에이전트를 테스트합니다. 몇 가지 질문을 시도하고 에이전트 응답을 확인합니다. 기능은 제한적일 수 있지만 복지 관련 질문에 대해 관련성 있는 답변을 제공할 수 있어야 합니다.
-![alt text](../../Allfiles/01/image-12.png)
-![alt text](../../Allfiles/01/image-14.png)
+   ![alt text](../../Allfiles/01/image-12.png)
+   ![alt text](../../Allfiles/01/image-14.png)
 
 ## 요약
 
