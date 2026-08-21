@@ -74,17 +74,21 @@ lab:
 
 1. 왼쪽 탐색 메뉴에서 **에이전트**를 선택합니다.
 
-1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **에이전트 설정** 아이콘(톱니바퀴 이미지)을 선택합니다.
+1. 작업 수행 전 참고사항
+   > [!Note]
+   > 기본 환경에서 실습을 진행할 경우 설정 단계는 건너뛰고, 다음 단계로 이동합니다.
 
-   ![alt text](../../Allfiles/image-180.png)
+   - *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자 왼쪽 아래에서 **에이전트 설정** 아이콘(톱니바퀴 이미지)을 선택합니다.
 
-1. 에이전트 기본 언어는 **한국어 (대한민국)** 로 유지합니다.
+      ![alt text](../../Allfiles/image-180.png)
 
-1. **솔루션** 드롭다운에서 **Lab Exercises** 또는 이 실습에 사용할 다른 솔루션을 선택합니다.
+   - 에이전트 기본 언어는 **한국어 (대한민국)** 로 유지합니다.
 
-1. *스키마 이름*에 `analyzetaskagent`를 입력합니다.
+   - **솔루션** 드롭다운에서 **Lab Exercises** 또는 이 실습에 사용할 다른 솔루션을 선택합니다.
 
-1. **업데이트**를 선택합니다.
+   - *스키마 이름*에 `analyzetaskagent`를 입력합니다.
+
+   - **업데이트**를 선택합니다.
 
 1. *에이전트가 수행해야 할 작업을 설명하는 것으로 구축을 시작* 텍스트 상자에 다음 프롬프트를 입력합니다:
 
@@ -118,10 +122,10 @@ lab:
    ![alt text](../../Allfiles/image-185.png)
 
 1. **에이전트가 흐름을 호출할 때** 트리거 단계를 선택하고 **+ 입력 추가**를 선택합니다.
-![alt text](../../Allfiles/image-186.png)
+   ![alt text](../../Allfiles/image-186.png)
 
 1. **텍스트**를 선택합니다.
-![alt text](../../Allfiles/image-187.png)
+   ![alt text](../../Allfiles/image-187.png)
 
 1. *텍스트*에 `작업 요약`, *입력을 입력해 주세요*에 `분석된 작업`를 입력합니다.
 
@@ -138,27 +142,27 @@ lab:
 1. **설명**에 `작업 분석 요약을 Teams에 메시지로 게시하세요.`를 입력합니다.
 
 1. **저장**을 선택합니다.
-![alt text](../../Allfiles/image-189.png)
+   ![alt text](../../Allfiles/image-189.png)
 
 ### 작업 2.2 - Teams에 게시 작업
 
 1. **디자이너** 탭을 선택합니다.
 
 1. 워크플로 두 단계 사이의 **+** 아이콘을 선택해 새 작업을 삽입합니다.
-![alt text](../../Allfiles/image-190.png)
+   ![alt text](../../Allfiles/image-190.png)
 
 1. **검색** 필드에 `Teams`를 입력하고 **Microsoft Teams** 커넥터의 **자세히 보기**를 선택합니다.
 
    ![alt text](../../Allfiles/image-191.png)
 
 1. **채팅 또는 채널에서 메시지 게시** 작업을 선택합니다.
-![alt text](../../Allfiles/image-192.png)
+   ![alt text](../../Allfiles/image-192.png)
 
 1. **로그인**을 선택합니다.
-![alt text](../../Allfiles/image-193.png)
+   ![alt text](../../Allfiles/image-193.png)
 
 1. 계정을 선택합니다.
-![alt text](../../Allfiles/image-194.png)
+   ![alt text](../../Allfiles/image-194.png)
 
 1. **다음으로 게시**에서 **흐름 봇**을 선택합니다.
 
@@ -169,16 +173,16 @@ lab:
 1. **채널**에서 예를 들어 **CopilotStudioTraining** 을 선택합니다.
 
 1. *메시지*는 **Dynamic Content**를 사용해 **작업 요약**를 선택합니다.
-![alt text](../../Allfiles/image-197.png)
-![alt text](../../Allfiles/image-198.png)
+   ![alt text](../../Allfiles/image-197.png)
+   ![alt text](../../Allfiles/image-198.png)
 
 ### 작업 2.3 - 응답 작업
 
 1. 작성 캔버스에서 **Respond to the agent** 노드를 선택하고 **+ 출력 추가**를 선택합니다.
-![alt text](../../Allfiles/image-199.png)
+   ![alt text](../../Allfiles/image-199.png)
 
 1. **텍스트**를 선택합니다.
-![alt text](../../Allfiles/image-200.png)
+   ![alt text](../../Allfiles/image-200.png)
 
 1. *이름 입력*에 `메시지`를 입력합니다.
 
@@ -189,17 +193,17 @@ lab:
 1. 페이지 오른쪽 위 근처의 **초안 저장**를 선택합니다.
 
 1. 페이지 오른쪽 위 근처의 **게시**를 선택합니다.
-![alt text](../../Allfiles/image-203.png)
+   ![alt text](../../Allfiles/image-203.png)
 
 1. Copilot Studio에서 왼쪽 탐색 메뉴의 **도구**를 선택해 워크플로 상태가 **준비됨**인지 확인합니다.
-![alt text](../../Allfiles/image-204.png)
+   ![alt text](../../Allfiles/image-204.png)
 
 ### 작업 2.4 - 워크플로를 에이전트 도구로 추가
 
 1. 왼쪽 탐색 창에서 **에이전트**를 선택합니다.
 
 1. **작업 분석 에이전트**를 엽니다. (이름이 다를 수 있으며, 앞 단계에서 생성한 에이전트를 선택합니다.)
-![alt text](../../Allfiles/image-205.png)
+   ![alt text](../../Allfiles/image-205.png)
 
 1. **도구** 탭을 선택합니다.
 
@@ -212,7 +216,7 @@ lab:
    ![alt text](../../Allfiles/image-207.png)
 
 1. **추가 및 구성**를 선택합니다.
-![alt text](../../Allfiles/image-208.png)
+   ![alt text](../../Allfiles/image-208.png)
 
 1. **세부 정보** 
    - **설명**: `완료된 작업 분석 요약을 Microsoft Teams 채널로 보냅니다.`
@@ -239,7 +243,7 @@ lab:
 
 1. **지침** 섹션에서 **편집**를 선택합니다.
 
-1. 에이전트 지침의 *# 단계별 지침* 아래 마지막 단계에 다음을 추가합니다: 
+1. 에이전트 지침의 **# 단계별 지침** 아래 마지막 단계에 다음을 추가합니다: 
 `작업 분석이 완료되면`을 입력하고 `/`를 입력해 **요약 내용을 Teams로 보내기** 도구를 선택한 뒤 `를 사용합니다.`를 입력합니다.
    ![alt text](../../Allfiles/image-210.png)
 
@@ -252,7 +256,7 @@ lab:
 1. 페이지 오른쪽 위의 **테스트** 아이콘을 선택해 테스트 창을 엽니다.
 
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **On**, **토픽 간 추적**를 **Off**로 전환합니다.
-![alt text](../../Allfiles/image-212.png)
+   ![alt text](../../Allfiles/image-212.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -261,7 +265,7 @@ lab:
    다음 작업 목록을 분석하세요. 1. 에이전트 구축, 2. 에이전트 테스트, 3. 에이전트 배포
    ```
 1. Microsoft Teams 연결 메시지가 표시되면 **허용**를 선택합니다.
-![alt text](../../Allfiles/image-213.png)
+   ![alt text](../../Allfiles/image-213.png)
 
 1. 새 브라우저 탭에서 [https://teams.cloud.microsoft/](https://teams.cloud.microsoft/)로 이동하고, 필요 시 로그인합니다.
 
@@ -303,24 +307,24 @@ lab:
 1. Copilot Studio 왼쪽 탐색 메뉴에서 **도구**를 선택합니다.
 
 1. **+ 새로운 도구**를 선택합니다.
-![alt text](../../Allfiles/image-224.png)
+   ![alt text](../../Allfiles/image-224.png)
 
 1. **Add tool** 대화 상자에서 **에이전트 흐름** 타일을 선택합니다.
-![alt text](../../Allfiles/image-225.png)
+   ![alt text](../../Allfiles/image-225.png)
 
 1. 워크플로에 **에이전트가 흐름을 호출할 때** 트리거와 **Respond to the agent** 작업이 추가되었는지 확인합니다.
-![alt text](../../Allfiles/image-226.png)
+   ![alt text](../../Allfiles/image-226.png)
 
 1. **에이전트가 흐름을 호출할 때** 트리거 단계를 선택하고 **+ 입력 추가**를 선택합니다.
-![alt text](../../Allfiles/image-227.png)
+   ![alt text](../../Allfiles/image-227.png)
 
 1. **텍스트**를 선택합니다.
-![alt text](../../Allfiles/image-228.png)
+   ![alt text](../../Allfiles/image-228.png)
 
 1. `우선 순위`, `작업 우선순위`를 입력합니다.
 
 1. 페이지 오른쪽 위 근처의 **초안 저장**을 선택합니다.
-![alt text](../../Allfiles/image-229.png)
+   ![alt text](../../Allfiles/image-229.png)
 
 1. **개요** 탭을 선택합니다.
 
@@ -331,22 +335,22 @@ lab:
 1. **설명**에 `우선순위가 일치하는 작업 목록 가져오기`를 입력합니다.
 
 1. **저장**을 선택합니다.
-![alt text](../../Allfiles/image-266.png)
+   ![alt text](../../Allfiles/image-266.png)
 
 1. **디자이너** 탭을 선택합니다.
 
 1. 워크플로 두 단계 사이의 **+** 아이콘을 선택해 새 작업을 삽입합니다.
-![alt text](../../Allfiles/image-267.png)
+   ![alt text](../../Allfiles/image-267.png)
 
 1. **검색** 필드에 `Excel`을 입력하고 **Excel Online (Business)** 커넥터의 **자세히 보기**를 선택합니다.
-![alt text](../../Allfiles/image-268.png)
+   ![alt text](../../Allfiles/image-268.png)
 
 1. **테이블에 있는 행 나열** 작업을 선택합니다.
-![alt text](../../Allfiles/image-269.png)
+   ![alt text](../../Allfiles/image-269.png)
 
 1. 연결 생성을 위해 **로그인**을 선택하여 로그인 합니다.
-![alt text](../../Allfiles/image-270.png)
-![alt text](../../Allfiles/image-271.png)
+   ![alt text](../../Allfiles/image-270.png)
+   ![alt text](../../Allfiles/image-271.png)
 1. **위치**에서 **OneDrive for Business**를 선택합니다.
 
 1. **문서 라이브러리**에서 **OneDrive**를 선택합니다.
@@ -364,23 +368,23 @@ lab:
      ![alt text](../../Allfiles/image-284.png)
 
 1. 작성 캔버스에서 **Respond to the agent** 노드를 선택하고 **+ 출력 추가**을 선택합니다.
-![alt text](../../Allfiles/image-273.png)
+   ![alt text](../../Allfiles/image-273.png)
 
 1. **텍스트**를 선택합니다.
-![alt text](../../Allfiles/image-274.png)
+   ![alt text](../../Allfiles/image-274.png)
 
 1. *이름 입력*에 `작업 목록`을 입력합니다.
 
 1. *응답할 값 입력*은 **동적 컨텐츠**를 사용해 **테이블에 있는 행 나열** 작업의 **body/value**를 선택합니다.
-![alt text](../../Allfiles/image-275.png)
-![alt text](../../Allfiles/image-277.png)
+   ![alt text](../../Allfiles/image-275.png)
+   ![alt text](../../Allfiles/image-277.png)
 1. 페이지 오른쪽 위 근처의 **초안 저장**을 선택합니다.
 
 1. 페이지 오른쪽 위 근처의 **게시**를 선택합니다.
-![alt text](../../Allfiles/image-241.png)
+   ![alt text](../../Allfiles/image-241.png)
 
 1. 왼쪽 탐색 메뉴에서 **도구**를 선택해 워크플로 상태가 **준비됨**인지 확인합니다.
-![alt text](../../Allfiles/image-278.png)
+   ![alt text](../../Allfiles/image-278.png)
 
 ### 작업 3.3 - 에이전트에 토픽 추가
 
@@ -391,15 +395,13 @@ lab:
 1. **토픽** 탭을 선택합니다.
 
 1. **+ 토픽 추가**를 선택하고 **Copilot을 사용하여 설명에서 추가**를 선택합니다. 새 대화 상자 창이 나타납니다.
-![alt text](../../Allfiles/image-244.png)
+   ![alt text](../../Allfiles/image-244.png)
 
-1. **토픽 이름 지정** 텍스트 상자에 **작업 우선순위**를 입력합니다.
+1. **토픽 이름 지정:** `작업 우선순위`
 
-1. **에 대한 토픽 만들기...** 텍스트 상자에 입력합니다.
-```
-사용자에게 높음, 중간, 낮음 세 가지 우선순위 목록에서 원하는 우선순위를 선택하도록 요청하세요.
-```
-![alt text](../../Allfiles/image-246.png)
+1. **에 대한 토픽 만들기...:** `사용자에게 높음, 중간, 낮음 세 가지 우선순위 목록에서 원하는 우선순위를 선택하도록 요청하세요.`
+
+   ![alt text](../../Allfiles/image-246.png)
 
 1. **만들기**를 선택합니다.
 
@@ -422,15 +424,15 @@ lab:
 1. **도구** 탭을 선택합니다.
 
 1. **+ 도구 추가**을 선택합니다.
-![alt text](../../Allfiles/image-249.png)
+   ![alt text](../../Allfiles/image-249.png)
 
 1. **도구 추가** 대화 상자에서 **흐름** 필터를 선택합니다.
 
 1. **작업 목록 가져오기 도구** 워크플로를 선택합니다.
-![alt text](../../Allfiles/image-279.png)
+   ![alt text](../../Allfiles/image-279.png)
 
 1. **추가 및 구성**을 선택합니다.
-![alt text](../../Allfiles/image-251.png)
+   ![alt text](../../Allfiles/image-251.png)
 
 1. **세부 정보** 
    - **설명**: `지정된 우선순위에 해당하는 작업 목록을 검색합니다.`
@@ -446,7 +448,7 @@ lab:
 
    - **완료**:  **실행 후**에서 **생성형 AI로 응답 작성**를 선택합니다.
 
-   ![alt text](../../Allfiles/image-280.png)
+      ![alt text](../../Allfiles/image-280.png)
 
 1. **저장**을 선택합니다.
 
@@ -455,7 +457,7 @@ lab:
 1. **토픽** 탭을 선택합니다.
 
 1. **작업 우선순위** 토픽을 선택합니다.
-![alt text](../../Allfiles/image-253.png)
+   ![alt text](../../Allfiles/image-253.png)
 
 1. **질문** 노드 아래에서 **+** 아이콘을 선택하고 **도구 추가** > **도구** >  **작업 목록 가져오기 도구** 를 선택합니다.
 
@@ -472,9 +474,9 @@ lab:
 1. **지침** 섹션에서 **편집**을 선택합니다.
 
 1. 에이전트 지침의 *## 기술* 아래 마지막 단계에 다음을 추가합니다: 
-`작업 목록을 얻으려면 `을 입력하고 `/`를 입력해 **작업 우선순위** 토픽을 선택한 뒤 ` 를 사용합니다 `를 입력합니다.
-![alt text](../../Allfiles/image-259.png)
-![alt text](../../Allfiles/image-260.png)
+`작업 목록을 얻으려면 `을 입력하고 `/`를 입력해 **작업 우선순위** 토픽을 선택한 뒤 `를 사용합니다`를 입력합니다.
+   ![alt text](../../Allfiles/image-259.png)
+   ![alt text](../../Allfiles/image-260.png)
 1. **저장**을 선택합니다.
 
 ### 작업 3.7 - 워크플로 도구 테스트
@@ -482,7 +484,7 @@ lab:
 1. 페이지 오른쪽 위의 **테스트** 아이콘을 선택해 테스트 창을 엽니다.
 
 1. **테스트** 창에서 변수 **{x}** 아이콘 옆 줄임표(**...**)를 선택하고 **테스트 시 활동 지도 표시**를 **Off**, **토픽 간 추적**를 **On**으로 전환합니다.
-![alt text](../../Allfiles/image-261.png)
+   ![alt text](../../Allfiles/image-261.png)
 
 1. **테스트** 창 상단에서 **새 테스트 세션 시작** 아이콘 **+**를 선택합니다.
 
@@ -494,7 +496,7 @@ lab:
 1. **작업 우선순위** 토픽이 표시됩니다.
 
 1. **중간**을 선택합니다.
-![alt text](../../Allfiles/image-285.png)
+   ![alt text](../../Allfiles/image-285.png)
 
 1. **Excel Online (Business)** 연결 메시지가 표시되면 **허용**를 선택합니다.
 

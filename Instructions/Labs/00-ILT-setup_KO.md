@@ -133,3 +133,41 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 1. **Copilot Studio** 페이지를 새로 고칩니다.
 이제 작업에 사용할 Power Platform 환경과 솔루션이 준비되었습니다.
 
+## 실습 2 - Dataverse에 테이블 만들기 
+Lab03: Copilot Studio 에이전트에서 지식 관리에서 지식 소스로 사용합니다.
+이 실습에서는 에이전트의 지식 소스로 사용할 Dataverse 테이블을 만듭니다.
+
+### 작업 2.1 - 비용 청구용 테이블 만들기
+
+1. 웹 브라우저에서 [https://make.powerapps.com/](https://make.powerapps.com/)의 **Power Apps Maker portal**로 이동하고, 필요 시 로그인합니다. 환영 메시지는 건너뜁니다.
+
+1. 페이지 상단에서 이 실습에 사용할 환경인지 확인합니다.
+
+   ![alt text](../../Allfiles/image-129.png)
+
+1. **Maker portal** 왼쪽 탐색 메뉴에서 **테이블**을 선택합니다.
+
+1. **Copilot 시작** 타일을 선택합니다.
+![alt text](../../Allfiles/image-130.png)
+
+1. **Copilot 시작** 대화 상자에서 **테이블 옵션** 아이콘을 선택하고 **단일 테이블**을 선택합니다.
+
+   ![alt text](../../Allfiles/image-131.png)
+
+1. *Copilot으로 빌드하려는 테이블을 설명하세요....* 텍스트 상자에 다음 프롬프트를 입력합니다:
+
+   ```prompt
+   경비 청구 내역을 저장하고 처리하는 테이블로, 경비 제목, 경비 유형(숙박, 식사, 접대비 또는 교통비), 경비 발생일, 제출일, 승인일, 청구 금액, 승인 금액 및 경비 상태(제출됨, 검토 중, 승인됨, 거부됨)를 포함합니다.
+   ```
+   ![alt text](../../Allfiles/image-132.png)
+1. **생성**을 선택합니다.
+  
+    > [!NOTE]
+    > 생성된 테이블 스키마는 이 실습 스크린샷과 약간 다를 수 있습니다. 열 이름 또는 형식의 사소한 차이는 정상입니다.
+
+1. 테이블이 생성됩니다. 테이블 이름을 메모해 둡니다.
+
+   ![alt text](../../Allfiles/image-133.png)
+
+1. **저장 후 종료**를 선택하고, 다시 **저장 후 종료**를 선택합니다.
+![alt text](../../Allfiles/image-134.png)
