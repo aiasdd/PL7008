@@ -59,7 +59,7 @@ lab:
 - 환경과 솔루션이 아직 준비되지 않았다면, 계속하기 전에 **Lab00** 실습 단계를 먼저 완료하세요.
   
 > [!IMPORTANT]
-> 본 과정은 클래식 Copilot Studio 환경을 사용합니다 Copilot Studio 화면이 이 미션의 스크린샷과 다르게 보인다면, 오른쪽 위의 **새 환경(New Experience)**를 꺼서 여기서 사용하는 **클래식 환경(classic experience)**로 전환하세요.
+> 본 과정은 클래식 Copilot Studio 환경을 사용합니다 Copilot Studio 화면이 이 미션의 스크린샷과 다르게 보인다면, 오른쪽 위의 **새 환경(New Experience)** 를 꺼서 여기서 사용하는 **클래식 환경(classic experience)** 로 전환하세요.
 
 ## 핵심 개념: 에이전트 구성 요소와 동작
 
