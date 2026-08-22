@@ -15,13 +15,13 @@ lab:
 
 # 실습 환경 준비
 
-## 개요
+## 실습 개요
 Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
 
 > [!IMPORTANT]
 > 본 과정은 클래식 Copilot Studio 환경을 사용합니다 Copilot Studio 화면이 이 미션의 스크린샷과 다르게 보인다면, 오른쪽 위의 **새 환경(New Experience)** 를 꺼서 여기서 사용하는 **클래식 환경(classic experience)** 로 전환합니다.
 
-## 실습 중 접속 URL
+### 실습 중 접속 URL
 
 | 서비스/용도 | URL | 비고 |
 |---|---|---|

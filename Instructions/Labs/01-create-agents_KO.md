@@ -17,12 +17,7 @@ lab:
 
 ## 실습 개요
 
-| 구분 | 내용 |
-|------|------|
-| 난이도 | Level 200 (Developer) |
-| 소요 시간 | 약 50분 |
-| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
-| 목적 | Copilot Studio 포털에서 새 에이전트를 생성하고 기본 구성 완료 |
+이 실습에서는 Microsoft Copilot Studio 포털에 액세스하고, 적절한 환경을 선택한 다음, 새 에이전트를 생성하고 기본 구성 완료합니다.
 
 ### 시나리오
 

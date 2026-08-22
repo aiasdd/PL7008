@@ -16,12 +16,7 @@ lab:
 
 ## 실습 개요
 
-| 구분 | 내용 |
-|------|------|
-| 난이도 | Level 200 (Developer) |
-| 소요 시간 | 약 50분 |
-| 대상 | Power Platform 개발자, Copilot Studio 학습자 |
-| 목적 | Power Automate 워크플로를 에이전트 및 토픽에 도구로 통합하여 기능 확장 |
+이 실습에서는 Copilot을 사용해 에이전트를 만들고, Power Automate 워크플로를 에이전트 및 토픽에 도구로 통합하여 기능을 확장합니다.
 
 ### 시나리오
 

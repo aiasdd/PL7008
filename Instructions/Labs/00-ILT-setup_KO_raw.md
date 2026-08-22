@@ -24,6 +24,9 @@ lab:
 | 대상 | Power Platform 개발자, Copilot Studio 학습자 |
 | 목적 | Microsoft Copilot Studio 실습을 위한 Power Platform 환경 및 솔루션 구성 |
 
+## 개요
+이 실습에서는 Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
+
 ## 실습 1 - Power Platform 환경 만들기
 
 ### 작업 1.1 - Power Platform 관리 센터
