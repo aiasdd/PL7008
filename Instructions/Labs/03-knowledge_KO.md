@@ -13,7 +13,7 @@ lab:
     - Microsoft Copilot Studio
 ---
 
-# Copilot Studio 에이전트에서 지식 관리
+# 03. Copilot Studio 에이전트에서 지식 관리
 
 ## 실습 개요
 

@@ -13,7 +13,7 @@ lab:
     - Microsoft Copilot Studio
 ---
 
-# Copilot Studio로 에이전트 만들기
+# 01. Copilot Studio로 에이전트 만들기
 
 ## 실습 개요
 

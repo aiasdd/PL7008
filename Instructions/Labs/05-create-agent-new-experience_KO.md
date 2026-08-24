@@ -10,7 +10,7 @@ lab:
     - Microsoft Copilot Studio
 ---
 
-# 새로운 Copilot Studio 환경을 사용하여 에이전트 만들기
+# 05.새로운 Copilot Studio 환경을 사용하여 에이전트 만들기
 
 ## 실습 개요
 이 실습에서는 새로운 Copilot Studio 환경을 사용하여 지침 기반 에이전트를 만들고, 미리 빌드된 작업을 추가한 다음, 자율적 추론 동작을 테스트합니다.
