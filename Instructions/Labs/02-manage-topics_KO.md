@@ -150,8 +150,6 @@ lab:
 
 1. **고객 정보** 창 오른쪽에 **Copilot으로 편집** 패널이 보이지 않으면, 작성 캔버스 상단의 **Copilot** 아이콘을 선택합니다.
 
-   ![Copilot으로 편집 아이콘 스크린샷.](../media/edit-with-copilot.png)
-
 1. 두 번째 **질문** 노드 **이메일 주소를 입력해주세요.** 를 선택합니다.
 
    ![alt text](../../Allfiles/image-85.png)
