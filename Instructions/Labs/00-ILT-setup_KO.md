@@ -32,6 +32,9 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 | 복지로 | [https://www.bokjiro.go.kr](https://www.bokjiro.go.kr) | 공개 웹 사이트 지식 소스 등록 |
 | 국세법령정보시스템 | [https://taxlaw.nts.go.kr/](https://taxlaw.nts.go.kr/) | 공개 웹 사이트 지식 소스 등록 |
 
+### 실습 파일 다운로드
+- 실습 03 지식 관리:[경비처리 가이드](//Instructions/Labfiles/경비처리_가이드.docx) 
+- 실습 03 경비 청구 테이블: [경비청구 테이블](//Instructions/Labfiles/경비청구_테이블.xlsx)
 
 ## 실습 1 - Power Platform 환경 만들기
 

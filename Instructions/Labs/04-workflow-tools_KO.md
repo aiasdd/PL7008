@@ -164,8 +164,8 @@ lab:
 1. **게시 위치**에서 **채널**을 선택합니다. 현재 실습에서 사용가능한 채널을 선택합니다. 
 
    - 게시 위치: 채널
-   - 팀: `AI Capa.belt Copilot 정기교육`
-   - 채널: 8월_심화
+   - 팀: CopilotStudioTraining(예시이며, 실습에 사용될 채널을 추가하세요.)
+   - 채널: CopilotStudioTraining(예시이며, 실습에 사용될 채널을 추가하세요.)
 
 <!--1. **Team**에서 예를 들어 **CopilotStudioTraining** 을 선택합니다.
 
