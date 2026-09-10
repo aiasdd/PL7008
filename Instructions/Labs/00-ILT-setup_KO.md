@@ -13,7 +13,10 @@ lab:
     - Microsoft Copilot Studio
 ---
 
+
 # 실습 환경 준비
+## 학습 자료
+[PL-7008 MS Learn](https://learn.microsoft.com/en-us/training/paths/create-extend-custom-copilots-microsoft-copilot-studio/)
 
 ## 실습 개요
 Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
