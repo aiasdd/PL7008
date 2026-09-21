@@ -99,7 +99,7 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
    사용자에게 정상적으로 환경에 권한이 추가된 경우, [Copilot Studio](https://copilotstudio.microsoft.com/) 페이지에 접속 시 해당 환경이 **지원 환경** 하위에 표시됩니다.
    ![alt text](../media/image-7.png)
 
-### 작업 1.3 - 솔루션 만들기
+### 작업 1.3 - 솔루션 만들기 (Optional)
 
 1. Copilot Studio [https://copilotstudio.microsoft.com/](https://copilotstudio.microsoft.com/) 페이지 오른쪽 상단의 **환경 선택** 사용해 환경을 생성된 환경(Student00_env)로 전환합니다. 
 
@@ -150,12 +150,15 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 1. **Copilot Studio** 페이지를 새로 고칩니다.
 이제 작업에 사용할 Power Platform 환경과 솔루션이 준비되었습니다.
 
-## 사전 구성 2 - Dataverse에 테이블 만들기 
+## 사전 구성 2 - Teams에 팀 및 채널 만들기 
+Lab04:워크플로를 도구로 사용 에서 채널에 메시지를 게시합니다. 실습으로 사용할 참석자 공용채널을 사용하거나, 실습용으로 새 팀과 채널을 만들어도 됩니다.
+
+## 사전 구성 3 - Dataverse에 테이블 만들기 (Optional)
 Lab03: Copilot Studio 에이전트에서 지식 관리에서 지식 소스로 사용합니다.
 이 실습에서는 에이전트의 지식 소스로 사용할 Dataverse 테이블을 만듭니다. Dataverse 테이블 사용 시 사용자에게 **시스템 관리자** 권한이 필요합니다.
 > 실습 환경에 따라 Dataverse 테이블은 구성하지 않을 수 있습니다. 이 경우, 실습 03에서 제공되는 **경비청구 테이블** 을 사용합니다.
 
-### 작업 2.1 - 비용 청구용 테이블 만들기
+### 작업 3.1 - 비용 청구용 테이블 만들기
 
 1. 웹 브라우저에서 [https://make.powerapps.com/](https://make.powerapps.com/)의 **Power Apps Maker portal** 로 이동하고, 필요 시 로그인합니다. 환영 메시지는 건너뜁니다.
 
@@ -190,7 +193,5 @@ Lab03: Copilot Studio 에이전트에서 지식 관리에서 지식 소스로 �
 1. **저장 후 종료** 를 선택하고, 다시 **저장 후 종료** 를 선택합니다.
 ![alt text](../../Allfiles/image-134.png)
 
-## 사전 구성 3 - Teams에 팀 및 채널 만들기 
-Lab04:워크플로를 도구로 사용 에서 채널에 메시지를 게시합니다. 실습으로 사용할 참석자 공용채널을 사용하거나, 실습용으로 새 팀과 채널을 만들어도 됩니다.
 
 **마지막 업데이트**: 2026-09-21
