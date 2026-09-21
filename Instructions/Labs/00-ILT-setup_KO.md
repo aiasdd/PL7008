@@ -23,7 +23,7 @@ lab:
 - Copilot Studio 라이선스 보유 또는 [무료 평가판](https://go.microsoft.com/fwlink/p/?linkid=2252605) 등록
 - 에이전트 및 관련 자산을 만들 수 있는 Power Platform 환경과 솔루션에 대한 액세스 권한
 
-## 실습 개요
+## 구성 개요
 Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 - 실습 04 작업 목록: [작업목록](../Labfiles/작업목록.xlsx)
 - 일괄 다운로드용 zip 파일: [실습용 Zip 파일](../Labfiles/PL7008_Lafiles.zip)
 
-## 실습 1 - Power Platform 환경 만들기
+## 사전 구성 1 - Power Platform 환경 만들기
 
 ### 작업 1.1 - Power Platform 관리 센터
 
@@ -150,9 +150,10 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 1. **Copilot Studio** 페이지를 새로 고칩니다.
 이제 작업에 사용할 Power Platform 환경과 솔루션이 준비되었습니다.
 
-## 실습 2 - Dataverse에 테이블 만들기 
+## 사전 구성 2 - Dataverse에 테이블 만들기 
 Lab03: Copilot Studio 에이전트에서 지식 관리에서 지식 소스로 사용합니다.
-이 실습에서는 에이전트의 지식 소스로 사용할 Dataverse 테이블을 만듭니다.
+이 실습에서는 에이전트의 지식 소스로 사용할 Dataverse 테이블을 만듭니다. 
+> 실습 환경에 따라 Dataverse 테이블은 구성하지 않을 수 있습니다. 이 경우, 실습 03에서 제공되는 [경비청구 테이블] 을 사용합니다.
 
 ### 작업 2.1 - 비용 청구용 테이블 만들기
 
@@ -189,4 +190,7 @@ Lab03: Copilot Studio 에이전트에서 지식 관리에서 지식 소스로 �
 1. **저장 후 종료** 를 선택하고, 다시 **저장 후 종료** 를 선택합니다.
 ![alt text](../../Allfiles/image-134.png)
 
-**마지막 업데이트**: 2026-09-13
+## 사전 구성 3 - Teams에 팀 및 채널 만들기 
+Lab04:워크플로를 도구로 사용 에서 채널에 메시지를 게시합니다. 실습으로 사용할 참석자 공용채널을 사용하거나, 실습용으로 새 팀과 채널을 만들어도 됩니다.
+
+**마지막 업데이트**: 2026-09-21
