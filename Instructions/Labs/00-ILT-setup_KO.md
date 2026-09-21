@@ -18,11 +18,18 @@ lab:
 ## 학습 자료
 [PL-7008 MS Learn](https://learn.microsoft.com/en-us/training/paths/create-extend-custom-copilots-microsoft-copilot-studio/)
 
+## 사전 요구 사항
+- Microsoft Entra ID 계정 보유
+- Copilot Studio 라이선스 보유 또는 [무료 평가판](https://go.microsoft.com/fwlink/p/?linkid=2252605) 등록
+- 에이전트 및 관련 자산을 만들 수 있는 Power Platform 환경과 솔루션에 대한 액세스 권한
+
 ## 실습 개요
 Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 사용할 환경 및 솔루션을 만듭니다.
 
 > [!IMPORTANT]
-> 본 과정은 클래식 Copilot Studio 환경을 사용합니다 Copilot Studio 화면이 이 미션의 스크린샷과 다르게 보인다면, 오른쪽 위의 **새 환경(New Experience)** 를 꺼서 여기서 사용하는 **클래식 환경(classic experience)** 로 전환합니다.
+> 본 과정은 클래식 Copilot Studio 환경을 사용합니다 Copilot Studio 화면이 이 미션의 스크린샷과 다르게 보인다면, 왼쪽 하단의 더보기 버튼을 클릭 후 **Open Classic Experience** 를 선택하여 **클래식 환경(classic experience)** 로 전환합니다.
+
+![alt text](image.png)
 
 ### 실습 중 접속 URL
 
@@ -38,11 +45,12 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 ### 실습 파일 다운로드
 - 실습 03 지식 관리:[경비처리 가이드](../Labfiles/경비처리_가이드.docx) 
 - 실습 03 경비 청구 테이블: [경비청구 테이블](../Labfiles/경비청구_테이블.xlsx)
+- 실습 04 작업 목록: [작업목록](../Labfiles/작업목록.xlsx)
+- 일괄 다운로드용 zip 파일: [실습용 Zip 파일](../Labfiles/PL7008_Lafiles.zip)
 
 ## 실습 1 - Power Platform 환경 만들기
 
 ### 작업 1.1 - Power Platform 관리 센터
-
 
 실습을 시작하기 전에, 작업할 개발 환경을 만들어야 합니다.
 
@@ -148,7 +156,7 @@ Lab03: Copilot Studio 에이전트에서 지식 관리에서 지식 소스로 �
 
 ### 작업 2.1 - 비용 청구용 테이블 만들기
 
-1. 웹 브라우저에서 [https://make.powerapps.com/](https://make.powerapps.com/)의 **Power Apps Maker portal**로 이동하고, 필요 시 로그인합니다. 환영 메시지는 건너뜁니다.
+1. 웹 브라우저에서 [https://make.powerapps.com/](https://make.powerapps.com/)의 **Power Apps Maker portal** 로 이동하고, 필요 시 로그인합니다. 환영 메시지는 건너뜁니다.
 
 1. 페이지 상단에서 이 실습에 사용할 환경인지 확인합니다.
 
