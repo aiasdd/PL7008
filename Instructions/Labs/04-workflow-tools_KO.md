@@ -12,7 +12,7 @@ lab:
     - Microsoft Copilot Studio
 ---
 
-# 04.워크플로를 도구로 사용
+# 04. 워크플로를 도구로 사용
 
 ## 실습 개요
 
