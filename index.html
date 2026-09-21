@@ -226,6 +226,17 @@
             flex-grow: 1;
         }
 
+        .lab-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .lab-actions .lab-button {
+            margin-top: 0;
+        }
+
         .lab-button {
             display: inline-block;
             background: linear-gradient(120deg, var(--fluent-brand-1) 0%, var(--fluent-brand-2) 52%, var(--fluent-brand-3) 100%);
@@ -402,7 +413,10 @@
                     <div class="lab-description">
                         이 실습에서는 Copilot을 사용해 에이전트를 만들고, Dataverse 테이블을 만들고, 에이전트에 지식을 추가합니다.
                     </div>
-                    <a href="viewer.html?file=Instructions%2FLabs%2F03-knowledge_KO.md" class="lab-button">Lab 03 시작하기</a>
+                    <div class="lab-actions">
+                        <a href="viewer.html?file=Instructions%2FLabs%2F03-knowledge_KO.md" class="lab-button">Lab 03 시작하기</a>
+                        <a href="viewer.html?file=Instructions%2FLabs%2F03-knowledge_KO_%EC%9B%90%EB%B3%B8_Dataverse%EA%B8%B0%EB%B0%98.md" class="lab-button">Dataverse 기반 원본</a>
+                    </div>
                 </div>
             </div>
 
