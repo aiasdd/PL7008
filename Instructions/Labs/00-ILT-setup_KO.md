@@ -51,7 +51,6 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 ## Copilot Studio 무료 체험 등록
 1. Copilot Studio 라이선스가 없는 경우 [무료 체험](https://go.microsoft.com/fwlink/p/?linkid=2252605)에 등록합니다.
    - 회사 계정으로 로그인합니다.
-   - **지금 등록** 을 클릭합니다.
    ![alt text](image-1.png)
 
 ## 사전 구성 1 - Power Platform 환경 만들기
@@ -60,13 +59,13 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 
 실습을 시작하기 전에, 작업할 개발 환경을 만들어야 합니다.
 
-1.  웹 브라우저를 열고 [https://admin.powerplatform.microsoft.com/manage/environments](https://admin.powerplatform.microsoft.com/manage/environments) 로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 
+1. 웹 브라우저를 열고 [https://admin.powerplatform.microsoft.com/manage/environments](https://admin.powerplatform.microsoft.com/manage/environments) 로 이동한 후 이 실습용 자격 증명으로 로그인합니다. 
 2. 표시되는 팝업 메시지는 모두 닫습니다.
 3. **환경** 페이지에서 환경을 생성합니다.
 
 1. **+ 새로 만들기** 를 선택하여 다음 설정으로 새 환경을 생성합니다:
    - **유형**: Developer
-   - **지역**: **대한민국**
+   - **지역**: 대한민국
    - **Name**: *Student00_env* (이름 자유롭게 변경하여 입력합니다.)
    ![alt text](../../Allfiles/image-21.png)
 
