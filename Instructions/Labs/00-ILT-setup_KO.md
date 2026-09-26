@@ -43,14 +43,20 @@ Microsoft Copilot Studio 포털에 액세스하고, 이후 실습 전반에서 �
 | 국세법령정보시스템 | [https://taxlaw.nts.go.kr/](https://taxlaw.nts.go.kr/) | 공개 웹 사이트 지식 소스 등록 |
 
 ### 실습 파일 다운로드
-- 실습 03 지식 관리:[경비처리 가이드](../Labfiles/경비처리_가이드.docx) 
-- 실습 03 경비 청구 테이블: [경비청구 테이블](../Labfiles/경비청구_테이블.xlsx)
-- 실습 04 작업 목록: [작업목록](../Labfiles/작업목록.xlsx)
 - 일괄 다운로드용 zip 파일: [실습용 Zip 파일](../Labfiles/PL7008_Lafiles.zip)
+   - 실습 03 지식 관리:[경비처리 가이드](../Labfiles/경비처리_가이드.docx) 
+   - 실습 03 경비 청구 테이블: [경비청구 테이블](../Labfiles/경비청구_테이블.xlsx)
+   - 실습 04 작업 목록: [작업목록](../Labfiles/작업목록.xlsx)
+
+## Copilot Studio 무료 체험 등록
+1. Copilot Studio 라이선스가 없는 경우 [무료 체험](https://go.microsoft.com/fwlink/p/?linkid=2252605)에 등록합니다.
+   - 회사 계정으로 로그인합니다.
+   - **지금 등록** 을 클릭합니다.
+   ![alt text](image-1.png)
 
 ## 사전 구성 1 - Power Platform 환경 만들기
 
-### 작업 1.1 - Power Platform 관리 센터
+### 작업 1.1 - 환경 생성
 
 실습을 시작하기 전에, 작업할 개발 환경을 만들어야 합니다.
 
